@@ -13,4 +13,8 @@
 #
 class Person < ApplicationRecord
   validates :fullname, :christain_name, :birthday, :feastday, :phone, presence: true
+
+  def first_name
+    fullname.split(' ')[-1]
+  end
 end

@@ -1,6 +1,9 @@
 vi:
   common:
     welcome: Thiếu Nhi Thánh Thể - Gx Thái Hoà
+    thank_you: Cảm ơn trưởng %{name}
+    actions:
+      submit: Hoàn thành
   activerecord:
     errors:
       messages:
@@ -202,3 +205,13 @@ vi:
       long: "%d %B, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: chiều
+  activerecord:
+    models:
+      person: Người
+    attributes:
+      person:
+        fullname: Họ và Tên
+        christain_name: Tên Thánh
+        feastday: Ngày bổn mạng
+        birthday: Ngày sinh nhật
+        phone: Số điện thoại

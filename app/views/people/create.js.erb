@@ -1,0 +1,8 @@
+document.querySelectorAll('.error, .success').forEach(elm => elm.classList.add('hidden'));
+<% if @person.errors.any? %>
+  document.querySelector('.error').classList.remove('hidden');
+<% else %>
+  document.querySelector('button[type="submit"]').classList.add('hidden');
+  document.querySelector('.success').innerHTML = "<%= t('common.thank_you', name: @person.first_name) %>";
+  document.querySelector('.success').classList.remove('hidden');
+<% end %>

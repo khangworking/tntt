@@ -1,7 +1,7 @@
 module.exports = {
-  mode: 'jit',
   purge: [
-    './app/**/*.html.erb',
+    './app/views/**/*.html.erb',
+    './app/views/**/*.erb',
     './app/helpers/**/*.rb',
     './app/assets/javascripts/**/*.js'
   ],
@@ -12,5 +12,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
