@@ -2,6 +2,8 @@ en:
   common:
     welcome: Welcome
     thank_you: Thanks %{name}
+    male: Male
+    female: Female
     actions:
       submit: Submit
   activerecord:
@@ -227,3 +229,4 @@ en:
         feastday: Freast day
         birthday: Birthday
         phone: Phone Number
+        gender: Gender

@@ -2,6 +2,8 @@ vi:
   common:
     welcome: Thiếu Nhi Thánh Thể - Gx Thái Hoà
     thank_you: Cảm ơn trưởng %{name}
+    male: Nam
+    female: Nữ
     actions:
       submit: Hoàn thành
   activerecord:
@@ -215,3 +217,4 @@ vi:
         feastday: Ngày bổn mạng
         birthday: Ngày sinh nhật
         phone: Số điện thoại
+        gender: Giới tính

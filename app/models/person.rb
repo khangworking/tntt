@@ -7,6 +7,7 @@
 #  christain_name :string
 #  feastday       :date
 #  fullname       :string
+#  gender         :string           default("male")
 #  phone          :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
