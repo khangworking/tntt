@@ -18,7 +18,17 @@ class Person < ApplicationRecord
 
   belongs_to :level
 
+  before_validation :strip_name
+
   def first_name
     fullname.split(' ')[-1]
+  end
+
+  private
+
+  def strip_name
+    self.fullname = self.fullname.strip
+    self.christain_name = self.christain_name.strip
+    self.phone = self.phone.strip
   end
 end
