@@ -4,6 +4,8 @@ en:
     thank_you: Thanks %{name}
     male: Male
     female: Female
+    senior: Senior
+    junior: Junior
     actions:
       submit: Submit
   activerecord:

@@ -7,6 +7,8 @@ class PeopleController < ApplicationController
   private
 
   def create_params
-    params.require(:person).permit(:fullname, :christain_name, :phone, :birthday, :feastday, :gender)
+    params
+      .require(:person)
+      .permit(:fullname, :christain_name, :phone, :birthday, :feastday, :gender, :level_id)
   end
 end

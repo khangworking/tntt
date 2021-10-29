@@ -5,12 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+level1 = Level.create(name: 'senior')
+level2 = Level.create(name: 'junior')
+
 100.times do
   Person.create(
     fullname: Faker::Name.name,
     christain_name: Faker::FunnyName.name,
     birthday: Faker::Date.birthday(min_age: 5, max_age: 65),
     feastday: Faker::Date.in_date_period,
-    phone: Faker::PhoneNumber.cell_phone_in_e164
+    phone: Faker::PhoneNumber.cell_phone_in_e164,
+    level: [level1, level2].sample
   )
 end

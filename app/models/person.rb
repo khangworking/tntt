@@ -11,9 +11,12 @@
 #  phone          :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  level_id       :bigint
 #
 class Person < ApplicationRecord
   validates :fullname, :christain_name, :birthday, :feastday, :phone, presence: true
+
+  belongs_to :level
 
   def first_name
     fullname.split(' ')[-1]

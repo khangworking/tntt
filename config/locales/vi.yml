@@ -4,6 +4,8 @@ vi:
     thank_you: Cảm ơn trưởng %{name}
     male: Nam
     female: Nữ
+    senior: Huynh trưởng
+    junior: Dự trưởng
     actions:
       submit: Hoàn thành
   activerecord:
