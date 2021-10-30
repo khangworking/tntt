@@ -7,9 +7,12 @@ en:
     senior: Senior
     junior: Junior
     empty: Trống
+    password: Password
+    remember_me: Remember me
     actions:
       submit: Submit
       logout: Log out
+      login: Log In
   activerecord:
     errors:
       messages:

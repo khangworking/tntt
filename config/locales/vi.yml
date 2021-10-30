@@ -7,9 +7,12 @@ vi:
     senior: Huynh trưởng
     junior: Dự trưởng
     empty: Trống
+    password: Mật khẩu
+    remember_me: Ghi nhớ
     actions:
       submit: Hoàn thành
       logout: Đăng xuất
+      login: Đăng nhập
   activerecord:
     errors:
       messages:
