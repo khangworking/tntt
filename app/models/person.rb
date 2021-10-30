@@ -21,6 +21,8 @@ class Person < ApplicationRecord
 
   before_validation :strip_name
 
+  enum gender: { male: 'male', female: 'female' }
+
   def first_name
     fullname.split(' ')[-1]
   end
