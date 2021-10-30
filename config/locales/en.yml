@@ -8,6 +8,7 @@ en:
     junior: Junior
     actions:
       submit: Submit
+      logout: Log out
   activerecord:
     errors:
       messages:
@@ -50,6 +51,7 @@ en:
       default: "%Y-%m-%d"
       long: "%B %d, %Y"
       short: "%b %d"
+      day_n_month: "%d/%m"
     month_names:
     -
     - January
@@ -224,6 +226,7 @@ en:
   activerecord:
     models:
       person: Person
+      level: Level
     attributes:
       person:
         fullname: Full name
@@ -232,3 +235,5 @@ en:
         birthday: Birthday
         phone: Phone Number
         gender: Gender
+      level:
+        name: Name

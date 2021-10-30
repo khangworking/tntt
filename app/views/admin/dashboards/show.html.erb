@@ -1,0 +1,16 @@
+<div class="">
+  <table class='w-full'>
+    <tr>
+      <th><%= Person.human_attribute_name(:fullname) %></th>
+      <th><%= Level.human_attribute_name(:name) %></th>
+      <th><%= Person.human_attribute_name(:feastday) %></th>
+    </tr>
+    <% @people.each do |person| %>
+      <tr>
+        <td class='border-b border-gray-300 py-2 px-1'><%= person.christain_name %> <%= person.fullname %></td>
+        <td class='text-center border-b border-gray-300 py-2 px-1'><%= t("common.#{person.level.name}") %></td>
+        <td class='text-center border-b border-gray-300 py-2 px-1'><%= l(person.feastday, format: :short) %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

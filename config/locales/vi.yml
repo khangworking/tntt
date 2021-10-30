@@ -8,6 +8,7 @@ vi:
     junior: Dự trưởng
     actions:
       submit: Hoàn thành
+      logout: Đăng xuất
   activerecord:
     errors:
       messages:
@@ -50,6 +51,7 @@ vi:
       default: "%d-%m-%Y"
       long: "%d %B, %Y"
       short: "%d %b"
+      day_n_month: "%d/%m"
     month_names:
     -
     - Tháng một
@@ -212,6 +214,7 @@ vi:
   activerecord:
     models:
       person: Người
+      level: Cấp bậc
     attributes:
       person:
         fullname: Họ và Tên
@@ -220,3 +223,5 @@ vi:
         birthday: Ngày sinh nhật
         phone: Số điện thoại
         gender: Giới tính
+      level:
+        name: Tên cấp
