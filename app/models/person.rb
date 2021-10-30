@@ -3,6 +3,7 @@
 # Table name: people
 #
 #  id             :bigint           not null, primary key
+#  active         :boolean          default(TRUE)
 #  birthday       :date
 #  christain_name :string
 #  feastday       :date
