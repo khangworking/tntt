@@ -6,6 +6,7 @@ vi:
     female: Nữ
     senior: Huynh trưởng
     junior: Dự trưởng
+    empty: Trống
     actions:
       submit: Hoàn thành
       logout: Đăng xuất
@@ -51,7 +52,7 @@ vi:
       default: "%d-%m-%Y"
       long: "%d %B, %Y"
       short: "%d %b"
-      day_n_month: "%d/%m"
+      weekday_n_date: "%A, %d"
     month_names:
     -
     - Tháng một

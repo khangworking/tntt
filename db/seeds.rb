@@ -17,6 +17,7 @@ level2 = Level.create(name: 'junior')
     birthday: Faker::Date.birthday(min_age: 5, max_age: 65),
     feastday: Faker::Date.in_date_period,
     phone: Faker::PhoneNumber.cell_phone_in_e164,
-    level: [level1, level2].sample
+    level: [level1, level2].sample,
+    active: [true, false].sample
   )
 end

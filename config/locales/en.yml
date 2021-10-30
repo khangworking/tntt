@@ -6,6 +6,7 @@ en:
     female: Female
     senior: Senior
     junior: Junior
+    empty: Trống
     actions:
       submit: Submit
       logout: Log out
@@ -52,6 +53,7 @@ en:
       long: "%B %d, %Y"
       short: "%b %d"
       day_n_month: "%d/%m"
+      weekday_n_date: "%A, %d"
     month_names:
     -
     - January

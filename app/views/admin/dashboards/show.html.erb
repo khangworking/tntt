@@ -1,16 +1,38 @@
-<div class="">
-  <table class='w-full'>
-    <tr>
-      <th><%= Person.human_attribute_name(:fullname) %></th>
-      <th><%= Level.human_attribute_name(:name) %></th>
-      <th><%= Person.human_attribute_name(:feastday) %></th>
-    </tr>
-    <% @people.each do |person| %>
-      <tr>
-        <td class='border-b border-gray-300 py-2 px-1'><%= person.christain_name %> <%= person.fullname %></td>
-        <td class='text-center border-b border-gray-300 py-2 px-1'><%= t("common.#{person.level.name}") %></td>
-        <td class='text-center border-b border-gray-300 py-2 px-1'><%= l(person.feastday, format: :short) %></td>
-      </tr>
-    <% end %>
-  </table>
+<div class="flex-col items-stretch space-y-2">
+  <div class='text-xl md:text-3xl font-bold'>
+    <%= t('admin.dashboard') %>
+  </div>
+  <div class='flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-4'>
+    <div class="p-3 rounded-md border border-gray-100 flex flex-col space-y-1 w-full md:w-1/2">
+      <div class='font-bold'><%= t('admin.inmonth_feastday') %></div>
+      <div class='flex flex-col space-y-1 divide-y'>
+        <% if @months.first.any? %>
+          <% @months.first.each do |person| %>
+            <% next if person.feastday < Time.zone.now %>
+            <div class='flex flex-row justify-between items-center'>
+              <div class="text-gray-700 flex-auto"><%= person.fullname %></div>
+              <div class='text-gray-500 text-sm flex-none'><%= l(person.feastday, format: :weekday_n_date) %></div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class='text-green-500'><%= t('common.empty') %></div>
+        <% end %>
+      </div>
+    </div>
+    <div class="p-3 rounded-md border border-gray-100 flex flex-col space-y-1 w-full md:w-1/2">
+      <div class='font-bold'><%= t('admin.next_month_feastday') %></div>
+      <div class='flex flex-col space-y-1 divide-y'>
+        <% if @months.last.any? %>
+          <% @months.last.each do |person| %>
+            <div class='flex flex-row justify-between items-center'>
+              <div class="text-gray-700 flex-auto"><%= person.fullname %></div>
+              <div class='text-gray-500 text-sm flex-none'><%= l(person.feastday, format: :weekday_n_date) %></div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class='text-green-500'><%= t('common.empty') %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

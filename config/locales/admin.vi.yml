@@ -1,0 +1,5 @@
+vi:
+  admin:
+    dashboard: Thông tin chung
+    inmonth_feastday: Ngày bổn mạng trong tháng này
+    next_month_feastday: Ngày bổn mạng trong tháng tới
