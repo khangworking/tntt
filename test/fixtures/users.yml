@@ -5,10 +5,11 @@
 #  id                     :bigint           not null, primary key
 #  current_sign_in_at     :datetime
 #  current_sign_in_ip     :string
-#  email                  :string           default(""), not null
+#  email                  :string           default("")
 #  encrypted_password     :string           default(""), not null
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
+#  phone                  :string           not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string

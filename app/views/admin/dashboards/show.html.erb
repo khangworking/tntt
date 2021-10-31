@@ -3,8 +3,7 @@
     <%= t('admin.dashboard') %>
   </div>
   <div class='flex flex-col md:flex-row items-stretch space-y-2 md:space-y-0 space-x-0 md:space-x-2'>
-    <div class='bg-red-500 relative text-white shadow rounded-md w-full md:w-1/4 flex flex-col items-stretch divide-y divide-red-300'>
-      <%= link_to '', admin_people_path, class: 'absolute top-0 left-0 w-full h-full z-20' %>
+    <%= link_to admin_people_path, class: 'inline-block bg-red-500 relative text-white shadow rounded-md w-full md:w-1/4 flex flex-col items-stretch divide-y divide-red-300' do %>
       <div class='flex flex-row items-end space-x-2 p-3'>
         <div class='text-5xl font-bold'><%= @seniors_n_juniors.length %></div>
         <div class='text-md'><%= t('admin.sr_jr_label') %></div>
@@ -17,6 +16,6 @@
         <div class='text-sm'><%= t('admin.sr_jr_female') %></div>
         <div class='text-sm'><%= @seniors_n_juniors.select(&:female?).length %></div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

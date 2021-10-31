@@ -8,11 +8,16 @@ en:
     junior: Junior
     empty: Trống
     password: Password
+    phone: Phone Number
+    password_confirmation: Password confirmation
     remember_me: Remember me
+    password_min_len: '%{length} characters minimum'
+    forget_password: Forgot your password?
     actions:
       submit: Submit
       logout: Log out
       login: Log In
+      signup: Sign Up
   activerecord:
     errors:
       messages:

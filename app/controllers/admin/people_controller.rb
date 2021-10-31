@@ -2,7 +2,7 @@ class Admin::PeopleController < AdminController
   def index
     @people = Person.where(active: true)
                     .eager_load(:level)
-                    .order(:created_at)
+                    .order(created_at: :desc)
   end
 
   def show

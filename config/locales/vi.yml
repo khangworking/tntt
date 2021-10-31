@@ -8,11 +8,16 @@ vi:
     junior: Dự trưởng
     empty: Trống
     password: Mật khẩu
+    phone: Số điện thoại
+    password_confirmation: Xác nhận mật khẩu
     remember_me: Ghi nhớ
+    password_min_len: Tối thiểu %{length} ký tự
+    forget_password: Quên mật khẩu?
     actions:
       submit: Hoàn thành
       logout: Đăng xuất
       login: Đăng nhập
+      signup: Đăng ký
   activerecord:
     errors:
       messages:
