@@ -1,3 +1,40 @@
-<div class="flex flex-col">
-  <%= @person.fullname %>
+<div class="flex flex-col space-y-2">
+  <div class='text-xl'><%= t('admin.information') %></div>
+  <div class='p-3 md:p-6 shadow rounded-md'>
+    <div class='flex flex-col md:flex-row space-y-4 space-x-0 md:space-y-0 md:space-x-10 items-stretch'>
+      <div class='flex flex-row justify-center'>
+        <div class='w-20 h-20 md:w-36 md:h-36 rounded-full bg-gray-200'></div>
+      </div>
+      <div class='flex flex-col space-y-1'>
+        <div>
+          <span class='text-gray-600'><%= Person.human_attribute_name(:christain_name) %>:</span>
+          <span class='ml-2 font-bold'><%= @person.christain_name %></span>
+        </div>
+        <div>
+          <span class='text-gray-600'><%= Person.human_attribute_name(:fullname) %>:</span>
+          <span class='ml-2 font-bold'><%= @person.fullname.upcase %></span>
+        </div>
+        <div>
+          <span class='text-gray-600'><%= Person.human_attribute_name(:phone) %>:</span>
+          <span class='ml-2 font-bold'><%= @person.phone %></span>
+        </div>
+        <div>
+          <span class='text-gray-600'><%= Person.human_attribute_name(:gender) %>:</span>
+          <span class='ml-2 font-bold'><%= t("common.#{@person.gender}") %></span>
+        </div>
+        <div>
+          <span class='text-gray-600'><%= Person.human_attribute_name(:birthday) %>:</span>
+          <span class='ml-2 font-bold'><%= l(@person.birthday, format: :default) %></span>
+        </div>
+        <div>
+          <span class='text-gray-600'><%= Person.human_attribute_name(:feastday) %>:</span>
+          <span class='ml-2 font-bold'><%= l(@person.feastday, format: :day_n_month) %></span>
+        </div>
+        <div>
+          <span class='text-gray-600'><%= t('common.created_at') %>:</span>
+          <span class='ml-2 font-bold'><%= l(@person.created_at, format: :default) %></span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

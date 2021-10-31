@@ -13,6 +13,7 @@ vi:
     remember_me: Ghi nhớ
     password_min_len: Tối thiểu %{length} ký tự
     forget_password: Quên mật khẩu?
+    created_at: Tạo lúc
     actions:
       submit: Hoàn thành
       logout: Đăng xuất
@@ -61,6 +62,7 @@ vi:
       long: "%d %B, %Y"
       short: "%d %b"
       weekday_n_date: "%A, %d"
+      day_n_month: "%d/%m"
     month_names:
     -
     - Tháng một

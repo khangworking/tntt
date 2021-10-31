@@ -13,6 +13,7 @@ en:
     remember_me: Remember me
     password_min_len: '%{length} characters minimum'
     forget_password: Forgot your password?
+    created_at: Created At
     actions:
       submit: Submit
       logout: Log out
