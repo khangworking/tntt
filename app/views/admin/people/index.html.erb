@@ -2,16 +2,7 @@
   <div class='text-xl md:text-3xl font-bold'>
     <%= t('admin.people') %>
   </div>
-  <table class='w-full'>
-    <tr>
-      <th class='text-left px-1'><%= Person.human_attribute_name(:fullname) %></th>
-      <th class='text-right px-1'><%= Person.human_attribute_name(:feastday) %></th>
-    </tr>
-    <% @people.each do |person| %>
-      <tr>
-        <td class='border-b border-gray-300 py-2 px-1'><%= person.christain_name %> <%= person.fullname %></td>
-        <td class='text-right border-b border-gray-300 py-2 px-1'><%= l(person.feastday, format: :short) %></td>
-      </tr>
-    <% end %>
-  </table>
+  <div class='flex flex-col divide-y divide-gray-200'>
+    <%= render @people %>
+  </div>
 </div>
