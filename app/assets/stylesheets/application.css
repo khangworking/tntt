@@ -13,3 +13,42 @@
  *= require_tree .
  *= require_self
  */
+.cube.senior {
+  background-color: rgba(253, 230, 138);
+}
+
+.cube.senior .co-1 {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 17px solid rgba(239, 68, 68);
+  transform: rotate(45deg) translateX(-3px) translateY(3px);
+}
+
+.cube.senior .co-2 {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 17px solid rgba(239, 68, 68);
+  transform: rotate(-45deg) translateX(-10px) translateY(3px);
+}
+
+.cube.senior .co-3 {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 17px solid rgba(239, 68, 68);
+  transform: rotate(135deg) translateX(-25px) translateY(3px);
+}
+
+.cube.senior .co-4 {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 17px solid rgba(239, 68, 68);
+  transform: rotate(-135deg) translateX(-4px) translateY(19px);
+}

@@ -14,6 +14,7 @@ vi:
     password_min_len: Tối thiểu %{length} ký tự
     forget_password: Quên mật khẩu?
     created_at: Tạo lúc
+    class: Lớp
     actions:
       submit: Hoàn thành
       logout: Đăng xuất
