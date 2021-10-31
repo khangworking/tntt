@@ -22,7 +22,7 @@
   height: 0;
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
-  border-left: 17px solid rgba(239, 68, 68);
+  border-left: 17px solid rgb(239, 68, 68);
   transform: rotate(45deg) translateX(-3px) translateY(3px);
 }
 
@@ -31,7 +31,7 @@
   height: 0;
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
-  border-left: 17px solid rgba(239, 68, 68);
+  border-left: 17px solid rgb(239, 68, 68);
   transform: rotate(-45deg) translateX(-10px) translateY(3px);
 }
 
@@ -40,7 +40,7 @@
   height: 0;
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
-  border-left: 17px solid rgba(239, 68, 68);
+  border-left: 17px solid rgb(239, 68, 68);
   transform: rotate(135deg) translateX(-25px) translateY(3px);
 }
 
@@ -49,6 +49,6 @@
   height: 0;
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
-  border-left: 17px solid rgba(239, 68, 68);
+  border-left: 17px solid rgb(239, 68, 68);
   transform: rotate(-135deg) translateX(-4px) translateY(19px);
 }
