@@ -15,6 +15,7 @@ en:
     forget_password: Forgot your password?
     created_at: Created At
     class: Class
+    call_phone: Call Phone
     actions:
       submit: Submit
       logout: Log out

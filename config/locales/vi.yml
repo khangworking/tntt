@@ -15,6 +15,7 @@ vi:
     forget_password: Quên mật khẩu?
     created_at: Tạo lúc
     class: Lớp
+    call_phone: Gọi điện
     actions:
       submit: Hoàn thành
       logout: Đăng xuất
