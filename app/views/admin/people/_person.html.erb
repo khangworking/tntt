@@ -5,5 +5,5 @@
       <%= person.fullname %>
     <% end %>
   </div>
-  <div class='text-md'><%= person.phone %></div>
+  <div class='text-md'><%= Phonelib.parse person.phone %></div>
 </div>
