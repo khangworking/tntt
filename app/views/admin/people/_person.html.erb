@@ -6,6 +6,11 @@
     <% end %>
   </div>
   <div class='text-sm flex-none'>
-    <%= link_to t('common.call_phone'), "tel:#{Phonelib.parse(person.phone)}", class: 'text-white bg-red-900 py-2 px-4 rounded-md my-1 md:my-0 inline-block' %>
+    <%= link_to "tel:#{Phonelib.parse(person.phone)}", class: 'text-white bg-red-900 py-2 px-4 rounded-md my-1 md:my-0 inline-block flex flex-row items-center space-x-1' do %>
+      <%= heroicon "phone-outgoing", options: { class: 'w-5 h-5' } %>
+      <div class='whitespace-nowrap'>
+        <%= t('common.call_phone') %>
+      </div>
+    <% end %>
   </div>
 </div>
