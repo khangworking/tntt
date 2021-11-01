@@ -1,9 +1,6 @@
 <div class="flex flex-col space-y-2">
   <div class='text-xl'><%= t('admin.information') %></div>
   <div class='p-3 md:p-6 shadow rounded-md relative'>
-    <div class='absolute w-44 h-44 top-0 right-0'>
-      <%= render "share/#{@person.level.name}_cover" %>
-    </div>
     <div class='flex flex-col md:flex-row space-y-4 space-x-0 md:space-y-0 md:space-x-10 items-stretch'>
       <div class='flex flex-row justify-center'>
         <div class='w-20 h-20 md:w-36 md:h-36 rounded-full bg-gray-200'></div>
