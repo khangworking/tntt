@@ -27,7 +27,7 @@ class Person < ApplicationRecord
     count = 30
     results = {}
     loop do
-      durations = (Time.zone.now.to_date..30.days.from_now.to_date).to_a.map do |item|
+      durations = (Time.zone.now.to_date..count.days.from_now.to_date).to_a.map do |item|
         [item.day, item.month].join('-')
       end
       results = where("CONCAT(extract(DAY from feastday), '-', extract(MONTH from feastday)) IN (?)", durations)
