@@ -24,20 +24,26 @@ class Person < ApplicationRecord
   enum gender: { male: 'male', female: 'female' }
 
   def self.next_feastday_persons
-    durations = (Time.zone.now.to_date..30.days.from_now.to_date).to_a.map do |item|
-      [item.day, item.month].join('-')
+    count = 30
+    results = {}
+    loop do
+      durations = (Time.zone.now.to_date..30.days.from_now.to_date).to_a.map do |item|
+        [item.day, item.month].join('-')
+      end
+      results = where("CONCAT(extract(DAY from feastday), '-', extract(MONTH from feastday)) IN (?)", durations)
+        .group_by(&:feastday)
+        .map do |date, people|
+          year = if Time.zone.now.month > date.month
+                   Time.zone.now.year + 1
+                 else
+                   Time.zone.now.year
+                 end
+          [Date.new(year, date.month, date.day), people]
+        end.to_h.sort.to_h
+      break if results.keys.any?
+      count += 30
     end
-    where("CONCAT(extract(DAY from feastday), '-', extract(MONTH from feastday)) IN (?)", durations)
-      .group_by(&:feastday)
-      .map do |date, people|
-        year = if Time.zone.now.month > date.month
-                 Time.zone.now.year + 1
-               else
-                 Time.zone.now.year
-               end
-        [Date.new(year, date.month, date.day), people]
-      end.to_h.sort.to_h
-
+    results
   end
 
   def first_name
