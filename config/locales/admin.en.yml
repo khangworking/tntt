@@ -1,8 +1,6 @@
 en:
   admin:
     dashboard: Dashboard
-    inmonth_feastday: In-month Feast Day
-    next_month_feastday: Next month Feast Day
     sr_jr_label: Seniors/Juniors
     sr_jr_male: Male
     sr_jr_female: Female

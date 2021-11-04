@@ -12,18 +12,14 @@
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="overflow-hidden">
-    <div class='flex flex-row items-stretch w-screen h-screen'>
-      <!-- <div class='relative flex-none w-12 md:w-52'>
-        <div class='absolute top-0 left-0 w-full h-full overflow-auto bg-blue-500'>
-        </div>
-      </div> -->
-      <div class='flex-auto flex flex-col items-stretch'>
-        <div class='flex-none h-10 bg-gray-100'>
-          <%= render 'share/admin_top_head' %>
-        </div>
-        <div class='flex-auto relative'>
-          <div class='absolute top-0 left-0 w-full h-full overflow-auto p-4'>
+  <body class="overflow-hidden bg-gray-100">
+    <div class='flex flex-col items-stretch h-screen'>
+      <div class='flex-none h-10 bg-white'>
+        <%= render 'share/admin_top_head' %>
+      </div>
+      <div class='flex-auto relative'>
+        <div class='absolute top-0 left-0 w-full h-full overflow-auto p-4'>
+          <div class='w-full md:w-4/5 lg:w-9/12 mx-auto'>
             <%= render 'share/flash' %>
             <%= yield %>
           </div>
