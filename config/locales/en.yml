@@ -4,8 +4,10 @@ en:
     thank_you: Thanks %{name}
     male: Male
     female: Female
-    senior: Senior
-    junior: Junior
+    huynh_truong1: Senior Level 1
+    huynh_truong2: Senior Level 2
+    huynh_truong3: Senior Level 3
+    du_truong: Junior
     empty: Trống
     password: Password
     phone: Phone Number

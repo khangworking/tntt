@@ -4,8 +4,10 @@ vi:
     thank_you: Cảm ơn trưởng %{name}
     male: Nam
     female: Nữ
-    senior: Huynh trưởng
-    junior: Dự trưởng
+    huynh_truong1: Huynh trưởng Cấp 1
+    huynh_truong2: Huynh trưởng Cấp 2
+    huynh_truong3: Huynh trưởng Cấp 3
+    du_truong: Dự trưởng
     empty: Trống
     password: Mật khẩu
     phone: Số điện thoại
