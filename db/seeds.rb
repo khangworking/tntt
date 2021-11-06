@@ -16,10 +16,14 @@ admin_person = Person.create(
   gender: %w(male female).sample
 )
 
-level1 = Level.create(name: 'huynh_truong_1')
-level2 = Level.create(name: 'huynh_truong_2')
-level3 = Level.create(name: 'huynh_truong_3')
+level1 = Level.create(name: 'huynh_truong1')
+level2 = Level.create(name: 'huynh_truong2')
+level3 = Level.create(name: 'huynh_truong3')
 level4 = Level.create(name: 'du_truong')
+
+%w(chien_con1 chien_con2 chien_con3 au_nhi1 au_nhi2 au_nhi3 thieu_nhi1 thieu_nhi2 thieu_nhi3 nghia_si1 nghia_si2 nghia_si3 nghia_si4 tro_uy tro_ta hlv1 hlv2 hlv3 tuyen_uy).each do |name|
+  Level.create(name: name)
+end
 
 100.times do
   Person.create(
@@ -37,3 +41,10 @@ end
 leader = Person.where(active: true).order('random()').take
 leader.update(role: 'leader')
 vice_leader = Person.where(active: true).where.not(id: leader.id).order('random()').take.update(role: 'vice_leader')
+
+people = Person.where(active: true).joins(:level).where(levels: { name: Level::LEADER_NAMES }).order('random()').ids
+Level.where(name: %w(chien_con1 chien_con2 chien_con3 au_nhi1 au_nhi2 au_nhi3 thieu_nhi1 thieu_nhi2 thieu_nhi3 nghia_si1 nghia_si2 nghia_si3 nghia_si4)).each do |lv|
+  rand(2..3).times do
+    Manager.create(level_id: lv.id, person_id: people.shift, role: :assistant)
+  end
+end

@@ -6,6 +6,9 @@ vi:
     sr_jr_female: Trưởng nữ
     people: Danh sách trưởng
     information: Thông tin
+    people:
+      index:
+        manager: Phụ trách
     dashboards:
       show:
         next_feastdays: 'Bổn mạng tới'

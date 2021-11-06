@@ -6,6 +6,9 @@ en:
     sr_jr_female: Female
     people: People
     information: Information
+    people:
+      index:
+        manager: Manager
     dashboard:
       show:
         next_feastdays: Next feastdays
