@@ -18,6 +18,8 @@ en:
     created_at: Created At
     class: Class
     call_phone: Call Phone
+    leaders: Leaders
+    students: Students
     actions:
       submit: Submit
       logout: Log out

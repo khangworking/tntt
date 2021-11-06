@@ -8,5 +8,6 @@
 #  updated_at :datetime         not null
 #
 class Level < ApplicationRecord
+  LEADER_NAMES = %w(du_truong huynh_truong1 huynh_truong2 huynh_truong3)
   has_many :people
 end

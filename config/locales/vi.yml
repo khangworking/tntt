@@ -18,6 +18,8 @@ vi:
     created_at: Tạo lúc
     class: Lớp
     call_phone: Gọi điện
+    leaders: Các Trưởng
+    students: Các em thiếu nhi
     actions:
       submit: Hoàn thành
       logout: Đăng xuất
