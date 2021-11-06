@@ -20,6 +20,8 @@ vi:
     call_phone: Gọi điện
     leaders: Các Trưởng
     students: Các em thiếu nhi
+    leader: Trưởng Xứ Đoàn
+    vice_leader: Phó trưởng
     actions:
       submit: Hoàn thành
       logout: Đăng xuất

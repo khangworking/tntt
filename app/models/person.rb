@@ -10,6 +10,7 @@
 #  fullname       :string
 #  gender         :string           default("male")
 #  phone          :string
+#  role           :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  level_id       :bigint
@@ -22,6 +23,7 @@ class Person < ApplicationRecord
   before_validation :strip_name
 
   enum gender: { male: 'male', female: 'female' }
+  enum role: { leader: 'leader', vice_leader: 'vice_leader' }
 
   def self.next_feastday_persons
     count = 30

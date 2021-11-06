@@ -6,8 +6,25 @@
       </div>
     </div>
   </div>
-  <div class='w-full md:w-4/12 flex-none'>
-    <div class='shadow bg-white border border-red-700 p-3 rounded-md flex flex-col space-y-2'>
+  <div class='w-full md:w-4/12 flex-none flex flex-col space-y-2'>
+    <% if @leader && @vice_leader %>
+      <div class='shadow bg-white border border-red-700 rounded-md p-3 flex flex-col space-y-3'>
+        <% if @leader %>
+          <div class="flex flex-col">
+            <div class='text-gray-500 text-sm font-bold'><%= t('common.leader') %></div>
+            <div class='uppercase'><%= @leader.fullname %></div>
+          </div>
+        <% end %>
+        <% if @vice_leader %>
+          <div class="flex flex-col">
+            <div class='text-gray-500 text-sm font-bold'><%= t('common.vice_leader') %></div>
+            <div class='uppercase'><%= @vice_leader.fullname %></div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class='shadow bg-white p-3 rounded-md flex flex-col space-y-2'>
+      <div class='font-bold'><%= t('.next_feastdays') %></div>
       <% @feastday_persons.each do |date, people| %>
         <div class='flex flex-col space-y-1'>
           <div class='text-gray-500'><%= l(date, format: :short) %></div>

@@ -16,8 +16,10 @@ admin_person = Person.create(
   gender: %w(male female).sample
 )
 
-level1 = Level.create(name: 'senior')
-level2 = Level.create(name: 'junior')
+level1 = Level.create(name: 'huynh_truong_1')
+level2 = Level.create(name: 'huynh_truong_2')
+level3 = Level.create(name: 'huynh_truong_3')
+level4 = Level.create(name: 'du_truong')
 
 100.times do
   Person.create(
@@ -26,8 +28,12 @@ level2 = Level.create(name: 'junior')
     birthday: Faker::Date.birthday(min_age: 5, max_age: 65),
     feastday: Faker::Date.in_date_period,
     phone: Faker::PhoneNumber.cell_phone_in_e164,
-    level: [level1, level2].sample,
+    level: [level1, level2, level3, level4].sample,
     active: [true, false].sample,
     gender: %w(male female).sample
   )
 end
+
+leader = Person.where(active: true).order('random()').take
+leader.update(role: 'leader')
+vice_leader = Person.where(active: true).where.not(id: leader.id).order('random()').take.update(role: 'vice_leader')
