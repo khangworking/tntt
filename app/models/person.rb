@@ -25,9 +25,22 @@ class Person < ApplicationRecord
   enum gender: { male: 'male', female: 'female' }
   enum role: { leader: 'leader', vice_leader: 'vice_leader' }
 
-  def self.next_feastday_persons
-    Person.where(feastday: Person.where('feastday > CURRENT_DATE').order(:feastday).select('feastday').limit(1))
+  class << self
+    def next_feastday_persons
+      where(feastday: where('feastday > CURRENT_DATE').order(:feastday).select('feastday').limit(1))
+    end
+
+    def send_feastday_congratulation
+      people = where(feastday: Time.zone.now.to_date)
+      return if people.empty?
+
+      message = "🎉️🎉 Chúc mừng các trưởng có bổn mạng trong ngày hôm nay (#{I18n.l(Time.zone.now.to_date, format: :default)}):\n- "
+      message = message + people.map(&:fullname).map(&:upcase).join(" 🎊\n- ")
+      message = message + " 🎊\nChúc các trưởng nhiều sức khoẻ 💪 và thành công! 🏆"
+      FacebookGroupsService.publish(message)
+    end
   end
+
 
   def first_name
     fullname.split(' ')[-1]
