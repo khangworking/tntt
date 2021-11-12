@@ -31,7 +31,7 @@ class Person < ApplicationRecord
     end
 
     def send_feastday_congratulation
-      people = where(feastday: Time.zone.now.to_date)
+      people = where(feastday: Time.zone.now.to_date, active: true)
       return if people.empty?
 
       message = "🎉️🎉 Chúc mừng các trưởng có bổn mạng trong ngày hôm nay (#{I18n.l(Time.zone.now.to_date, format: :default)}):\n- "
