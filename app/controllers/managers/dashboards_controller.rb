@@ -1,4 +1,4 @@
-class Admin::DashboardsController < AdminController
+class Managers::DashboardsController < ManagersController
   def show
     @feastday_persons = Person.next_feastday_persons
     @leader = Person.leader.take

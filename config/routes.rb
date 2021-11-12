@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :people, only: %i[new create]
     root to: 'home#index'
 
-    namespace :admin do
+    namespace :managers do
       resource :dashboard, only: :show
       resources :people, only: %i[index show]
 

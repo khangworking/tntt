@@ -1,6 +1,6 @@
 <div class='w-full md:w-4/5 lg:w-9/12 mx-auto px-3 overflow-auto'>
   <div class='flex flex-row space-x-2 flex-nowrap'>
-    <%= link_to t('common.leaders'), admin_root_path, class: "flex-none rounded-md py-2 px-3 inline-block #{dashboard_controller? ? 'bg-red-700 text-white' : 'bg-white'}" %>
-    <%= link_to t('common.students'), admin_people_path, class: "flex-none rounded-md py-2 px-3 inline-block #{people_controller? ? 'bg-red-700 text-white' : 'bg-white'}" %>
+    <%= link_to t('common.leaders'), managers_root_path, class: "flex-none rounded-md py-2 px-3 inline-block #{dashboard_controller? ? 'bg-red-700 text-white' : 'bg-white'}" %>
+    <%= link_to t('common.students'), managers_people_path, class: "flex-none rounded-md py-2 px-3 inline-block #{people_controller? ? 'bg-red-700 text-white' : 'bg-white'}" %>
   </div>
 </div>

@@ -1,4 +1,4 @@
-class Admin::PeopleController < AdminController
+class Managers::PeopleController < ManagersController
   def index
     @levels = Level.where(name: Level::STUDENT_NAMES)
     @managers = Manager.includes(:level, person: :level)

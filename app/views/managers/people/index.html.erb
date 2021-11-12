@@ -20,14 +20,14 @@
         <% elsif !params[:level] && lv.name == 'chien_con1' %>
           <%= link_to t("common.#{lv.name}"), 'javascript:;', class: "py-1 px-3 rounded-md bg-red-700 text-white" %>
         <% else %>
-          <%= link_to t("common.#{lv.name}"), admin_people_path(level: lv.name), class: "py-1 px-3 rounded-md" %>
+          <%= link_to t("common.#{lv.name}"), managers_people_path(level: lv.name), class: "py-1 px-3 rounded-md" %>
         <% end %>
       <% end %>
     </div>
     <div class='p-3 bg-white rounded-md shadow flex flex-col'>
       <div class='font-bold mb-2'><%= t('.manager') %></div>
       <% @managers.each do |man| %>
-        <%= link_to man.person.fullname, admin_person_path(id: man.person) %>
+        <%= link_to man.person.fullname, managers_person_path(id: man.person) %>
       <% end %>
     </div>
   </div>
