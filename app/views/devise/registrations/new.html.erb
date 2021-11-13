@@ -10,11 +10,6 @@
     </div>
 
     <div class="flex flex-col space-y-1 items-stretch w-full">
-      <%= f.label :email %>
-      <%= f.email_field :email, autocomplete: "email", class: 'w-full rounded-md focus:ring-0 border border-gray-300 focus:border-gray-700' %>
-    </div>
-
-    <div class="flex flex-col space-y-1 items-stretch w-full">
       <%= f.label :password, t('common.password') %>
       <%= f.password_field :password, autocomplete: "new-password", class: 'w-full rounded-md focus:ring-0 border border-gray-300 focus:border-gray-700' %>
       <% if @minimum_password_length %>

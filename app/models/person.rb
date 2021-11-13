@@ -41,7 +41,6 @@ class Person < ApplicationRecord
     end
   end
 
-
   def first_name
     fullname.split(' ')[-1]
   end
