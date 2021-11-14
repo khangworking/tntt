@@ -27,15 +27,18 @@ level4 = Level.create(name: 'du_truong')
 end
 
 100.times do
+  phone = Faker::PhoneNumber.phone_number.gsub(' ', '')
+  user = User.create(password: 'password', phone: phone)
   Person.create(
     fullname: Faker::Name.name,
     christain_name: Faker::FunnyName.name,
     birthday: Faker::Date.birthday(min_age: 5, max_age: 65),
     feastday: Faker::Date.in_date_period,
-    phone: Faker::PhoneNumber.cell_phone_in_e164,
+    phone: phone,
     level: [level1, level2, level3, level4].sample,
     active: [true, false].sample,
-    gender: %w(male female).sample
+    gender: %w(male female).sample,
+    user_id: user.id
   )
 end
 
