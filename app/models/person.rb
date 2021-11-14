@@ -40,9 +40,9 @@ class Person < ApplicationRecord
       people = where(feastday: Time.zone.now.to_date, active: true)
       return if people.empty?
 
-      message = "🎉️🎉 Chúc mừng các trưởng có bổn mạng trong ngày hôm nay (#{I18n.l(Time.zone.now.to_date, format: :default)}):\n- "
+      message = "🎉️🎉 Chúc mừng các Sơ, các Thầy và các Trưởng có bổn mạng trong ngày hôm nay (#{I18n.l(Time.zone.now.to_date, format: :default)}):\n- "
       message = message + people.map(&:fullname).map(&:upcase).join(" 🎊\n- ")
-      message = message + " 🎊\nChúc các trưởng nhiều sức khoẻ 💪 và thành công! 🏆"
+      message = message + " 🎊\nChúc các Sơ, các Thầy và các Trưởng nhiều sức khoẻ 💪 và thành công! 🏆"
       FacebookGroupsService.publish(message)
     end
   end
