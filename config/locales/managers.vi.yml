@@ -9,6 +9,7 @@ vi:
     people:
       index:
         manager: Phụ trách
+        count: 'Sĩ số: %{count}'
     dashboards:
       show:
         next_feastdays: 'Bổn mạng tới'

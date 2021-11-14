@@ -9,6 +9,7 @@ en:
     people:
       index:
         manager: Manager
+        count: 'Count: %{count}'
     dashboard:
       show:
         next_feastdays: Next feastdays
