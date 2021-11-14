@@ -14,11 +14,17 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  level_id       :bigint
+#  user_id        :bigint
+#
+# Indexes
+#
+#  index_people_on_user_id  (user_id)
 #
 class Person < ApplicationRecord
   validates :fullname, presence: true
 
   belongs_to :level, optional: true
+  belongs_to :user, optional: true
 
   before_validation :strip_name
 
@@ -50,6 +56,6 @@ class Person < ApplicationRecord
   def strip_name
     self.fullname = self.fullname.strip
     self.christain_name = self.christain_name.strip
-    self.phone = self.phone.strip
+    self.phone = self.phone&.strip
   end
 end

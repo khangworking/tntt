@@ -28,7 +28,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable,
          :trackable
 
-  has_one :person, foreign_key: :phone, primary_key: :phone
+  has_one :person
 
   def email_required?
     false

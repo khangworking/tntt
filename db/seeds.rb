@@ -13,7 +13,8 @@ admin_person = Person.create(
   feastday: Faker::Date.in_date_period,
   phone: '0123456789',
   active: [true, false].sample,
-  gender: %w(male female).sample
+  gender: %w(male female).sample,
+  user_id: admin.id
 )
 
 level1 = Level.create(name: 'huynh_truong1')
@@ -38,9 +39,23 @@ end
   )
 end
 
-leader = Person.where(active: true).order('random()').take
+Level::STUDENT_NAMES.each do |name|
+  lv = Level.find_by(name: name)
+  100.times do
+    Person.create(
+      fullname: Faker::Name.name,
+      christain_name: Faker::FunnyName.name,
+      level: lv,
+      active: [true, false].sample,
+      gender: %w(male female).sample
+    )
+  end
+end
+
+leader = Person.joins(:level).where(levels: { name: %w(huynh_truong1 huynh_truong2 huynh_truong3) }).where(active: true).order('random()').take
+
 leader.update(role: 'leader')
-vice_leader = Person.where(active: true).where.not(id: leader.id).order('random()').take.update(role: 'vice_leader')
+vice_leader = Person.joins(:level).where(levels: { name: Level::LEADER_NAMES }).where(active: true).where.not(id: leader.id).order('random()').take.update(role: 'vice_leader')
 
 people = Person.where(active: true).joins(:level).where(levels: { name: Level::LEADER_NAMES }).order('random()').ids
 Level.where(name: %w(chien_con1 chien_con2 chien_con3 au_nhi1 au_nhi2 au_nhi3 thieu_nhi1 thieu_nhi2 thieu_nhi3 nghia_si1 nghia_si2 nghia_si3 nghia_si4)).each do |lv|

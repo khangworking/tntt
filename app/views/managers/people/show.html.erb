@@ -1,11 +1,13 @@
 <div class="flex flex-col space-y-2">
   <div class='flex flex-row justify-between items-center'>
     <div class='text-xl'><%= t('admin.information') %></div>
-    <%= link_to "tel:#{Phonelib.parse(@person.phone)}", class: 'rounded-md py-1 px-3 bg-red-700 text-white flex flex-row items-center space-x-2' do %>
-      <%= heroicon "phone-outgoing", options: { class: 'w-5 h-5' } %>
-      <div class='whitespace-nowrap'>
-        <%= t('common.call_phone') %>
-      </div>
+    <% if @person.phone %>
+      <%= link_to "tel:#{Phonelib.parse(@person.phone)}", class: 'rounded-md py-1 px-3 bg-red-700 text-white flex flex-row items-center space-x-2' do %>
+        <%= heroicon "phone-outgoing", options: { class: 'w-5 h-5' } %>
+        <div class='whitespace-nowrap'>
+          <%= t('common.call_phone') %>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <div class='p-3 md:p-6 shadow rounded-md relative bg-white'>
@@ -24,7 +26,7 @@
         </div>
         <div>
           <span class='text-gray-600'><%= Person.human_attribute_name(:phone) %>:</span>
-          <span class='ml-2 font-bold'><%= @person.phone %></span>
+          <span class='ml-2 font-bold'><%= @person&.phone %></span>
         </div>
         <div>
           <span class='text-gray-600'><%= Person.human_attribute_name(:gender) %>:</span>
@@ -32,11 +34,11 @@
         </div>
         <div>
           <span class='text-gray-600'><%= Person.human_attribute_name(:birthday) %>:</span>
-          <span class='ml-2 font-bold'><%= l(@person.birthday, format: :default) %></span>
+          <span class='ml-2 font-bold'><%= @person.birthday.presence && l(@person.birthday, format: :default) %></span>
         </div>
         <div>
           <span class='text-gray-600'><%= Person.human_attribute_name(:feastday) %>:</span>
-          <span class='ml-2 font-bold'><%= l(@person.feastday, format: :day_n_month) %></span>
+          <span class='ml-2 font-bold'><%= @person.feastday.presence && l(@person.feastday, format: :day_n_month) %></span>
         </div>
         <div>
           <span class='text-gray-600'><%= t('common.class') %>:</span>
