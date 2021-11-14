@@ -39,6 +39,8 @@ vi:
     hlv2: Huấn Luyện Viên Trung cấp
     hlv3: Huấn Luyện Viên Cao cấp
     tuyen_uy: Tuyên Uý
+    tro_uy: Trợ Uý
+    tro_ta: Trợ Tá
     actions:
       submit: Hoàn thành
       logout: Đăng xuất
@@ -260,5 +262,6 @@ vi:
         birthday: Ngày sinh nhật
         phone: Số điện thoại
         gender: Giới tính
+        level_id: Cấp bậc
       level:
         name: Tên cấp

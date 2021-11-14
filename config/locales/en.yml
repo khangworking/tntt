@@ -39,6 +39,8 @@ en:
     hlv2: Huấn Luyện Viên Trung cấp
     hlv3: Huấn Luyện Viên Cao cấp
     tuyen_uy: Tuyên Uý
+    tro_uy: Trợ Uý
+    tro_ta: Trợ Tá
     actions:
       submit: Submit
       logout: Log out
@@ -272,5 +274,6 @@ en:
         birthday: Birthday
         phone: Phone Number
         gender: Gender
+        level_id: Level
       level:
         name: Name
