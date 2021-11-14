@@ -26,13 +26,13 @@
         </div>
         <div class='flex flex-col space-y-2 items-stretch'>
           <div>
-            <%= f.label :phone %> <span class="text-red-500">*</span>
+            <%= f.label :phone %>
           </div>
           <%= f.text_field :phone, class: 'w-full rounded-md focus:ring-0 border border-gray-300 focus:border-gray-700' %>
         </div>
         <div class='flex flex-col space-y-2 items-stretch'>
           <div>
-            <%= f.label :birthday %> <span class="text-red-500">*</span>
+            <%= f.label :birthday %>
           </div>
           <%= f.date_field :birthday, class: 'w-full rounded-md focus:ring-0 border border-gray-300 focus:border-gray-700' %>
         </div>
@@ -42,17 +42,14 @@
           </div>
           <%= f.date_field :feastday, class: 'w-full rounded-md focus:ring-0 border border-gray-300 focus:border-gray-700' %>
         </div>
-        <div class='flex flex-row items-center space-x-4'>
-          <div class='flex flex-row items-center space-x-2'>
-            <%= f.radio_button :level_id, 1 %>
-            <%= f.label :level_id, t('common.senior'), value: 1 %>
+        <div class='flex flex-col space-y-2 items-stretch'>
+          <div>
+            <%= f.label :level_id %> <span class="text-red-500">*</span>
           </div>
-          <div class='flex flex-row items-center space-x-2'>
-            <%= f.radio_button :level_id, 2 %>
-            <%= f.label :level_id, t('common.junior'), value: 2 %>
-          </div>
+          <%= f.select :level_id, Level.all.collect { |l| [t("common.#{l.name}"), l.id] }, {include_blank: false}, {class: 'w-full rounded-md focus:ring-0 border border-gray-300 focus:border-gray-700'} %>
         </div>
         <%= f.button t('common.actions.submit'), class: 'rounded-md py-2 bg-blue-500 flex justify-center items-center space-x-2 text-white cursor-pointer', data: { 'disable_with' => "<div class='animate-spin border-t-2 rounded-full border-gray-100 w-5 h-5'></div><div>Xin chờ!</div>".html_safe } %>
+        <button type='reset' class='rounded-md py-2 bg-gray-200'><%= t('common.actions.reset') %></button>
         <div class="w-full py-2 px-4 bg-green-500 success hidden text-white rounded-md">
         </div>
         <div class="w-full py-2 px-4 bg-red-500 error hidden text-white rounded-md">

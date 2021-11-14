@@ -1,7 +1,7 @@
 vi:
   common:
     welcome: Thiếu Nhi Thánh Thể - Gx Thái Hoà
-    thank_you: Cảm ơn trưởng %{name}
+    thank_you: Tạo thành công!
     male: Nam
     female: Nữ
     huynh_truong1: Huynh trưởng Cấp 1
@@ -22,9 +22,9 @@ vi:
     students: Các em thiếu nhi
     leader: Trưởng Xứ Đoàn
     vice_leader: Phó Trưởng
-    chien_con1: Chiên Con cấp 1
-    chien_con2: Chiên Con cấp 2
-    chien_con3: Chiên Con cấp 3
+    chien_con1: Khai Tâm cấp 1
+    chien_con2: Khai Tâm cấp 2
+    chien_con3: Khai Tâm cấp 3
     au_nhi1: Ấu Nhi cấp 1
     au_nhi2: Ấu Nhi cấp 2
     au_nhi3: Ấu Nhi cấp 3
@@ -35,11 +35,16 @@ vi:
     nghia_si2: Nghĩa Sĩ cấp 2
     nghia_si3: Nghĩa Sĩ cấp 3
     nghia_si4: Nghĩa Sĩ cấp 4
+    hlv1: Huấn Luyện Viên Sơ cấp
+    hlv2: Huấn Luyện Viên Trung cấp
+    hlv3: Huấn Luyện Viên Cao cấp
+    tuyen_uy: Tuyên Uý
     actions:
       submit: Hoàn thành
       logout: Đăng xuất
       login: Đăng nhập
       signup: Đăng ký
+      reset: Làm mới
   activerecord:
     errors:
       messages:

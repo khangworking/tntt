@@ -1,7 +1,7 @@
 en:
   common:
     welcome: Welcome
-    thank_you: Thanks %{name}
+    thank_you: Thank you
     male: Male
     female: Female
     huynh_truong1: Senior Level 1
@@ -35,11 +35,16 @@ en:
     nghia_si2: Nghĩa Sĩ cấp 1
     nghia_si3: Nghĩa Sĩ cấp 1
     nghia_si4: Nghĩa Sĩ cấp 1
+    hlv1: Huấn Luyện Viên Sơ cấp
+    hlv2: Huấn Luyện Viên Trung cấp
+    hlv3: Huấn Luyện Viên Cao cấp
+    tuyen_uy: Tuyên Uý
     actions:
       submit: Submit
       logout: Log out
       login: Log In
       signup: Sign Up
+      reset: Reset
   activerecord:
     errors:
       messages:
