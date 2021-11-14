@@ -31,6 +31,10 @@ class Person < ApplicationRecord
   enum gender: { male: 'male', female: 'female' }
   enum role: { leader: 'leader', vice_leader: 'vice_leader' }
 
+  scope :order_name_alphabel, -> do
+    select("substring(people.fullname, length(people.fullname) - position(' ' in reverse(people.fullname)) + 2) as name, people.*").order('name ASC')
+  end
+
   class << self
     def next_feastday_persons
       where(feastday: where('feastday > CURRENT_DATE').order(:feastday).select('feastday').limit(1))

@@ -7,7 +7,7 @@ class Managers::PeopleController < ManagersController
                     .eager_load(:level)
                     .where.not(levels: { name: Level::LEADER_NAMES })
                     .where(levels: { name: level_filter })
-                    .order(created_at: :desc)
+                    .order_name_alphabel
   end
 
   def show
