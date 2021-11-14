@@ -5,7 +5,7 @@
       <%= person.fullname %>
     <% end %>
   </div>
-  <% if person.phone %>
+  <% unless person.phone.blank? %>
     <div class='text-sm flex-none'>
       <%= link_to "tel:#{Phonelib.parse(person.phone)}", class: 'text-white bg-red-700 py-2 px-4 rounded-md my-1 md:my-0 inline-block flex flex-row items-center space-x-1' do %>
         <%= heroicon "phone-outgoing", options: { class: 'w-5 h-5' } %>
