@@ -5,7 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+admin_role = Role.create(name: 'admin')
+manager_role = Role.create(name: 'manager')
+manager_level_role = Role.create(name: 'manager_level')
+
 admin = User.create(password: 'password', phone: '0123456789')
+UserRole.create(user: admin, role: admin_role)
 admin_person = Person.create(
   fullname: Faker::Name.name,
   christain_name: Faker::FunnyName.name,
@@ -29,6 +34,7 @@ end
 100.times do
   phone = Faker::PhoneNumber.phone_number.gsub(' ', '')
   user = User.create(password: 'password', phone: phone)
+  UserRole.create(user: user, role: manager_role)
   Person.create(
     fullname: Faker::Name.name,
     christain_name: Faker::FunnyName.name,

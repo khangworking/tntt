@@ -25,6 +25,7 @@ class Person < ApplicationRecord
 
   belongs_to :level, optional: true
   belongs_to :user, optional: true
+  has_many :manage_levels, class_name: Manager.to_s
 
   before_validation :strip_name
 

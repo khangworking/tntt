@@ -14,17 +14,17 @@
     </div>
   </div>
   <div class='w-full md:w-4/12 flex-auto flex flex-col space-y-2'>
-    <div class='p-3 bg-white rounded-md shadow flex flex-col'>
-      <% @levels.each do |lv| %>
-        <% if params[:level] == lv.name %>
-          <%= link_to t("common.#{lv.name}"), 'javascript:;', class: "py-1 px-3 rounded-md bg-red-700 text-white" %>
-        <% elsif !params[:level] && lv.name == 'chien_con1' %>
-          <%= link_to t("common.#{lv.name}"), 'javascript:;', class: "py-1 px-3 rounded-md bg-red-700 text-white" %>
-        <% else %>
-          <%= link_to t("common.#{lv.name}"), managers_people_path(level: lv.name), class: "py-1 px-3 rounded-md" %>
+    <% if @levels.length > 1 %>
+      <div class='p-3 bg-white rounded-md shadow flex flex-col'>
+        <% @levels.each do |lv| %>
+          <% if @selected_level.to_s == lv.id.to_s %>
+            <%= link_to t("common.#{lv.name}"), 'javascript:;', class: "py-1 px-3 rounded-md bg-red-700 text-white" %>
+          <% else %>
+            <%= link_to t("common.#{lv.name}"), managers_people_path(level_id: lv.id), class: "py-1 px-3 rounded-md" %>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
     <div class='p-3 bg-white rounded-md shadow flex flex-col'>
       <div class='font-bold mb-2'><%= t('.manager') %></div>
       <% @managers.each do |man| %>

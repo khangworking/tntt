@@ -1,22 +1,19 @@
 class Managers::PeopleController < ManagersController
   def index
-    @levels = Level.where(name: Level::STUDENT_NAMES)
+    @levels = Level.accessible_by(current_ability)
+                   .where(name: Level::STUDENT_NAMES)
+    @selected_level = params[:level_id] || @levels.ids.first
     @managers = Manager.includes(:level, person: :level)
-                       .where(levels: { name: level_filter })
-    @people = Person.where(active: true)
+                       .where(levels: { id: @selected_level })
+    @people = Person.accessible_by(current_ability)
+                    .where(active: true)
                     .eager_load(:level)
                     .where.not(levels: { name: Level::LEADER_NAMES })
-                    .where(levels: { name: level_filter })
+                    .where(levels: { id: @selected_level })
                     .order_name_alphabel
   end
 
   def show
-    @person = Person.where(active: true).find(params[:id])
-  end
-
-  def level_filter
-    return 'chien_con1' if !params[:level] || !params[:level].in?(Level::STUDENT_NAMES)
-
-    params[:level]
+    @person = Person.find(params[:id])
   end
 end

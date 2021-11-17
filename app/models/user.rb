@@ -29,8 +29,19 @@ class User < ApplicationRecord
          :trackable
 
   has_one :person
+  has_many :manage_levels, through: :person, source: :manage_levels
+  has_many :user_roles
+  has_many :roles, through: :user_roles
 
   def email_required?
     false
+  end
+
+  def admin?
+    roles.where(name: 'admin').exists?
+  end
+
+  def manager?
+    roles.where(name: 'manager').exists?
   end
 end
