@@ -47,6 +47,7 @@ en:
       login: Log In
       signup: Sign Up
       reset: Reset
+      cancel: Cancel
   activerecord:
     errors:
       messages:

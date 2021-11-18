@@ -47,6 +47,7 @@ vi:
       login: Đăng nhập
       signup: Đăng ký
       reset: Làm mới
+      cancel: Huỷ
   activerecord:
     errors:
       messages:

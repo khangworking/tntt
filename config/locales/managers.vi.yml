@@ -6,10 +6,23 @@ vi:
     sr_jr_female: Trưởng nữ
     people: Danh sách trưởng
     information: Thông tin
+    people_presences:
+      new:
+        created_at: Ngày tạo
+        created_by: Người tạo
+        level: Lớp
+      create:
+        success: Tạo phiếu thành công, cảm ơn trưởng!
+        fail: Tạo không thành công, xin kiểm tra lại!
+      update:
+        success: Cập nhật thành công!
+        fail: Cập nhật khôn thành công!
     people:
       index:
         manager: Phụ trách
         count: 'Sĩ số: %{count}'
+        create_people_presence: 'Tạo phiếu điểm danh'
+        update_people_presence: Cập nhật phiểu điểm dành
     dashboards:
       show:
         next_feastdays: 'Bổn mạng tới'

@@ -1,0 +1,17 @@
+<% url = presence.persisted? ? managers_people_presence_path(id: presence) : managers_people_presences_path %>
+<%= form_for presence, url: url, html: { class: 'flex flex-col space-y-2 p-2 rounded-md bg-white shadow' } do |f| %>
+  <% unless presence.persisted? %>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :level_id %>
+  <% end %>
+  <% people.each do |person| %>
+    <div class='flex flex-row items-center space-x-2 w-full py-1 px-2'>
+      <%= check_box_tag 'people_presence[person_ids][]', person.id, f.object.person_ids.map(&:to_i).include?(person.id), class: 'flex-none', id: dom_id(person) %>
+      <%= label_tag dom_id(person), person.fullname, class: 'flex-auto' %>
+    </div>
+  <% end %>
+  <div class='flex flex-col lg:flex-row space-y-1 lg:space-y-0 lg:space-x-1'>
+    <%= f.submit t('common.actions.submit'), class: 'bg-red-700 text-white py-2 px-3 rounded-md flex-none' %>
+    <%= link_to t('common.actions.cancel'), managers_people_path, class: 'bg-gray-300 px-4 py-2 rounded-md flex-none text-center' %>
+  </div>
+<% end %>

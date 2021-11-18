@@ -6,10 +6,23 @@ en:
     sr_jr_female: Female
     people: People
     information: Information
+    people_presences:
+      new:
+        created_at: Created At
+        created_by: Created By
+        level: Level
+      create:
+        success: Created a people presence
+        fail: Something went wrong
+      update:
+        success: Updated successful
+        fail: Something went wrong
     people:
       index:
         manager: Manager
         count: 'Count: %{count}'
+        create_people_presence: 'Create New Presence'
+        update_people_presence: Update today presence
     dashboard:
       show:
         next_feastdays: Next feastdays
