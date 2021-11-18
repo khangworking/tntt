@@ -50,15 +50,18 @@ class Managers::PeoplePresencesController < ManagersController
       user: current_user,
       level_id: level_id
     )
-    @people = Person.where(active: true)
-                    .joins(:level)
-                    .where(levels: { id: level_id })
+    fetch_people(level_id)
   end
 
   def prepare_edit
     @presence = PeoplePresence.find(params[:id])
+    fetch_people(@presence.level_id)
+  end
+
+  def fetch_people(level_id)
     @people = Person.where(active: true)
                     .joins(:level)
-                    .where(levels: { id: @presence.level_id })
+                    .where(levels: { id: level_id })
+                    .order_name_alphabel
   end
 end
