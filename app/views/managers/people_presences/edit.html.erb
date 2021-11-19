@@ -1,17 +1,25 @@
 <div class="flex flex-col space-y-2">
-  <div class='bg-white shadow rounded-md p-2 flex flex-col space-y-1'>
-    <div class='flex flex-col lg:flex-row lg:space-x-2'>
-      <div class='font-bold'><%= t('.created_at') %>:</div>
-      <div class='text-gray-700'><%= l(Time.zone.now.to_date, format: :default) %></div>
+  <div class='flex flex-col lg:flex-row items-stretch space-y-2 lg:space-y-0 lg:space-x-2'>
+    <div class='bg-white shadow rounded-md p-2 flex flex-col space-y-1 flex-auto'>
+      <div class='flex flex-col lg:flex-row lg:space-x-2'>
+        <div class='font-bold'><%= t('.created_at') %>:</div>
+        <div class='text-gray-700'><%= l(Time.zone.now.to_date, format: :default) %></div>
+      </div>
+      <div class='flex flex-col lg:flex-row lg:space-x-2'>
+        <div class='font-bold'><%= t('.created_by') %>:</div>
+        <div class='text-gray-700'><%= @presence.user.person.fullname %></div>
+      </div>
+      <div class='flex flex-col lg:flex-row lg:space-x-2'>
+        <div class='font-bold'><%= t('.level') %>:</div>
+        <div class='text-gray-700'><%= t("common.#{@presence.level.name}") %></div>
+      </div>
     </div>
-    <div class='flex flex-col lg:flex-row lg:space-x-2'>
-      <div class='font-bold'><%= t('.created_by') %>:</div>
-      <div class='text-gray-700'><%= @presence.user.person.fullname %></div>
-    </div>
-    <div class='flex flex-col lg:flex-row lg:space-x-2'>
-      <div class='font-bold'><%= t('.level') %>:</div>
-      <div class='text-gray-700'><%= t("common.#{@presence.level.name}") %></div>
+    <div class="bg-white shadow rounded-md p-2 flex flex-col space-y-1 flex-auto">
+      <div class='text-gray-700'><%= t('managers.people.index.count', count: @people.length) %></div>
+      <div class='text-gray-700'><%= t('.presence', count: @presence.person_ids.length) %></div>
+      <div class='text-gray-700'><%= t('.absent', count: @people.length - @presence.person_ids.length) %></div>
     </div>
   </div>
+
   <%= render 'form', presence: @presence, people: @people %>
 </div>

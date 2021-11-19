@@ -11,6 +11,12 @@ vi:
         created_at: Ngày tạo
         created_by: Người tạo
         level: Lớp
+      edit:
+        created_at: Ngày tạo
+        created_by: Người tạo
+        level: Lớp
+        presence: 'Hiện diện: %{count}'
+        absent: 'Vắng: %{count}'
       create:
         success: Tạo phiếu thành công, cảm ơn trưởng!
         fail: Tạo không thành công, xin kiểm tra lại!
@@ -22,7 +28,7 @@ vi:
         manager: Phụ trách
         count: 'Sĩ số: %{count}'
         create_people_presence: 'Tạo phiếu điểm danh'
-        update_people_presence: Cập nhật phiếu điểm danh
+        update_people_presence: Xem/Cập nhật phiếu điểm danh
     dashboards:
       show:
         next_feastdays: 'Bổn mạng tới'

@@ -4,6 +4,6 @@ module ApplicationHelper
   end
 
   def people_controller?
-    controller_name == 'people'
+    controller_name == 'people' && action_name == 'index'
   end
 end

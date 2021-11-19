@@ -11,6 +11,12 @@ en:
         created_at: Created At
         created_by: Created By
         level: Level
+      edit:
+        created_at: Created At
+        created_by: Created By
+        level: Level
+        presence: 'Presence: %{count}'
+        absent: 'Absent: %{count}'
       create:
         success: Created a people presence
         fail: Something went wrong
@@ -22,7 +28,7 @@ en:
         manager: Manager
         count: 'Count: %{count}'
         create_people_presence: 'Create New Presence'
-        update_people_presence: Update today presence
+        update_people_presence: Show/Update today presence
     dashboard:
       show:
         next_feastdays: Next feastdays
