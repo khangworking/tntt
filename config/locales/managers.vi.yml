@@ -22,7 +22,7 @@ vi:
         manager: Phụ trách
         count: 'Sĩ số: %{count}'
         create_people_presence: 'Tạo phiếu điểm danh'
-        update_people_presence: Cập nhật phiểu điểm dành
+        update_people_presence: Cập nhật phiếu điểm danh
     dashboards:
       show:
         next_feastdays: 'Bổn mạng tới'
