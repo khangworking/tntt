@@ -21,11 +21,8 @@
     </div>
   </div>
 
-  <div class='p-3 md:p-6 shadow rounded-md relative bg-white'>
+  <div class='p-3 md:p-4 shadow rounded-md relative bg-white'>
     <div class='flex flex-col md:flex-row space-y-4 space-x-0 md:space-y-0 md:space-x-10 items-stretch'>
-      <div class='flex flex-row justify-center'>
-        <div class='w-20 h-20 md:w-36 md:h-36 rounded-full bg-gray-200'></div>
-      </div>
       <div class='flex flex-col space-y-1'>
         <div>
           <span class='text-gray-600'><%= Person.human_attribute_name(:christain_name) %>:</span>
@@ -54,10 +51,6 @@
         <div>
           <span class='text-gray-600'><%= t('common.class') %>:</span>
           <span class='ml-2 font-bold'><%= t("common.#{@person.level.name}") %></span>
-        </div>
-        <div>
-          <span class='text-gray-600'><%= t('common.created_at') %>:</span>
-          <span class='ml-2 font-bold'><%= l(@person.created_at, format: :default) %></span>
         </div>
       </div>
     </div>
