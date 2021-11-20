@@ -16,5 +16,32 @@ class Managers::PeopleController < ManagersController
 
   def show
     @person = Person.find(params[:id])
+    authorize! :read, @person
+    render :show
+  end
+
+  def edit
+    @person = Person.find(params[:id])
+    authorize! :update, @person
+    render :edit
+  end
+
+  def update
+    @person = Person.find(params[:id])
+    authorize! :update, @person
+    if @person.update(update_params)
+      flash[:notice] = t('.success')
+      redirect_to managers_person_path(id: @person)
+    else
+      flash[:alert] = t('common.went_wrong')
+      render :edit
+    end
+  end
+
+  private
+
+  def update_params
+    params.require(:person)
+          .permit(:active, :birthday, :christain_name, :feastday, :fullname, :gender, :phone, :role)
   end
 end

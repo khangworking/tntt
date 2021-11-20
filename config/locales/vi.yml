@@ -2,8 +2,10 @@ vi:
   common:
     welcome: Thiếu Nhi Thánh Thể - Gx Thái Hoà
     thank_you: Tạo thành công!
+    information: Thông tin
     male: Nam
     female: Nữ
+    went_wrong: Đã có lỗi xảy ra
     huynh_truong1: Huynh trưởng Cấp 1
     huynh_truong2: Huynh trưởng Cấp 2
     huynh_truong3: Huynh trưởng Cấp 3
@@ -49,6 +51,7 @@ vi:
       reset: Làm mới
       cancel: Huỷ
       manage: Quản lý
+      edit: Chỉnh sửa
   activerecord:
     errors:
       messages:

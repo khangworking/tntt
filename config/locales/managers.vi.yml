@@ -24,6 +24,8 @@ vi:
         success: Cập nhật thành công!
         fail: Cập nhật khôn thành công!
     people:
+      update:
+        success: Đã cập nhật thông tin
       index:
         manager: Phụ trách
         count: 'Sĩ số: %{count}'

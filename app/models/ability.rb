@@ -45,6 +45,8 @@ class Ability
     anonymous
     can :show, :manager_dashboards
     can :manage, Level, managers: { person_id: user.person }
+    can :read, Person
+    can :update, Person, user_id: user.id
 
     if user.person.leader? || user.person.vice_leader?
       can :index, :manage_people

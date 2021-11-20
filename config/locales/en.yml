@@ -2,7 +2,9 @@ en:
   common:
     welcome: Welcome
     thank_you: Thank you
+    information: Information
     male: Male
+    went_wrong: Something went wrong
     female: Female
     huynh_truong1: Senior Level 1
     huynh_truong2: Senior Level 2
@@ -49,6 +51,7 @@ en:
       reset: Reset
       cancel: Cancel
       manage: Manage
+      edit: Edit
   activerecord:
     errors:
       messages:

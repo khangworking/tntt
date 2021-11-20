@@ -24,6 +24,8 @@ en:
         success: Updated successful
         fail: Something went wrong
     people:
+      update:
+        success: Updated
       index:
         manager: Manager
         count: 'Count: %{count}'
