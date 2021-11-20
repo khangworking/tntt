@@ -44,7 +44,13 @@ class Ability
   def manager(user)
     anonymous
     can :show, :manager_dashboards
-    can :read, Level, managers: { person_id: user.person }
+    can :manage, Level, managers: { person_id: user.person }
+
+    if user.person.leader? || user.person.vice_leader?
+      can :index, :manage_people
+      can :manage, Level, name: Level::STUDENT_NAMES
+    end
+
     if user.manage_levels.any?
       can :index, :manage_people
     end

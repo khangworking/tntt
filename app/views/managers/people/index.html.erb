@@ -19,7 +19,7 @@
     <% else %>
       <%= link_to t('.create_people_presence'), new_managers_people_presence_path(level_id: @selected_level), class: 'py-2 bg-red-700 text-white rounded-md text-center' %>
     <% end %>
-    <% if @levels.length > 1 %>
+    <% if @levels.length %>
       <div class='p-3 bg-white rounded-md shadow flex flex-col'>
         <% @levels.each do |lv| %>
           <% if @selected_level.id.to_s == lv.id.to_s %>
