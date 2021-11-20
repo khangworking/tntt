@@ -15,7 +15,7 @@ class Managers::PeopleController < ManagersController
   end
 
   def show
-    @person = Person.find(params[:id])
+    @person = Person.includes(:parents).find(params[:id])
     authorize! :read, @person
     render :show
   end

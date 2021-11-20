@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_20_063006) do
+ActiveRecord::Schema.define(version: 2021_11_20_082853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,14 @@ ActiveRecord::Schema.define(version: 2021_11_20_063006) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["level_id"], name: "index_people_presences_on_level_id"
     t.index ["user_id"], name: "index_people_presences_on_user_id"
+  end
+
+  create_table "people_relationships", force: :cascade do |t|
+    t.bigint "parent_id"
+    t.bigint "child_id"
+    t.string "relationship"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "roles", force: :cascade do |t|

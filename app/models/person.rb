@@ -27,6 +27,10 @@ class Person < ApplicationRecord
   belongs_to :level, optional: true
   belongs_to :user, optional: true
   has_many :manage_levels, class_name: Manager.to_s
+  has_many :parent_relationships, foreign_key: :child_id, class_name: PeopleRelationship.to_s
+  has_many :parents, through: :parent_relationships, source: :parent
+  has_many :child_relationships, foreign_key: :parent_id, class_name: PeopleRelationship.to_s
+  has_many :children, through: :child_relationships, source: :child
 
   before_validation :strip_name
 
@@ -61,7 +65,7 @@ class Person < ApplicationRecord
 
   def strip_name
     self.fullname = self.fullname.strip
-    self.christain_name = self.christain_name.strip
+    self.christain_name = self.christain_name&.strip
     self.phone = self.phone&.strip
   end
 end

@@ -6,6 +6,7 @@ en:
     male: Male
     went_wrong: Something went wrong
     female: Female
+    parents: Parents
     huynh_truong1: Senior Level 1
     huynh_truong2: Senior Level 2
     huynh_truong3: Senior Level 3
@@ -44,6 +45,13 @@ en:
     tro_uy: Trợ Uý
     tro_ta: Trợ Tá
     address_placeholder: Number, street name, ward and district
+    grandfather: 'Grandfather'
+    grandmother: 'Grandmother'
+    father: 'Father'
+    mother: 'Mother'
+    sister: 'Sister'
+    brother: 'Brother'
+    other: 'Other'
     actions:
       submit: Submit
       logout: Log out

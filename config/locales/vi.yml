@@ -5,6 +5,7 @@ vi:
     information: Thông tin
     male: Nam
     female: Nữ
+    parents: Phụ huynh
     went_wrong: Đã có lỗi xảy ra
     huynh_truong1: Huynh trưởng Cấp 1
     huynh_truong2: Huynh trưởng Cấp 2
@@ -44,6 +45,13 @@ vi:
     tro_uy: Trợ Uý
     tro_ta: Trợ Tá
     address_placeholder: Số nhà, tên đường, phường và quận
+    grandfather: Ông
+    grandmother: Bà
+    father: Bố
+    mother: Mẹ
+    sister: Chị
+    brother: Anh
+    other: Người giám sát
     actions:
       submit: Hoàn thành
       logout: Đăng xuất
