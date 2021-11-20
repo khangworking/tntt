@@ -47,6 +47,9 @@ class Ability
     can :manage, Level, managers: { person_id: user.person }
     can :read, Person
     can :update, Person, user_id: user.id
+    can :update, Person do |person|
+      user.manage_levels.where(level_id: person.level_id).exists?
+    end
 
     if user.person.leader? || user.person.vice_leader?
       can :index, :manage_people
