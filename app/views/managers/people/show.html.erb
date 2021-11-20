@@ -54,10 +54,11 @@
         </div>
       </div>
 
-      <% if @person.parents.any? %>
-        <div class='flex flex-col space-y-1'>
+      <div class='flex flex-col space-y-1'>
+        <div class='flex flex-row justify-between items-center'>
           <div class='text-lg md:text-2xl font-bold'><%= t('common.parents') %></div>
-          <hr>
+        </div>
+        <% if @person.parents.any? %>
           <% @person.parent_relationships.each do |relationship| %>
             <div class='border border-gray-200 rounded-md flex flex-row justify-between items-stretch p-2'>
               <div class='flex flex-col lg:flex-row lg:items-center lg:space-x-1 flex-auto'>
@@ -65,7 +66,7 @@
                 <div class='font-bold uppercase'><%= relationship.parent.fullname %></div>
               </div>
               <% if relationship.parent.phone %>
-                <%= link_to 'javascript:;', class: 'bg-red-700 flex flex-row items-center lg:space-x-1 rounded-md flex-none px-2 lg:py-1' do %>
+                <%= link_to "tel:#{relationship.parent.phone}", class: 'bg-red-700 flex flex-row items-center lg:space-x-1 rounded-md flex-none px-2 lg:py-1' do %>
                   <%= heroicon "phone-outgoing", options: { class: 'w-5 h-5 text-white' } %>
                   <div class='text-white whitespace-nowrap hidden lg:inline-block'>
                     <%= t('common.call_phone') %>
@@ -74,8 +75,8 @@
               <% end %>
             </div>
           <% end %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
