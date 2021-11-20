@@ -1,0 +1,14 @@
+<div class='flex flex-row justify-between items-center h-10 w-full'>
+  <div class='h-full px-2 grid place-items-center'>
+    <% if user_signed_in? && can?(:show, :manager_dashboards) %>
+      <%= link_to t('common.actions.manage'), managers_root_path, class: 'text-xs lg:font-both' %>
+    <% end %>
+  </div>
+  <div class='h-full px-2 grid place-items-center'>
+    <% if user_signed_in? %>
+      <%= link_to t('common.actions.logout'), destroy_user_session_path, method: :delete, class: 'text-xs lg:font-bold' %>
+    <% else %>
+      <%= link_to t('common.actions.login'), new_user_session_path, class: 'text-xs lg:font-bold lg:text-sm' %>
+    <% end %>
+  </div>
+</div>

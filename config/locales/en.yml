@@ -48,6 +48,7 @@ en:
       signup: Sign Up
       reset: Reset
       cancel: Cancel
+      manage: Manage
   activerecord:
     errors:
       messages:

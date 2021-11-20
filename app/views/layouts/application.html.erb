@@ -13,7 +13,16 @@
   </head>
 
   <body>
-    <%= render 'share/flash' %>
-    <%= yield %>
+    <div class='flex flex-col items-stretch min-h-screen w-screen'>
+      <div class='flex-none'>
+        <%= render 'share/app_head' %>
+      </div>
+      <div class='flex-auto relative'>
+        <div class='absolute z-10 px-1 w-full top-0 left-1/2 transform -translate-x-1/2'>
+          <%= render 'share/flash' %>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
