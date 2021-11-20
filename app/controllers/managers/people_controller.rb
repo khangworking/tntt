@@ -42,6 +42,6 @@ class Managers::PeopleController < ManagersController
 
   def update_params
     params.require(:person)
-          .permit(:active, :birthday, :christain_name, :feastday, :fullname, :gender, :phone, :role)
+          .permit(:birthday, :christain_name, :feastday, :fullname, :gender, :phone, :address)
   end
 end

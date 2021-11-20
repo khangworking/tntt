@@ -44,9 +44,18 @@
         </div>
         <%= f.date_field :feastday, class: 'w-full rounded-md focus:ring-0 border border-gray-300 focus:border-gray-700' %>
       </div>
+      <div class='flex flex-col lg:items-start lg:flex-row space-y-2 lg:space-y-0 lg:space-x-2 items-stretch'>
+        <div class='flex-none lg:w-1/6'>
+          <%= f.label :address %>
+        </div>
+        <%= f.text_area :address, class: 'w-full rounded-md focus:ring-0 border border-gray-300 focus:border-gray-700', placeholder: t('common.address_placeholder') %>
+      </div>
       <div class='flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-2'>
-        <%= f.button t('common.actions.submit'), class: 'rounded-md py-2 lg:px-4 bg-red-700 flex justify-center items-center space-x-2 text-white cursor-pointer', data: { 'disable_with' => "<div class='animate-spin border-t-2 rounded-full border-gray-100 w-5 h-5'></div><div>Xin chờ!</div>".html_safe } %>
-        <%= link_to t('common.actions.cancel'), managers_person_path(id: @person), class: 'rounded-md py-2 lg:px-4 bg-gray-200 text-center' %>
+        <div class='flex-none lg:w-1/6'></div>
+        <div class='flex-auto flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-2'>
+          <%= f.button t('common.actions.submit'), class: 'rounded-md py-2 lg:px-4 bg-red-700 flex justify-center items-center space-x-2 text-white cursor-pointer', data: { 'disable_with' => "<div class='animate-spin border-t-2 rounded-full border-gray-100 w-5 h-5'></div><div>Xin chờ!</div>".html_safe } %>
+          <%= link_to t('common.actions.cancel'), managers_person_path(id: @person), class: 'rounded-md py-2 lg:px-4 bg-gray-200 text-center' %>
+        </div>
       </div>
     </div>
   <% end %>

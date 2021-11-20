@@ -4,6 +4,7 @@
 #
 #  id             :bigint           not null, primary key
 #  active         :boolean          default(TRUE)
+#  address        :text
 #  birthday       :date
 #  christain_name :string
 #  feastday       :date

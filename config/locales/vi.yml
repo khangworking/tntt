@@ -43,6 +43,7 @@ vi:
     tuyen_uy: Tuyên Uý
     tro_uy: Trợ Uý
     tro_ta: Trợ Tá
+    address_placeholder: Số nhà, tên đường, phường và quận
     actions:
       submit: Hoàn thành
       logout: Đăng xuất
@@ -268,5 +269,6 @@ vi:
         phone: Số điện thoại
         gender: Giới tính
         level_id: Cấp bậc
+        address: Địa chỉ
       level:
         name: Tên cấp

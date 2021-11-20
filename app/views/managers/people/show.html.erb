@@ -44,12 +44,12 @@
           <span class='ml-2 font-bold'><%= t("common.#{@person.gender}") %></span>
         </div>
         <div>
-          <span class='text-gray-600'><%= Person.human_attribute_name(:birthday) %>:</span>
-          <span class='ml-2 font-bold'><%= @person.birthday.presence && l(@person.birthday, format: :default) %></span>
-        </div>
-        <div>
           <span class='text-gray-600'><%= Person.human_attribute_name(:feastday) %>:</span>
           <span class='ml-2 font-bold'><%= @person.feastday.presence && l(@person.feastday, format: :day_n_month) %></span>
+        </div>
+        <div>
+          <span class='text-gray-600'><%= Person.human_attribute_name(:address) %>:</span>
+          <span class='ml-2 font-bold'><%= @person.address %></span>
         </div>
         <div>
           <span class='text-gray-600'><%= t('common.class') %>:</span>

@@ -43,6 +43,7 @@ en:
     tuyen_uy: Tuyên Uý
     tro_uy: Trợ Uý
     tro_ta: Trợ Tá
+    address_placeholder: Number, street name, ward and district
     actions:
       submit: Submit
       logout: Log out
@@ -280,5 +281,6 @@ en:
         phone: Phone Number
         gender: Gender
         level_id: Level
+        address: Address
       level:
         name: Name
