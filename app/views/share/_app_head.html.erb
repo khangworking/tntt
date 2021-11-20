@@ -1,7 +1,7 @@
 <div class='flex flex-row justify-between items-center h-10 w-full'>
   <div class='h-full px-2 grid place-items-center'>
     <% if user_signed_in? && can?(:show, :manager_dashboards) %>
-      <%= link_to t('common.actions.manage'), managers_root_path, class: 'text-xs lg:font-both' %>
+      <%= link_to t('common.actions.manage'), managers_root_path, class: 'text-xs lg:font-bold' %>
     <% end %>
   </div>
   <div class='h-full px-2 grid place-items-center'>
