@@ -31,6 +31,8 @@ vi:
         count: 'Sĩ số: %{count}'
         create_people_presence: 'Tạo phiếu điểm danh'
         update_people_presence: Xem/Cập nhật phiếu điểm danh
+      create:
+        success: Đã tạo và thêm phụ huynh
     dashboards:
       show:
         next_feastdays: 'Bổn mạng tới'

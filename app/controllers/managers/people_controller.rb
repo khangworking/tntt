@@ -38,10 +38,41 @@ class Managers::PeopleController < ManagersController
     end
   end
 
+  def new
+    redirect_to managers_root_path unless params[:child_id]
+
+    build_form
+    authorize! :create, Person
+  end
+
+  # create/add parent for a student
+  def create
+    redirect_to managers_root_path unless params[:child_id]
+
+    authorize! :create, Person
+    Person.new_parent(create_params, child_id: params[:child_id], relationship: params[:relationship])
+    redirect_to new_managers_person_path(child_id: params[:child_id]), flash: { notice: t('.success') }
+  rescue ActiveRecord::Rollback
+    flash.now[:alert] = t('common.went_wrong')
+    build_form
+    render :new
+  end
+
   private
 
   def update_params
     params.require(:person)
           .permit(:birthday, :christain_name, :feastday, :fullname, :gender, :phone, :address)
+  end
+
+  def create_params
+    params.require(:person)
+          .permit(:birthday, :christain_name, :feastday, :fullname, :gender, :phone, :address)
+  end
+
+  def build_form
+    ignore_relationships = PeopleRelationship.where(child_id: params[:child_id]).pluck(:relationship)
+    @relationship = PeopleRelationship.relationships.keys - ignore_relationships
+    @person = Person.new
   end
 end

@@ -31,6 +31,8 @@ en:
         count: 'Count: %{count}'
         create_people_presence: 'Create New Presence'
         update_people_presence: Show/Update today presence
+      create:
+        success: Created a person
     dashboard:
       show:
         next_feastdays: Next feastdays

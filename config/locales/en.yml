@@ -52,6 +52,7 @@ en:
     sister: 'Sister'
     brother: 'Brother'
     other: 'Other'
+    relationship: Relationship
     actions:
       submit: Submit
       logout: Log out
@@ -61,6 +62,8 @@ en:
       cancel: Cancel
       manage: Manage
       edit: Edit
+      add: Add
+      submit_and_cons: Submit and Continuos
   activerecord:
     errors:
       messages:

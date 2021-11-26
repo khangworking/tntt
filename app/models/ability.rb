@@ -45,7 +45,7 @@ class Ability
     anonymous
     can :show, :manager_dashboards
     can :manage, Level, managers: { person_id: user.person }
-    can :read, Person
+    can :read, :create, Person
     can :update, Person, user_id: user.id
     can :update, Person do |person|
       user.manage_levels.where(level_id: person.level_id).exists?

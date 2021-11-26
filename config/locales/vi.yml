@@ -52,6 +52,7 @@ vi:
     sister: Chị
     brother: Anh
     other: Người giám sát
+    relationship: Mối quan hệ
     actions:
       submit: Hoàn thành
       logout: Đăng xuất
@@ -61,13 +62,8 @@ vi:
       cancel: Huỷ
       manage: Quản lý
       edit: Chỉnh sửa
-  activerecord:
-    errors:
-      messages:
-        record_invalid: 'Có các lỗi sau: %{errors}'
-        restrict_dependent_destroy:
-          has_one: Không thể xóa do tồn tại đối tượng phụ thuộc %{record}
-          has_many: Không thể xóa do tồn tại một số đối tượng phụ thuộc %{record}
+      add: Thêm
+      submit_and_cons: Tạo và tiếp tục
   date:
     abbr_day_names:
     - CN
@@ -265,6 +261,12 @@ vi:
       short: "%d %b %H:%M"
     pm: chiều
   activerecord:
+    errors:
+      messages:
+        record_invalid: 'Có các lỗi sau: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Không thể xóa do tồn tại đối tượng phụ thuộc %{record}
+          has_many: Không thể xóa do tồn tại một số đối tượng phụ thuộc %{record}
     models:
       person: Người
       level: Cấp bậc

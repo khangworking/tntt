@@ -55,6 +55,15 @@ class Person < ApplicationRecord
       message = message + " 🎊\nChúc các Sơ, các Thầy và các Trưởng nhiều sức khoẻ 💪 và thành công! 🏆"
       FacebookGroupsService.publish(message)
     end
+
+    def new_parent(params, child_id:, relationship: :other)
+      transaction do
+        parent = create!(params)
+        PeopleRelationship.create!(parent: parent, child_id: child_id, relationship: relationship)
+      end
+    rescue ActiveRecord::RecordInvalid
+      raise ActiveRecord::Rollback
+    end
   end
 
   def first_name
