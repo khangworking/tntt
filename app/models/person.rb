@@ -23,6 +23,7 @@
 #
 class Person < ApplicationRecord
   validates :fullname, presence: true
+  validates_uniqueness_of :phone, allow_blank: true
 
   belongs_to :level, optional: true
   belongs_to :user, optional: true
