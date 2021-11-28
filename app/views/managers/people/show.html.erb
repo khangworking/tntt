@@ -70,7 +70,7 @@
                   <div class='text-md'><%= t("common.#{relationship.relationship}") %></div>
                   <div class='font-bold uppercase'><%= relationship.parent.fullname %></div>
                 </div>
-                <% if relationship.parent.phone %>
+                <% if relationship.parent.phone.present? %>
                   <%= link_to "tel:#{relationship.parent.phone}", class: 'bg-red-700 flex flex-row items-center lg:space-x-1 rounded-md flex-none px-2 lg:py-1' do %>
                     <%= heroicon "phone-outgoing", options: { class: 'w-5 h-5 text-white' } %>
                     <div class='text-white whitespace-nowrap hidden lg:inline-block'>

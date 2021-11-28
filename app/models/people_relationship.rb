@@ -14,10 +14,10 @@ class PeopleRelationship < ApplicationRecord
   belongs_to :child, class_name: Person.to_s
 
   enum relationship: {
-    grandfather: 'grandfather',
-    grandmother: 'grandmother',
     father: 'father',
     mother: 'mother',
+    grandfather: 'grandfather',
+    grandmother: 'grandmother',
     sister: 'sister',
     brother: 'brother',
     other: 'other'
