@@ -23,18 +23,16 @@
         <% end %>
       </div>
     <% end %>
-    <div class='shadow bg-white p-3 rounded-md flex flex-col space-y-2'>
+    <div class='shadow bg-white p-3 flex flex-col space-y-2 rounded-md'>
       <div class='font-bold'><%= t('.next_feastdays') %></div>
-      <% date = @feastday_persons.first.feastday %>
-      <div class='flex flex-col space-y-1'>
-        <div class='text-gray-500'><%= l(date, format: :short) %></div>
-        <% @feastday_persons.each do |person| %>
-          <div class='flex flex-col'>
-            <div class='text-sm'><%= person.christain_name %></div>
-            <div class='font-bold'><%= person.fullname.upcase %></div>
-          </div>
-        <% end %>
-      </div>
+      <% @feastday_n_people.each do |date, people| %>
+        <div class='flex flex-col space-y-1'>
+          <div class='text-gray-700 text-sm'><%= l(date, format: :short) %></div>
+          <% people.each do |ps| %>
+            <div class='uppercase font-bold'><%= ps.fullname %></div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

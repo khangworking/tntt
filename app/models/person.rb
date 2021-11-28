@@ -42,8 +42,12 @@ class Person < ApplicationRecord
   end
 
   class << self
-    def next_feastday_persons
-      where(feastday: where('feastday > CURRENT_DATE').order(:feastday).select('feastday').limit(1))
+    def next_feastday_persons(num = 1)
+      where(feastday: where('feastday > CURRENT_DATE').order(:feastday).select('feastday').limit(num))
+        .joins(:level)
+        .where(levels: { name: Level::LEADER_NAMES + %w[tro_uy tro_ta] })
+        .order(:feastday)
+        .group_by(&:feastday)
     end
 
     def send_feastday_congratulation
