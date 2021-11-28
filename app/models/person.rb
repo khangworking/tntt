@@ -50,16 +50,6 @@ class Person < ApplicationRecord
         .group_by(&:feastday)
     end
 
-    def send_feastday_congratulation
-      people = where(feastday: Time.zone.now.to_date, active: true)
-      return if people.empty?
-
-      message = "🎉️🎉 Chúc mừng các Sơ, các Thầy và các Trưởng có bổn mạng trong ngày hôm nay (#{I18n.l(Time.zone.now.to_date, format: :default)}):\n- "
-      message = message + people.map(&:fullname).map(&:upcase).join(" 🎊\n- ")
-      message = message + " 🎊\nChúc các Sơ, các Thầy và các Trưởng nhiều sức khoẻ 💪 và thành công! 🏆"
-      FacebookGroupsService.publish(message)
-    end
-
     def new_parent(params, child_id:, relationship: :other)
       transaction do
         parent = create!(params)
