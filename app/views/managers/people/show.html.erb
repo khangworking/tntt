@@ -48,13 +48,15 @@
           <span class='text-gray-600'><%= Person.human_attribute_name(:address) %>:</span>
           <span class='ml-2 font-bold'><%= @person.address %></span>
         </div>
-        <div>
-          <span class='text-gray-600'><%= t('common.class') %>:</span>
-          <span class='ml-2 font-bold'><%= t("common.#{@person.level.name}") %></span>
-        </div>
+        <% if @person.level %>
+          <div>
+            <span class='text-gray-600'><%= t('common.class') %>:</span>
+            <span class='ml-2 font-bold'><%= t("common.#{@person.level.name}") %></span>
+          </div>
+        <% end %>
       </div>
 
-      <% if @person.level.name.in?(Level::STUDENT_NAMES) %>
+      <% if @person.level && @person.level.name.in?(Level::STUDENT_NAMES) %>
         <div class='flex flex-col space-y-1'>
           <div class='flex flex-row justify-between items-center'>
             <div class='text-lg md:text-2xl font-bold'><%= t('common.parents') %></div>
@@ -68,7 +70,7 @@
               <div class='border border-gray-200 rounded-md flex flex-row justify-between items-stretch p-2'>
                 <div class='flex flex-col lg:flex-row lg:items-center lg:space-x-1 flex-auto'>
                   <div class='text-md'><%= t("common.#{relationship.relationship}") %></div>
-                  <div class='font-bold uppercase'><%= relationship.parent.fullname %></div>
+                  <div class='font-bold uppercase'><%= link_to relationship.parent.fullname, managers_person_path(id: relationship.parent) %></div>
                 </div>
                 <% if relationship.parent.phone.present? %>
                   <%= link_to "tel:#{relationship.parent.phone}", class: 'bg-red-700 flex flex-row items-center lg:space-x-1 rounded-md flex-none px-2 lg:py-1' do %>

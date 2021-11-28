@@ -53,7 +53,9 @@ class Person < ApplicationRecord
 
     def new_parent(params, child_id:, relationship: :other)
       transaction do
-        parent = create!(params)
+        phone = params[:phone]
+        parent = find_by(phone: phone) if phone.present?
+        parent ||= create!(params)
         PeopleRelationship.create!(parent: parent, child_id: child_id, relationship: relationship)
       end
     rescue ActiveRecord::RecordInvalid
