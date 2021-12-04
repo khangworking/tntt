@@ -10,7 +10,7 @@ export default class extends Controller {
   fetchToday() {
     if (!this.todayTarget) return;
 
-    fetch('http://calapi.inadiutorium.cz/api/v0/en/calendars/general-en/today')
+    fetch('//calapi.inadiutorium.cz/api/v0/en/calendars/general-en/today')
       .then(res => res.json())
       .then(result => {
         this.todayTarget.innerHTML = result.celebrations.map(item => `${item.title}`).join('<br />')
