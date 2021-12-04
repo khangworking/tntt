@@ -1,3 +1,13 @@
-<div class='flex flex-col h-full items-center'>
-  <div class='lg:text-3xl text-md text-gray-800 font-bold'><%= t('common.welcome') %></div>
+<div class='absolute top-0 left-0 h-full w-full grid place-items-center'>
+  <div class='lg:text-3xl text-md text-gray-800 font-bold flex flex-col space-y-2 items-center'>
+    <%= t('common.welcome') %>
+    <div class='text-sm lg:text-lg'>
+      <%= t('common.today_is', date: l(Time.zone.now.to_date, format: :long)) %>
+    </div>
+    <div class='text-sm text-center' data-controller="church-calendar" data-church-calendar-target="today">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 animate-spin transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+      </svg>
+    </div>
+  </div>
 </div>

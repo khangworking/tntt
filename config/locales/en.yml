@@ -53,6 +53,7 @@ en:
     brother: 'Brother'
     other: 'Other'
     relationship: Relationship
+    today_is: Today is %{date}
     actions:
       submit: Submit
       logout: Log out

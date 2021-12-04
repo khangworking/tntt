@@ -53,6 +53,7 @@ vi:
     brother: Anh
     other: Người giám sát
     relationship: Mối quan hệ
+    today_is: Hôm này là %{date}
     actions:
       submit: Hoàn thành
       logout: Đăng xuất
