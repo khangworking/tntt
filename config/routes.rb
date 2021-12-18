@@ -11,5 +11,16 @@ Rails.application.routes.draw do
 
       root to: 'dashboards#show'
     end
+
+    namespace :admin do
+      resource :dashboard, only: :show
+      resources :people, only: [] do
+        collection do
+          post :export
+        end
+      end
+
+      root to: 'dashboard#show'
+    end
   end
 end

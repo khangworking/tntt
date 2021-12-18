@@ -61,6 +61,15 @@ class Person < ApplicationRecord
     rescue ActiveRecord::RecordInvalid
       raise ActiveRecord::Rollback
     end
+
+    def students_to_csv
+      require "csv"
+      CSV.generate(encoding: 'utf-8') do |csv|
+        eager_load(:level).where(levels: { name: Level::STUDENT_NAMES }).each do |ps|
+          csv << [ps.christain_name, ps.fullname, I18n.t("common.#{ps.level.name}")]
+        end
+      end
+    end
   end
 
   def first_name
