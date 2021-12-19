@@ -26,8 +26,8 @@ class Person < ApplicationRecord
   validates_uniqueness_of :phone, allow_blank: true
 
   belongs_to :level, optional: true
-  belongs_to :user, optional: true
-  has_many :manage_levels, class_name: Manager.to_s
+  belongs_to :user, optional: true, dependent: :destroy
+  has_many :manage_levels, class_name: Manager.to_s, dependent: :destroy
   has_many :parent_relationships, foreign_key: :child_id, class_name: PeopleRelationship.to_s
   has_many :parents, through: :parent_relationships, source: :parent
   has_many :child_relationships, foreign_key: :parent_id, class_name: PeopleRelationship.to_s
