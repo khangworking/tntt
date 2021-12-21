@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resource :dashboard, only: :show
       resources :people, only: %i[index show edit update create new]
       resources :people_presences, only: %i[new create edit update]
+      resources :scores, only: %i[show]
 
       root to: 'dashboards#show'
     end

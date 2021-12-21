@@ -31,6 +31,7 @@ vi:
         count: 'Sĩ số: %{count}'
         create_people_presence: 'Tạo phiếu điểm danh'
         update_people_presence: Xem/Cập nhật phiếu điểm danh
+        score_table: Bảng điểm
       create:
         success: Đã tạo và thêm phụ huynh
     dashboards:

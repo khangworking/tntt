@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_20_082853) do
+ActiveRecord::Schema.define(version: 2021_12_19_101236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,27 @@ ActiveRecord::Schema.define(version: 2021_11_20_082853) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "score_cells", force: :cascade do |t|
+    t.bigint "score_id"
+    t.bigint "person_id"
+    t.float "score_in_number"
+    t.date "applied_date"
+    t.bigint "modified_by"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["person_id"], name: "index_score_cells_on_person_id"
+    t.index ["score_id"], name: "index_score_cells_on_score_id"
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.bigint "level_id"
+    t.date "start_date"
+    t.boolean "active", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["level_id"], name: "index_scores_on_level_id"
   end
 
   create_table "settings", force: :cascade do |t|

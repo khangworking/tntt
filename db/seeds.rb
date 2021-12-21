@@ -87,12 +87,14 @@ people = Person.where(active: true)
                .order('random()')
                .ids
 Level.includes(:people).where(name: Level::STUDENT_NAMES).each do |lv|
+  Score.create!(start_date: 3.months.ago.to_date, level_id: lv.id)
+
   # Assign manger to each student level
   manager_ids = []
   rand(2..3).times do
     person_id = people.shift
     manager_ids << person_id
-    Manager.create(level_id: lv.id, person_id: person_id, role: :assistant)
+    Manager.create!(level_id: lv.id, person_id: person_id, role: :assistant)
   end
 
   # Seed presences
@@ -101,7 +103,7 @@ Level.includes(:people).where(name: Level::STUDENT_NAMES).each do |lv|
     user_id = manager_ids.shuffle.first
     ids = student_ids.shuffle
     present_number = rand((ids.length - 3)..ids.length)
-    PeoplePresence.create(
+    PeoplePresence.create!(
       person_ids: ids.first(present_number),
       level_id: lv.id,
       user_id: user_id,

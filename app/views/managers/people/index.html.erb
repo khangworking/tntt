@@ -19,6 +19,9 @@
     <% else %>
       <%= link_to t('.create_people_presence'), new_managers_people_presence_path(level_id: @selected_level), class: 'py-2 bg-red-700 text-white rounded-md text-center' %>
     <% end %>
+
+    <%= link_to t('.score_table'), managers_score_path(id: @selected_level.active_score.id), class: 'py-2 border border-red-700 text-red-700 rounded-md text-center hover:bg-red-700 hover:text-white' %>
+
     <% if @levels.length %>
       <div class='p-3 bg-white rounded-md shadow flex flex-col'>
         <% @levels.each do |lv| %>

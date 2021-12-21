@@ -25,4 +25,17 @@ class PeoplePresence < ApplicationRecord
   def self.today
     where('DATE(created_at) = ?', Time.zone.now.to_date).take
   end
+
+  def generate_score_cells!
+    active_score = level.active_score
+    return unless active_score
+
+    person_ids.each do |ps|
+      active_score.score_cells.create!(
+        applied_date: created_at.to_date,
+        score_in_number: 1,
+        person_id: ps
+      )
+    end
+  end
 end

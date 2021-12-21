@@ -1,5 +1,7 @@
 class Managers::PeoplePresencesController < ManagersController
   def new
+    return redirect_to managers_root_path unless params[:level_id]
+
     prepare_form(params[:level_id])
   end
 
