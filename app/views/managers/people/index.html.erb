@@ -28,7 +28,7 @@
           <%= link_to edit_managers_people_presence_path(id: @presence), class: 'p-1 bg-red-700 text-white rounded-md text-center flex-none' do %>
             <%= heroicon 'pencil', options: { class: 'w-5 h-5' } %>
           <% end %>
-          <% if @selected_level.presences.any? %>
+          <% if @selected_level.people_presences.any? %>
             <%= link_to managers_level_people_presences_path(level_id: @selected_level), class: 'p-1 bg-white text-gray-700 rounded-md text-center flex-none' do %>
               <%= heroicon 'view-list', options: { class: 'w-5 h-5' } %>
             <% end %>
@@ -42,7 +42,7 @@
           <%= link_to new_managers_people_presence_path(level_id: @selected_level), class: 'bg-red-700 text-white rounded-md text-center flex-none' do %>
             <%= heroicon 'plus', options: { class: 'w-7 h-7' } %>
           <% end %>
-          <% if @selected_level.presences.any? %>
+          <% if @selected_level.people_presences.any? %>
             <%= link_to managers_level_people_presences_path(level_id: @selected_level), class: 'p-1 bg-white text-gray-700 rounded-md text-center flex-none' do %>
               <%= heroicon 'view-list', options: { class: 'w-5 h-5' } %>
             <% end %>
