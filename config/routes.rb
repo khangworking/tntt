@@ -10,6 +10,12 @@ Rails.application.routes.draw do
       resources :people_presences, only: %i[new create edit update]
       resources :scores, only: %i[show]
 
+      resources :levels, only: [] do
+        scope module: :levels do
+          resources :people_presences, only: :index
+        end
+      end
+
       root to: 'dashboards#show'
     end
 
