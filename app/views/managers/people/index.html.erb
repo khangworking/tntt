@@ -22,9 +22,23 @@
     </div>
 
     <% if @presence %>
-      <%= link_to t('.update_people_presence'), edit_managers_people_presence_path(id: @presence), class: 'py-2 bg-red-700 text-white rounded-md text-center' %>
+      <div class='group flex flex-row items-center justify-between px-3 py-2 border border-gray-300 hover:border-gray-600 duration-200 rounded-md'>
+        <div class='text-gray-700 group-hover:text-gray-900'><%= l(@presence.created_at.to_date, format: :default) %></div>
+        <div class='flex flex-row items-center space-x-1'>
+          <%= link_to edit_managers_people_presence_path(id: @presence), class: 'p-1 bg-red-700 text-white rounded-md text-center flex-none' do %>
+            <%= heroicon 'pencil', options: { class: 'w-5 h-5' } %>
+          <% end %>
+        </div>
+      </div>
     <% else %>
-      <%= link_to t('.create_people_presence'), new_managers_people_presence_path(level_id: @selected_level), class: 'py-2 bg-red-700 text-white rounded-md text-center' %>
+      <div class='group flex flex-row items-center justify-between px-3 py-2 border border-gray-300 hover:border-gray-600 duration-200 rounded-md'>
+        <div class='text-gray-700 group-hover:text-gray-900'><%= t('.people_presence') %></div>
+        <div class='flex flex-row items-center space-x-1'>
+          <%= link_to new_managers_people_presence_path(level_id: @selected_level), class: 'bg-red-700 text-white rounded-md text-center flex-none' do %>
+            <%= heroicon 'plus', options: { class: 'w-7 h-7' } %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
 
     <% if @selected_level.active_score && @selected_level.active_score.score_cells.any? %>

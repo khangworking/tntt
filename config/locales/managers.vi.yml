@@ -29,7 +29,7 @@ vi:
       index:
         manager: Phụ trách
         count: 'Sĩ số: %{count}'
-        create_people_presence: 'Tạo phiếu điểm danh'
+        people_presence: Điểm danh
         update_people_presence: Xem/Cập nhật phiếu điểm danh
         score_table: Bảng điểm
       create:
