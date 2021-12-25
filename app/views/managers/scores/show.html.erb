@@ -18,7 +18,7 @@
             <% @score.level.active_people.each do |ps| %>
               <% score = Array(@score_cells[[l(date, format: :default), ps.id]]).first&.score_in_number.to_i %>
               <div class="py-2 px-1 border-t text-center <%= score.positive? ? 'bg-green-300 text-white' : '' %>">
-                <%= score %>
+                <%= score.positive? ? score : '-' %>
               </div>
             <% end %>
           </div>
