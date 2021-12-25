@@ -3,7 +3,7 @@
     <% @level.active_people.each do |ps| %>
       <div class='flex flex-row items-center justify-between py-1 px-2 border border-opacity-0 border-gray-700 rounded-md my-1 hover:border-opacity-100 duration-500'>
         <div class='font-bold'><%= ps.fullname %></div>
-        <div><%= @people_hash[ps.id] %>/<%= @presences.length %></div>
+        <div><%= @people_hash[ps.id].to_i %>/<%= @presences.length %></div>
       </div>
     <% end %>
   </div>
