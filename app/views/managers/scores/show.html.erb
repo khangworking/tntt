@@ -11,7 +11,7 @@
       <% end %>
     </div>
     <div class='flex-auto flex flex-row flex-nowrap items-stretch overflow-auto'>
-      <% (@score.start_date..(@score.start_date + 12.month)).select(&:sunday?).each do |date| %>
+      <% (@score.first_date..@score.latest_date).select(&:sunday?).each do |date| %>
         <div class='flex flex-col items-stretch divide-x divide-gray-500'>
           <div class='whitespace-nowrap flex-none px-2'><%= date %></div>
           <div class='flex-auto flex flex-col'>
