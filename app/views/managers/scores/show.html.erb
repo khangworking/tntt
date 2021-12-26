@@ -6,7 +6,8 @@
       </div>
       <% @score.level.active_people.each do |ps| %>
         <div class='border-t py-1 lg:py-3 px-1 bg-gray-50 whitespace-nowrap text-xs lg:text-md'>
-          <%= ps.fullname %>
+          <span class='hidden lg:block'><%= ps.fullname %></span>
+          <span class='block lg:hidden'><%= ps.name_for_short %></span>
         </div>
       <% end %>
     </div>

@@ -76,6 +76,12 @@ class Person < ApplicationRecord
     fullname.split(' ')[-1]
   end
 
+  def name_for_short
+    fullname.split(' ')[0..-2].map do |letter|
+      "#{letter.first}."
+    end.join('') + first_name
+  end
+
   private
 
   def strip_name
