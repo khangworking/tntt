@@ -1,23 +1,23 @@
 <div class='p-2 bg-white rounded-md'>
   <div class='flex flex-row items-stretch'>
     <div class='flex flex-col'>
-      <div class='font-bold text-center'>
-        Tên
+      <div class='font-bold text-center text-xs lg:text-md'>
+        <%= Person.human_attribute_name(:fullname) %>
       </div>
       <% @score.level.active_people.each do |ps| %>
-        <div class='border-t py-2 px-1 bg-gray-50 whitespace-nowrap'>
-          <td class='whitespace-nowrap border-b border-gray-100'><%= ps.fullname %></td>
+        <div class='border-t py-1 lg:py-3 px-1 bg-gray-50 whitespace-nowrap text-xs lg:text-md'>
+          <%= ps.fullname %>
         </div>
       <% end %>
     </div>
-    <div class='flex-auto flex flex-row flex-nowrap items-stretch overflow-auto'>
+    <div class='flex-auto flex flex-row flex-nowrap items-stretch overflow-auto text-xs lg:text-md'>
       <% (@score.first_date..@score.latest_date).select(&:sunday?).each do |date| %>
         <div class='flex flex-col items-stretch divide-x divide-gray-500'>
           <div class='whitespace-nowrap flex-none px-2'><%= date %></div>
           <div class='flex-auto flex flex-col'>
             <% @score.level.active_people.each do |ps| %>
               <% score = Array(@score_cells[[l(date, format: :default), ps.id]]).first&.score_in_number.to_i %>
-              <div class="py-2 px-1 border-t text-center <%= score.positive? ? 'bg-green-300 text-white' : '' %>">
+              <div class="py-1 lg:py-3 px-1 border-t text-center text-xs lg:text-md <%= score.positive? ? 'bg-green-300 text-white' : '' %>">
                 <%= score.positive? ? score : '-' %>
               </div>
             <% end %>
