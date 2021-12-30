@@ -34,7 +34,8 @@ class PeoplePresence < ApplicationRecord
       active_score.score_cells.create!(
         applied_date: created_at.to_date,
         score_in_number: 1,
-        person_id: ps
+        person_id: ps,
+        score_type: :presence
       )
     end
   end

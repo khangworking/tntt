@@ -6,6 +6,7 @@
 #  applied_date    :date
 #  modified_by     :bigint
 #  score_in_number :float
+#  score_type      :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  person_id       :bigint
@@ -20,4 +21,9 @@ class ScoreCell < ApplicationRecord
   belongs_to :student, foreign_key: :person_id, class_name: Person.to_s
   belongs_to :modifier, foreign_key: :modified_by, class_name: Person.to_s, optional: true
   belongs_to :score
+
+  enum score_type: {
+    presence: 'presence',
+    custom: 'custom'
+  }
 end

@@ -112,3 +112,7 @@ Level.includes(:people).where(name: Level::STUDENT_NAMES).each do |lv|
     )
   end
 end
+
+PeoplePresence.all.each do |people_presence|
+  people_presence.generate_score_cells!
+end
