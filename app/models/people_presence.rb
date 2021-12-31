@@ -3,6 +3,7 @@
 # Table name: people_presences
 #
 #  id         :bigint           not null, primary key
+#  archived   :boolean          default(FALSE)
 #  person_ids :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -22,13 +23,15 @@ class PeoplePresence < ApplicationRecord
 
   validates :person_ids, presence: true
 
+  scope :unarchived, -> { where(archived: false) }
+
   class << self
     def today
-      where('DATE(created_at) = ?', Time.zone.now.to_date).take
+      unarchived.where('DATE(created_at) = ?', Time.zone.now.to_date).take
     end
 
     def process_score_cells
-      where('DATE(created_at) = ?', 1.days.ago.to_date).each(&:generate_score_cells!)
+      unarchived.where('DATE(created_at) = ?', 1.days.ago.to_date).each(&:generate_score_cells!)
     end
   end
 
