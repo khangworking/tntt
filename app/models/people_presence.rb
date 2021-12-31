@@ -39,13 +39,16 @@ class PeoplePresence < ApplicationRecord
     active_score = level.active_score
     return unless active_score
 
-    person_ids.each do |ps|
-      active_score.score_cells.create!(
-        applied_date: created_at.to_date,
-        score_in_number: 1,
-        person_id: ps,
-        score_type: :presence
-      )
+    transaction do
+      person_ids.each do |ps|
+        active_score.score_cells.create!(
+          applied_date: created_at.to_date,
+          score_in_number: 1,
+          person_id: ps,
+          score_type: :presence
+        )
+      end
+      update!(archived: true)
     end
   end
 end
