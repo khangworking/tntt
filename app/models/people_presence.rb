@@ -22,8 +22,14 @@ class PeoplePresence < ApplicationRecord
 
   validates :person_ids, presence: true
 
-  def self.today
-    where('DATE(created_at) = ?', Time.zone.now.to_date).take
+  class << self
+    def today
+      where('DATE(created_at) = ?', Time.zone.now.to_date).take
+    end
+
+    def process_score_cells
+      where('DATE(created_at) = ?', 1.days.ago.to_date).each(&:generate_score_cells!)
+    end
   end
 
   def generate_score_cells!
