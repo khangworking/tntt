@@ -1,5 +1,9 @@
 en:
   managers:
+    sidebar:
+      dashboard: Dashboard
+      people: People
+      students: Students
     dashboard: Dashboard
     sr_jr_label: Seniors/Juniors
     sr_jr_male: Male
@@ -34,6 +38,3 @@ en:
         score_table: Scores
       create:
         success: Created a person
-    dashboard:
-      show:
-        next_feastdays: Next feastdays

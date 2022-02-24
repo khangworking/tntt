@@ -16,4 +16,6 @@ class Level < ApplicationRecord
   has_many :people_presences
   has_many :scores
   has_one :active_score, -> { where(active: true) }, class_name: Score.to_s
+
+  scope :students, -> { where(name: STUDENT_NAMES) }
 end

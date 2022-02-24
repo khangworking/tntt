@@ -1,0 +1,29 @@
+<div class='p-5 bg-white rounded-sm shadow-sm mx-2'>
+  <div class='flex flex-row items-center mb-3'>
+    <%= form_tag managers_students_path, method: :get do %>
+      <%= select_tag :gender, options_for_select(Person.genders.map { |k,v| [t("common.#{k}"), v] }, params[:gender]), { include_blank: 'All', class: 'py-1', onchange: 'this.form.submit()' } %>
+      <%= select_tag :level_id, options_for_select(Level.students.map { |lv| [t("common.#{lv.name}"), lv.id] }, params[:level_id]), { include_blank: 'All', class: 'py-1', onchange: 'this.form.submit()' } %>
+    <% end %>
+  </div>
+
+  <table class='w-full'>
+    <tr>
+      <th class='text-left'>Christain Name</th>
+      <th class='text-left'>Full Name</th>
+      <th>Gender</th>
+      <th>Level</th>
+    </tr>
+    <% @students.each do |item| %>
+      <tr>
+        <td class='border-b border-gray-200 py-2 w-36'><%= item.christain_name %></td>
+        <td class='border-b border-gray-200 py-2'><%= item.fullname %></td>
+        <td class="text-center border-b border-gray-200 py-2"><%= t("common.#{item.gender}") %></td>
+        <td class="text-center border-b border-gray-200 py-2"><%= t("common.#{item.level.name}") %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <div class='flex flex-row justify-center items-center'>
+    <%= paginate @students %>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="flex flex-row items-center space-x-2">
+  <div class='rounded-lg px-3 py-1 bg-white text-gray-900 text-2xl'>
+    <%= person.abbreviation_name %>
+  </div>
+  <div class='flex flex-col space-y-1'>
+    <div class='font-bold text-xs'>
+      <%= person.fullname %>
+    </div>
+    <%= link_to t('common.actions.logout'), destroy_user_session_path, method: :delete, class: 'text-xs' %>
+  </div>
+</div>

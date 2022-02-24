@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
     namespace :managers do
       resource :dashboard, only: :show
+      resources :students, only: :index
       resources :people, only: %i[index show edit update create new]
       resources :people_presences, only: %i[new create edit update]
       resources :scores, only: %i[show]

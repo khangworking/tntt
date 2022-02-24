@@ -82,6 +82,10 @@ class Person < ApplicationRecord
     end.join('') + first_name
   end
 
+  def abbreviation_name
+    fullname.split[-1][0]
+  end
+
   private
 
   def strip_name

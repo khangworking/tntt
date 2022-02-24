@@ -13,19 +13,17 @@
   </head>
 
   <body class="overflow-hidden bg-gray-100">
-    <div class='flex flex-col items-stretch h-screen space-y-3'>
-      <div class='flex-none h-10 bg-white'>
-        <%= render 'share/admin_top_head' %>
+    <div class='flex flex-row items-stretch h-screen w-screen'>
+      <div class='flex-none w-56 bg-gray-800 text-white p-3'>
+        <%= render 'people/small_card_info', person: current_user.person %>
+        <div class='mt-7'>
+          <%= render 'share/manager_sidebar' %>
+        </div>
       </div>
-      <div class='flex-none'>
-        <%= render 'share/admin_menus' %>
-      </div>
-      <div class='flex-auto relative'>
-        <div class='absolute top-0 left-0 w-full h-full overflow-auto px-3'>
-          <div class='w-full md:w-4/5 lg:w-9/12 mx-auto'>
-            <%= render 'share/flash' %>
-            <%= yield %>
-          </div>
+      <div class='flex-auto bg-gray-200 relative'>
+        <div class='absolute top-0 left-0 w-full h-full overflow-auto'>
+          <%= render 'share/manager_header' %>
+          <%= yield %>
         </div>
       </div>
     </div>

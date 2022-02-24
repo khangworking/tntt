@@ -19,10 +19,19 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:phone, :email, :password, :password_confirmation, :current_password])
   end
 
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) ||
+      if resource.roles.where(name: %w[admin manager manager_level]).exists?
+        managers_dashboard_path
+      else
+        root_path
+      end
+  end
+
   private
 
   def set_locale
-    I18n.locale = params[:locale] || :vi
+    I18n.locale = params[:locale] || :en
   end
 
   def layout_by_resource

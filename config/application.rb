@@ -17,7 +17,7 @@ module Tntt
     # in config/environments, which are processed later.
     #
     config.time_zone = "Asia/Ho_Chi_Minh"
-    config.i18n.default_locale = :vi
+    # config.i18n.default_locale = :vi
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end

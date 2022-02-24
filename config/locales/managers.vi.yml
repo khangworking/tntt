@@ -1,5 +1,9 @@
 vi:
   managers:
+    sidebar:
+      dashboard: Dashboard
+      people: People
+      students: Students
     dashboard: Thông tin chung
     sr_jr_label: Trưởng
     sr_jr_male: Trưởng nam
