@@ -16,7 +16,7 @@ admin = User.create(password: 'password', phone: '0123456789')
 UserRole.create(user: admin, role: admin_role)
 admin_person = Person.create(
   fullname: Faker::Name.name,
-  christain_name: Faker::FunnyName.name,
+  christain_name: Faker::FunnyName.name.split(' ').last,
   birthday: Faker::Date.birthday(min_age: 5, max_age: 65),
   feastday: Faker::Date.in_date_period,
   phone: '0123456789',
@@ -41,7 +41,7 @@ end
   UserRole.create(user: user, role: manager_role)
   Person.create(
     fullname: Faker::Name.name,
-    christain_name: Faker::FunnyName.name,
+    christain_name: Faker::FunnyName.name.split(' ').last,
     birthday: Faker::Date.birthday(min_age: 5, max_age: 65),
     feastday: Faker::Date.in_date_period,
     phone: phone,
@@ -58,7 +58,7 @@ Level::STUDENT_NAMES.each do |name|
   100.times do
     Person.create(
       fullname: Faker::Name.name,
-      christain_name: Faker::FunnyName.name,
+      christain_name: Faker::FunnyName.name.split(' ').last,
       level: lv,
       active: [true, false].sample,
       gender: %w(male female).sample
