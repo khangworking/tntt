@@ -38,6 +38,9 @@ class Person < ApplicationRecord
   enum gender: { male: 'male', female: 'female' }
   enum role: { leader: 'leader', vice_leader: 'vice_leader' }
 
+  scope :students, -> do
+    joins(:level).where(levels: { name: Level::STUDENT_NAMES })
+  end
   scope :order_name_alphabel, -> do
     select("substring(people.fullname, length(people.fullname) - position(' ' in reverse(people.fullname)) + 2) as name, people.*").order('name ASC')
   end
