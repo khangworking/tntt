@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  namespace :api, format: :json do
+    namespace :v0 do
+      resources :students, only: %i[index show]
+      resource :auth, only: :create, controller: 'auth'
+    end
+  end
+
   if ENV['WEB_ACTIVE'] == '1'
-    scope "(:locale)", locale: /vi|en/ do
+    scope '(:locale)', locale: /vi|en/ do
       devise_for :users
-      # resources :people, only: %i[new create]
-      root to: 'home#index'
 
       namespace :managers do
         resource :dashboard, only: :show
@@ -30,6 +35,8 @@ Rails.application.routes.draw do
 
         root to: 'dashboard#show'
       end
+
+      root to: 'home#index'
     end
   end
 end
