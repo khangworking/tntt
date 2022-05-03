@@ -65,3 +65,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "rack-cors", "~> 1.1"
 
 gem "kaminari", "~> 1.2"
+
+gem "jwt", "~> 2.3"
