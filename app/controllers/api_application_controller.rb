@@ -5,8 +5,6 @@ class ApiApplicationController < ActionController::Base
   rescue_from ActionController::BadRequest, with: :head_400
   rescue_from JWT::ExpiredSignature, with: :head_401
 
-  before_action :authenticate_user!
-
   def head_400
     render json: { success: false, error: 'Bad Request' }, status: :bad_request
   end
