@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v0 do
       resources :students, only: %i[index show]
       resource :auth, only: :create, controller: 'auth'
+      resource :basic_informations, only: :show
     end
   end
 

@@ -20,7 +20,7 @@
 # Indexes
 #
 #  index_people_on_user_id  (user_id)
-#
+
 class Person < ApplicationRecord
   validates :fullname, presence: true
   validates_uniqueness_of :phone, allow_blank: true
