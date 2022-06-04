@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :api, format: :json do
     namespace :v0 do
       resources :students, only: %i[index show]
+      resources :leaders, only: %i[index]
       resource :auth, only: :create, controller: 'auth'
       resource :basic_informations, only: :show
     end
