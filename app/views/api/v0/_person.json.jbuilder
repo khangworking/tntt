@@ -1,1 +1,1 @@
-json.(student, :id, :fullname)
+json.(student, :id, :fullname, :christain_name)
