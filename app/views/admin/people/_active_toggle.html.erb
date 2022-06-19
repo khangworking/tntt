@@ -1,0 +1,21 @@
+<%= turbo_frame_tag dom_id(person, 'active_status') do %>
+  <div class='flex flex-row items-center space-x-2'>
+    <% if person.active %>
+      <div class='text-green-400 font-bold'>Active</div>
+    <% else %>
+      <%= form_for person, url: admin_person_path(person), data: { turbo: true } do |f| %>
+        <%= f.hidden_field :active, value: true %>
+        <%= f.submit 'Active', class: "border-0 bg-transparent cursor-pointer text-gray-500" %>
+      <% end %>
+    <% end %>
+
+    <% if !person.active %>
+      <div class='text-red-400 font-bold'>Inactive</div>
+    <% else %>
+      <%= form_for person, url: admin_person_path(person), data: { turbo: true } do |f| %>
+        <%= f.hidden_field :active, value: false %>
+        <%= f.submit 'Inactive', class: "border-0 bg-transparent cursor-pointer text-gray-500" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

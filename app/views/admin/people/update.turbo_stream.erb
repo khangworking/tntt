@@ -1,0 +1,5 @@
+<% if @person.valid? %>
+  <%= turbo_stream.update dom_id(@person, 'active_status') do %>
+    <%= render 'admin/people/active_toggle', person: @person %>
+  <% end %>
+<% end %>

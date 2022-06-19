@@ -8,6 +8,12 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resource :dashboard, only: :show
+    resources :people, only: %i[index update]
+    root to: 'dashboard#show'
+  end
+
   if ENV['WEB_ACTIVE'] == '1'
     scope '(:locale)', locale: /vi|en/ do
       devise_for :users
@@ -25,17 +31,6 @@ Rails.application.routes.draw do
         end
 
         root to: 'dashboards#show'
-      end
-
-      namespace :admin do
-        resource :dashboard, only: :show
-        resources :people, only: [] do
-          collection do
-            post :export
-          end
-        end
-
-        root to: 'dashboard#show'
       end
 
       root to: 'home#index'

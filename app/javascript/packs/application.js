@@ -10,6 +10,8 @@ import "channels"
 import "../stylesheets/application.css"
 import { Application } from "@hotwired/stimulus"
 import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
+import { Turbo } from "@hotwired/turbo-rails"
+Turbo.session.drive = false
 
 Rails.start()
 Turbolinks.start()

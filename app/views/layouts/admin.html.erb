@@ -12,10 +12,28 @@
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class='overflow-hidden'>
-    <div>
-      <%= link_to 'Home', root_path %>
+  <body>
+    <div class="flex flex-row items-stretch h-screen">
+      <!-- Sidebar -->
+      <div class="flex-none border-r border-gray-200 w-56">
+        <div class="flex flex-col p-3 space-y-3">
+          <%= link_to 'Dashboard', admin_root_path, class: 'hover:bg-gray-200 rounded-md p-2' %>
+          <%= link_to 'People', admin_people_path, class: 'hover:bg-gray-200 rounded-md p-2' %>
+        </div>
+      </div>
+
+      <div class="flex flex-col flex-auto items-stretch">
+        <!-- Top -->
+        <div class="flex-none h-10 border-b border-gray-200">
+
+        </div>
+
+        <div class="flex-auto relative overflow-auto">
+          <div class="absolute top-0 left-0 w-full h-full">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
     </div>
-    <%= yield %>
   </body>
 </html>

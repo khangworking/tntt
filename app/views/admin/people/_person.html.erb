@@ -1,0 +1,9 @@
+<tr id="<%= dom_id(person) %>">
+  <td><%= person.christain_name %> <%= person.fullname %></td>
+  <td class='text-center'><%= t "common.#{person.gender}" %></td>
+  <td class='text-center'><%= t "common.#{person.level.name}" %></td>
+  <td class='text-center'><%= l person.created_at.to_date, format: :default %></td>
+  <td class='flex flex-row justify-center'>
+    <%= render 'admin/people/active_toggle', person: person %>
+  </td>
+</tr>
