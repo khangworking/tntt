@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   namespace :api, format: :json do
     namespace :v0 do
       resources :students, only: %i[index show]
@@ -16,7 +17,6 @@ Rails.application.routes.draw do
 
   if ENV['WEB_ACTIVE'] == '1'
     scope '(:locale)', locale: /vi|en/ do
-      devise_for :users
 
       namespace :managers do
         resource :dashboard, only: :show
