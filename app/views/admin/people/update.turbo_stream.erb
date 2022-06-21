@@ -5,4 +5,8 @@
   <%= turbo_stream.prepend 'flash' do %>
     <%= render 'layouts/success_flash', success: 'Person updated' %>
   <% end %>
+<% else %>
+  <%= turbo_stream.prepend 'flash' do %>
+    <%= render 'layouts/danger_flash', danger: "Fail to update: #{@person.errors.full_messages.join(', ')}" %>
+  <% end %>
 <% end %>
