@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
+// import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "../stylesheets/application.css"
@@ -14,7 +14,7 @@ import { Turbo } from "@hotwired/turbo-rails"
 Turbo.session.drive = false
 
 Rails.start()
-Turbolinks.start()
+// Turbolinks.start()
 ActiveStorage.start()
 window.Stimulus = Application.start()
 const context = require.context("../controllers", true, /\.js$/)

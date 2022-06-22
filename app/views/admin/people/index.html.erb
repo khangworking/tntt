@@ -1,9 +1,11 @@
+<%= turbo_frame_tag :filter %>
 <div class='p-3'>
   <div class="text-3xl">People</div>
-  <%= form_tag admin_people_path, method: :get, class: 'flex flex-row items-center mt-4' do %>
-    <%= select_tag :level_id, options_for_select(Level.all.map { |lv| [t("common.#{lv.name}"), lv.id] }, params[:level_id]), include_blank: 'Select level', class: 'rounded-md bg-gray-200 border-0 focus:ring-0' %>
-    <button type='submit' class='p-2 bg-gray-300 rounded-md ml-2 text-gray-700' data-disable-with="Loading">Submit</button>
-  <% end %>
+
+  <div class="mt-4">
+    <%= render 'admin/people/filter_button' %>
+  </div>
+
   <table class='w-full mt-4'>
     <tr>
       <th class='text-left'>Name</th>
