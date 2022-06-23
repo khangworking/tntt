@@ -15,7 +15,23 @@
             </div>
           <% end %>
         </div>
-        <div class='flex flex-row justify-end'>
+        <div class="mt-4 text-2xl">Status</div>
+        <div class='flex flex-row items-center space-x-5'>
+          <div class='flex-none space-x-1 flex flex-row items-center'>
+            <%= radio_button_tag :active, '', params[:active].blank? %>
+            <%= label_tag 'active_', 'All' %>
+          </div>
+          <div class='flex-none space-x-1 flex flex-row items-center'>
+            <%= radio_button_tag :active, true, params[:active] == 'true' %>
+            <%= label_tag 'active_true', 'Active' %>
+          </div>
+          <div class='flex-none space-x-1 flex flex-row items-center'>
+            <%= radio_button_tag :active, false, params[:active] == 'false' %>
+            <%= label_tag 'active_false', 'Inactive' %>
+          </div>
+        </div>
+        <div class='flex flex-row justify-end items-center space-x-3'>
+          <%= link_to 'Clear', admin_people_path, class: 'px-2 py-1 rounded-md text-white bg-gray-800' %>
           <button class='bg-gray-300 px-2 py-1 rounded-md'>Submit</button>
         </div>
       <% end %>

@@ -2,6 +2,7 @@ class Admin::PeopleController < AdminController
   def index
     @people = Person.order_name_alphabel.includes(:level)
     @people = @people.where(level_id: params[:level_ids]) if params[:level_ids].present?
+    @people = @people.where(active: params[:active]) if params[:active].present?
     @people = @people.page(params[:page]).per(params[:per] || 25)
   end
 
