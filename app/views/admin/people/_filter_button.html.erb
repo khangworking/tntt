@@ -10,7 +10,7 @@
         <div class='flex flex-row flex-wrap'>
           <% Level.all.each do |lv| %>
             <div class='flex-none flex flex-row items-center w-1/3 px-2 py-1'>
-              <%= check_box_tag 'level_ids[]', lv.id, params[:level_ids].include?(lv.id.to_s), id: "level_ids_#{lv.id}" %>
+              <%= check_box_tag 'level_ids[]', lv.id, Array(params[:level_ids]).include?(lv.id.to_s), id: "level_ids_#{lv.id}" %>
               <%= label_tag "level_ids_#{lv.id}", t("common.#{lv.name}"), class: 'ml-1 mb-0' %>
             </div>
           <% end %>
