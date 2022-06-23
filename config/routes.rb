@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resource :dashboard, only: :show
-    resources :people, only: %i[index update]
+    resources :people, only: %i[index update new create]
     root to: 'dashboard#show'
   end
 

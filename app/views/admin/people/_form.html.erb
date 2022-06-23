@@ -1,0 +1,59 @@
+<%= form_for person, url: url, html: { class: 'flex flex-col space-y-3' } do |f| %>
+  <div class='flex flex-col space-y-4'>
+    <div class='flex flex-col space-y-2 items-stretch'>
+      <div>
+        <%= f.label :christain_name %>
+      </div>
+      <%= f.text_field :christain_name, class: 'w-full rounded-md focus:ring-0 border border-gray-300 focus:border-gray-700', autocomplete: 'off' %>
+    </div>
+    <div class='flex flex-col space-y-2 items-stretch'>
+      <div>
+        <%= f.label :fullname %> <span class="text-red-500">*</span>
+      </div>
+      <%= f.text_field :fullname, class: 'w-full rounded-md focus:ring-0 border border-gray-300 focus:border-gray-700', autocomplete: 'off' %>
+    </div>
+    <div class='flex flex-row items-center space-x-4'>
+      <div class='flex flex-row items-center space-x-2'>
+        <%= f.radio_button :gender, 'male' %>
+        <%= f.label :gender, t('common.male'), value: 'male' %>
+      </div>
+      <div class='flex flex-row items-center space-x-2'>
+        <%= f.radio_button :gender, 'female' %>
+        <%= f.label :gender, t('common.female'), value: 'female' %>
+      </div>
+    </div>
+    <div class='flex flex-col space-y-2 items-stretch'>
+      <div>
+        <%= f.label :phone %>
+      </div>
+      <%= f.text_field :phone, class: 'w-full rounded-md focus:ring-0 border border-gray-300 focus:border-gray-700', autocomplete: 'off' %>
+    </div>
+    <div class='flex flex-col space-y-2 items-stretch'>
+      <div>
+        <%= f.label :birthday %>
+      </div>
+      <%= f.date_field :birthday, class: 'w-full rounded-md focus:ring-0 border border-gray-300 focus:border-gray-700' %>
+    </div>
+    <div class='flex flex-col space-y-2 items-stretch'>
+      <div>
+        <%= f.label :feastday %>
+      </div>
+      <%= f.date_field :feastday, class: 'w-full rounded-md focus:ring-0 border border-gray-300 focus:border-gray-700' %>
+    </div>
+    <div class='flex flex-col space-y-2 items-stretch'>
+      <div>
+        <%= f.label :level_id %> <span class="text-red-500">*</span>
+      </div>
+      <%= f.select :level_id, Level.all.collect { |l| [t("common.#{l.name}"), l.id] }, { include_blank: true }, {class: 'w-full rounded-md focus:ring-0 border border-gray-300 focus:border-gray-700'} %>
+    </div>
+    <div class='flex flex-col space-y-2 items-stretch'>
+      <%= f.label :address %>
+      <%= f.text_area :address, class: 'w-full rounded-md focus:ring-0 border border-gray-300 focus:border-gray-700' %>
+    </div>
+    <div class='flex flex-row space-x-2'>
+      <%= f.button t('common.actions.submit'), class: 'rounded-md py-2 px-3 bg-indigo-400 flex justify-center items-center space-x-2 text-white cursor-pointer', data: { 'disable_with' => "<div class='animate-spin border-t-2 rounded-full border-gray-100 w-5 h-5'></div><div>Xin chờ!</div>".html_safe } %>
+      <button type='reset' class='rounded-md py-2 px-3 bg-gray-200'><%= t('common.actions.reset') %></button>
+      <%= link_to 'Quay về', admin_people_path, class: 'rounded-md py-2 px-3 bg-gray-800 text-white' %>
+    </div>
+  </div>
+<% end %>

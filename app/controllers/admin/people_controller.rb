@@ -27,9 +27,27 @@ class Admin::PeopleController < AdminController
     end
   end
 
+  def new
+    @person = Person.new
+  end
+
+  def create
+    @person = Person.new(create_params)
+    if @person.save
+      redirect_to admin_people_path
+    else
+      flash.now[:danger] = @person.errors.full_messages.join(', ')
+      render :new
+    end
+  end
+
   private
 
   def edit_params
     params.require(:person).permit(:active)
+  end
+
+  def create_params
+    params.require(:person).permit(:christain_name, :feastday, :fullname, :gender, :phone, :level_id, :address, :birthday)
   end
 end
