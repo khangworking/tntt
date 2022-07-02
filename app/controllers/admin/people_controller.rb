@@ -1,9 +1,6 @@
 class Admin::PeopleController < AdminController
   def index
-    @people = Person.order_name_alphabel.includes(:level)
-    @people = @people.where(level_id: params[:level_ids]) if params[:level_ids].present?
-    @people = @people.where(active: params[:active]) if params[:active].present?
-    @people = @people.page(params[:page]).per(params[:per] || 25)
+    @people = filtered_resource.page(params[:page]).per(params[:per] || 25)
   end
 
   def update
@@ -41,6 +38,16 @@ class Admin::PeopleController < AdminController
     end
   end
 
+  def export
+    mapped_columns = {
+      christain_name: 'Tên Thánh',
+      fullname: 'Họ và Tên',
+      birthday: 'Ngày sinh',
+      level_name: 'Lớp'
+    }
+    send_data Person.to_csv(mapped_columns, filtered_resource), filename: "#{params[:filename]}.csv"
+  end
+
   private
 
   def edit_params
@@ -49,5 +56,12 @@ class Admin::PeopleController < AdminController
 
   def create_params
     params.require(:person).permit(:christain_name, :feastday, :fullname, :gender, :phone, :level_id, :address, :birthday)
+  end
+
+  def filtered_resource
+    @people = Person.order_name_alphabel.includes(:level)
+    @people = @people.where(level_id: params[:level_ids]) if params[:level_ids].present?
+    @people = @people.where(active: params[:active]) if params[:active].present?
+    @people
   end
 end

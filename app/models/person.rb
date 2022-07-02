@@ -73,6 +73,18 @@ class Person < ApplicationRecord
         end
       end
     end
+
+    def to_csv(mapped_columns, scope)
+      require 'csv'
+      CSV.generate(headers: true, encoding: 'utf-8') do |csv|
+        csv << ['STT'] + mapped_columns.values
+        scope.includes(:level).each_with_index do |ps, index|
+          csv << [index + 1] + mapped_columns.keys.map do |attr|
+            ps.public_send(attr)
+          end
+        end
+      end
+    end
   end
 
   def first_name
@@ -83,6 +95,10 @@ class Person < ApplicationRecord
     fullname.split(' ')[0..-2].map do |letter|
       "#{letter.first}."
     end.join('') + first_name
+  end
+
+  def level_name
+    level&.name.presence && I18n.t("common.#{level.name}")
   end
 
   private

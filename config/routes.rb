@@ -11,7 +11,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resource :dashboard, only: :show
-    resources :people, only: %i[index update new create]
+    resources :people, only: %i[index update new create] do
+      collection do
+        post :export
+      end
+    end
     root to: 'dashboard#show'
   end
 
