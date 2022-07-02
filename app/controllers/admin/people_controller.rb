@@ -60,7 +60,11 @@ class Admin::PeopleController < AdminController
 
   def filtered_resource
     @people = Person.order_name_alphabel.includes(:level)
-    @people = @people.where(level_id: params[:level_ids]) if params[:level_ids].present?
+    if params[:level_ids].present?
+      ids = params[:level_ids]
+      ids = ids.split(' ') if ids.is_a?(String)
+      @people = @people.where(level_id: ids)
+    end
     @people = @people.where(active: params[:active]) if params[:active].present?
     @people
   end
