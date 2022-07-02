@@ -76,7 +76,8 @@ class Person < ApplicationRecord
 
     def to_csv(mapped_columns, scope)
       require 'csv'
-      CSV.generate(headers: true, encoding: 'utf-8') do |csv|
+      head = %w[EF BB BF].map { |a| a.hex.chr }.join
+      CSV.generate(csv = head) do |csv|
         csv << ['STT'] + mapped_columns.values
         scope.includes(:level).each_with_index do |ps, index|
           csv << [index + 1] + mapped_columns.keys.map do |attr|
@@ -99,6 +100,10 @@ class Person < ApplicationRecord
 
   def level_name
     level&.name.presence && I18n.t("common.#{level.name}")
+  end
+
+  def localed_gender
+    I18n.t("common.#{gender}")
   end
 
   private

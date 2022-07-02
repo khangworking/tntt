@@ -42,10 +42,10 @@ class Admin::PeopleController < AdminController
     mapped_columns = {
       christain_name: 'Tên Thánh',
       fullname: 'Họ và Tên',
-      birthday: 'Ngày sinh',
-      level_name: 'Lớp'
+      level_name: 'Lớp',
+      localed_gender: "Giới tính"
     }
-    send_data Person.to_csv(mapped_columns, filtered_resource), filename: "#{params[:filename]}.csv"
+    send_data Person.to_csv(mapped_columns, filtered_resource), filename: "#{params[:filename]}.csv", type: "text/csv"
   end
 
   private
