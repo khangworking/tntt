@@ -69,7 +69,7 @@ class Admin::PeopleController < AdminController
       ids = ids.split(' ') if ids.is_a?(String)
       @people = @people.where(level_id: ids)
     end
-    @people = @people.where(active: params[:active]) if params[:active].present?
+    @people = @people.where(active: params[:active].presence || true) if params[:active] != 'all'
     @people
   end
 end

@@ -18,11 +18,11 @@
         <div class="mt-4 text-2xl">Status</div>
         <div class='flex flex-row items-center space-x-5'>
           <div class='flex-none space-x-1 flex flex-row items-center'>
-            <%= radio_button_tag :active, '', params[:active].blank? %>
-            <%= label_tag 'active_', 'All' %>
+            <%= radio_button_tag :active, 'all', params[:active] == 'all' %>
+            <%= label_tag 'active_all', 'All' %>
           </div>
           <div class='flex-none space-x-1 flex flex-row items-center'>
-            <%= radio_button_tag :active, true, params[:active] == 'true' %>
+            <%= radio_button_tag :active, true, !params[:active] || params[:active] == 'true' %>
             <%= label_tag 'active_true', 'Active' %>
           </div>
           <div class='flex-none space-x-1 flex flex-row items-center'>
