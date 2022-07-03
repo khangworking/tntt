@@ -20,16 +20,16 @@
               <th class='border text-center p-1'>STT</th>
               <th class='border text-left p-1'>Tên Thánh</th>
               <th class='border text-left p-1'>Họ và Tên</th>
-              <th class='border p-1'>Ngày sinh</th>
               <th class='border p-1'>Lớp</th>
+              <th class='border p-1'>Giới tính</th>
             </tr>
             <% @people.first(2).each_with_index do |person, index| %>
               <tr>
                 <td class='border text-center p-1'><%= index + 1 %></td>
                 <td class='border text-left p-1'><%= person.christain_name %></td>
                 <td class='border text-left p-1'><%= person.fullname %></td>
-                <td class='border p-1 text-center'><%= person.birthday.presence && l(person.birthday.to_date, format: :default) %></td>
                 <td class='border p-1 text-center'><%= person.level&.name && t("common.#{person.level.name}") %></td>
+                <td class='border p-1 text-center'><%= t("common.#{person.gender}") %></td>
               </tr>
             <% end %>
             <tr>
