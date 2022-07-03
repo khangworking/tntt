@@ -7,7 +7,7 @@
         <%= render 'admin/people/filter_button' %>
         <%= render 'admin/people/export' %>
       </div>
-      <%= link_to new_admin_person_path, class: 'px-2 py-1 rounded-md bg-indigo-400 text-white flex flex-row items-center space-x-2' do %>
+      <%= link_to new_admin_person_path, class: 'btn bg-indigo-400 text-white' do %>
         <%= heroicon 'plus', options: { class: 'w-7 h-7' } %>
         <div>Add person</div>
       <% end %>

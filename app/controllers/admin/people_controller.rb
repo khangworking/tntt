@@ -9,7 +9,7 @@ class Admin::PeopleController < AdminController
       respond_to do |format|
         format.html do
           flash[:success] = 'Updated'
-          redirect_to admin_people_path
+          redirect_to edit_admin_person_path(@person)
         end
         format.turbo_stream
       end
@@ -17,7 +17,7 @@ class Admin::PeopleController < AdminController
       respond_to do |format|
         format.html do
           flash[:success] = 'Fail update'
-          redirect_to admin_people_path
+          redirect_to edit_admin_person_path(@person)
         end
         format.turbo_stream
       end
@@ -48,10 +48,14 @@ class Admin::PeopleController < AdminController
     send_data Person.to_csv(mapped_columns, filtered_resource), filename: "#{params[:filename]}.csv", type: "text/csv"
   end
 
+  def edit
+    @person = Person.find(params[:id])
+  end
+
   private
 
   def edit_params
-    params.require(:person).permit(:active)
+    params.require(:person).permit(:active, :christain_name, :feastday, :fullname, :gender, :phone, :level_id, :address, :birthday)
   end
 
   def create_params

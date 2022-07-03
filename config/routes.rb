@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resource :dashboard, only: :show
-    resources :people, only: %i[index update new create] do
+    resources :people, only: %i[index update new create edit] do
       collection do
         post :export
       end

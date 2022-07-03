@@ -1,5 +1,5 @@
 <div data-controller='modal'>
-  <div data-action="click->modal#show" class='inline-flex flex-row align-items-center space-x-1 bg-gray-300 px-2 py-1 rounded-md cursor-pointer'>
+  <div data-action="click->modal#show" class='btn bg-gray-300'>
     <%= heroicon 'download', options: { class: 'w-7 h-7' } %>
     <div>Export</div>
   </div>
@@ -41,7 +41,7 @@
             </tr>
           </table>
         </div>
-        <button>Submit</button>
+        <button class='btn bg-indigo-400 text-white'>Submit</button>
       <% end %>
     </div>
   </div>
