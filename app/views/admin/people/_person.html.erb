@@ -8,6 +8,8 @@
   <td class='text-center'>
     <% if person.level.present? %>
       <%= t "common.#{person.level.name}" %>
+    <% else %>
+    -
     <% end %>
   </td>
   <td class='text-center'><%= l person.created_at.to_date, format: :default %></td>

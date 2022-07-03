@@ -16,6 +16,7 @@ Rails.application.routes.draw do
         post :export
       end
     end
+    resource :profiles, only: %i[edit update]
     root to: 'dashboard#show'
   end
 

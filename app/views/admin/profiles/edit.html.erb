@@ -1,0 +1,9 @@
+<div class='p-5'>
+  <div class='text-2xl font-bold'>General</div>
+  <%= render 'admin/people/form', person: current_user.person, url: admin_profiles_path %>
+  <% if flash[:success] %>
+    <div class='mt-3'>
+      <%= render 'layouts/success_flash', success: flash[:success] %>
+    </div>
+  <% end %>
+</div>
