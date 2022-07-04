@@ -13,34 +13,6 @@
           <%= label_tag :filename %>
           <%= text_field_tag :filename, 'Danh sách thiếu nhi', class: 'w-full rounded-md focus:ring-0 border border-gray-300 focus:border-gray-700' %>
         </div>
-
-        <div class='my-2'>
-          <table class='w-full'>
-            <tr>
-              <th class='border text-center p-1'>STT</th>
-              <th class='border text-left p-1'>Tên Thánh</th>
-              <th class='border text-left p-1'>Họ và Tên</th>
-              <th class='border p-1'>Lớp</th>
-              <th class='border p-1'>Giới tính</th>
-            </tr>
-            <% @people.first(2).each_with_index do |person, index| %>
-              <tr>
-                <td class='border text-center p-1'><%= index + 1 %></td>
-                <td class='border text-left p-1'><%= person.christain_name %></td>
-                <td class='border text-left p-1'><%= person.fullname %></td>
-                <td class='border p-1 text-center'><%= person.level&.name && t("common.#{person.level.name}") %></td>
-                <td class='border p-1 text-center'><%= t("common.#{person.gender}") %></td>
-              </tr>
-            <% end %>
-            <tr>
-              <td class='border text-center p-1'>...</td>
-              <td class='border text-left p-1'>...</td>
-              <td class='border text-left p-1'>...</td>
-              <td class='border p-1 text-center'>...</td>
-              <td class='border p-1 text-center'>...</td>
-            </tr>
-          </table>
-        </div>
         <button class='btn bg-indigo-400 text-white'>Submit</button>
       <% end %>
     </div>
