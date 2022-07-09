@@ -9,11 +9,16 @@
         <%= hidden_field_tag :level_ids, params[:level_ids], multiple: true %>
         <%= hidden_field_tag :active, params[:active] %>
 
-        <div class='my-2 flex flex-col space-y-2'>
+        <div class='mt-2 flex flex-col space-y-2'>
           <%= label_tag :filename %>
           <%= text_field_tag :filename, 'Danh sách thiếu nhi', class: 'w-full rounded-md focus:ring-0 border border-gray-300 focus:border-gray-700' %>
         </div>
-        <button class='btn bg-indigo-400 text-white'>Submit</button>
+        <% if @filtering_levels %>
+          <div class='mt-2'>
+            Filters: <%= @filtering_levels.map { |lv| t("common.#{lv.name}") }.join(', ') %>
+          </div>
+        <% end %>
+        <button class='btn bg-indigo-400 text-white mt-3' data-disable-with='Loading...'>Submit</button>
       <% end %>
     </div>
   </div>

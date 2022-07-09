@@ -53,7 +53,7 @@
     <div class='flex flex-row space-x-2'>
       <%= f.button t('common.actions.submit'), class: 'rounded-md py-2 px-3 bg-indigo-400 flex justify-center items-center space-x-2 text-white cursor-pointer', data: { 'disable_with' => "<div class='animate-spin border-t-2 rounded-full border-gray-100 w-5 h-5'></div><div>Xin chờ!</div>".html_safe } %>
       <button type='reset' class='rounded-md py-2 px-3 bg-gray-200'><%= t('common.actions.reset') %></button>
-      <%= link_to 'Quay về', admin_people_path, class: 'rounded-md py-2 px-3 bg-gray-800 text-white' %>
+      <%= link_to 'Quay về', request.referrer, class: 'rounded-md py-2 px-3 bg-gray-800 text-white' %>
     </div>
   </div>
 <% end %>

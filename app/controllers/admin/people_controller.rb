@@ -67,6 +67,7 @@ class Admin::PeopleController < AdminController
     if params[:level_ids].present?
       ids = params[:level_ids]
       ids = ids.split(' ') if ids.is_a?(String)
+      @filtering_levels = Level.where(id: ids)
       @people = @people.where(level_id: ids)
     end
     @people = @people.where(active: params[:active].presence || true) if params[:active] != 'all'

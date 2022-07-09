@@ -14,18 +14,21 @@
     </div>
   </div>
 
+  <div class="mt-4"><div class='font-bold'>Count: <%= @people.total_count %></div></div>
+
   <table class='w-full mt-4'>
     <tr>
-      <th class='text-left'>Name</th>
-      <th>Gender</th>
-      <th>Level</th>
-      <th>Created</th>
-      <th>Status</th>
+      <th class='text-left bg-gray-900 text-white px-3 py-1'>Name</th>
+      <th class='bg-gray-900 text-white px-3 py-1'>Gender</th>
+      <th class='bg-gray-900 text-white px-3 py-1'>Level</th>
+      <th class='bg-gray-900 text-white px-3 py-1'>Created</th>
+      <th class='bg-gray-900 text-white px-3 py-1'>Status</th>
+      <th class='bg-gray-900 text-white px-3 py-1'>Edit</th>
     </tr>
     <%= render partial: 'admin/people/person', collection: @people, as: :person %>
   </table>
   <div class='text-center'>
     <%= paginate @people %>
   </div>
-  <div class='font-bold'>Count: <%= @people.total_count %></div>
+
 </div>
