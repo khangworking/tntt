@@ -3,5 +3,5 @@
 @import "tailwindcss/components";
 
 .btn {
-  @apply px-2 py-1 rounded-md flex flex-row items-center justify-center space-x-2 cursor-pointer;
+  @apply px-2 py-1 rounded-md inline-flex flex-row items-center justify-center space-x-2 cursor-pointer;
 }
