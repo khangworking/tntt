@@ -1,0 +1,17 @@
+<div class='p-3'>
+  <div class="text-3xl">Levels</div>
+
+  <div class="mt-4"><div class='font-bold'>Count: <%= @levels.total_count %></div></div>
+
+  <table class='w-full mt-4'>
+    <tr>
+      <th class='text-left bg-gray-900 text-white px-3 py-1'>Name</th>
+      <th class='bg-gray-900 text-white px-3 py-1'>Count</th>
+    </tr>
+    <%= render partial: 'admin/levels/level', collection: @levels, as: :level %>
+  </table>
+  <div class='text-center'>
+    <%= paginate @levels %>
+  </div>
+
+</div>
