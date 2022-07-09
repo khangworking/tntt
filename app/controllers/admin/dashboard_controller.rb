@@ -5,5 +5,6 @@ class Admin::DashboardController < AdminController
     @levels_count = Level.count
     @students_level_ids = Level.where(name: Level::STUDENT_NAMES).ids
     @teachers_level_ids = Level.where(name: Level::LEADER_NAMES).ids
+    @feast_day, @feast_people = Person.next_feastday_persons.first
   end
 end
