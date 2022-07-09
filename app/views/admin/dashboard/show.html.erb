@@ -1,0 +1,25 @@
+<div class="p-3">
+  <div class='flex flex-row items-stretch space-x-3'>
+    <%= link_to admin_people_path('level_ids' => @students_level_ids), class: "rounded w-48 h-32 px-3 relative flex flex-col justify-center bg-blue-500 text-white" do %>
+      <div class='text-sm'>Thiếu Nhi</div>
+      <div class='text-4xl font-bold'><%= @students_count %></div>
+      <div class='absolute -bottom-6 -right-7 opacity-40'>
+        <%= heroicon 'academic-cap', options: { class: 'w-32 h-32' } %>
+      </div>
+    <% end %>
+    <%= link_to admin_people_path('level_ids' => @teachers_level_ids), class: "rounded w-48 h-32 px-3 relative flex flex-col justify-center bg-red-500 text-white" do %>
+      <div class='text-sm'>GLV - HT</div>
+      <div class='text-4xl font-bold'><%= @teachers_count %></div>
+      <div class='absolute -bottom-6 -right-7 opacity-40'>
+        <%= heroicon 'book-open', options: { class: 'w-32 h-32' } %>
+      </div>
+    <% end %>
+    <%= link_to admin_levels_path, class: "rounded w-48 h-32 px-3 relative flex flex-col justify-center bg-green-500 text-white" do %>
+      <div class='text-sm'>Lớp học</div>
+      <div class='text-4xl font-bold'><%= @levels_count %></div>
+      <div class='absolute -bottom-6 -right-7 opacity-40'>
+        <%= heroicon 'users', options: { class: 'w-32 h-32' } %>
+      </div>
+    <% end %>
+  </div>
+</div>
