@@ -1,7 +1,7 @@
 <div data-controller='modal'>
   <div data-action="click->modal#show" class='btn bg-gray-300'>
     <%= heroicon 'download', options: { class: 'w-7 h-7' } %>
-    <div>Export</div>
+    <div>Xuất File</div>
   </div>
   <div data-modal-target='modalElement' data-action="click->modal#hide" class='hidden top-0 left-0 bg-gray-500 bg-opacity-70 w-screen h-screen grid place-items-center'>
     <div class='bg-white p-3 rounded-md box-border md:w-2/3'>
@@ -10,7 +10,7 @@
         <%= hidden_field_tag :active, params[:active] %>
 
         <div class='mt-2 flex flex-col space-y-2'>
-          <%= label_tag :filename %>
+          <%= label_tag :filename, 'Tên file' %>
           <%= text_field_tag :filename, 'Danh sách thiếu nhi', class: 'w-full rounded-md focus:ring-0 border border-gray-300 focus:border-gray-700' %>
         </div>
         <% if @filtering_levels %>
@@ -18,7 +18,7 @@
             Filters: <%= @filtering_levels.map { |lv| t("common.#{lv.name}") }.join(', ') %>
           </div>
         <% end %>
-        <button class='btn bg-indigo-400 text-white mt-3' data-disable-with='Loading...'>Submit</button>
+        <button class='btn bg-indigo-400 text-white mt-3' data-disable-with='Loading...'>Đồng ý</button>
       <% end %>
     </div>
   </div>

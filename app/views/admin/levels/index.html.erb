@@ -1,12 +1,12 @@
 <div class='p-3'>
-  <div class="text-3xl">Levels</div>
+  <div class="text-3xl">Lớp học</div>
 
-  <div class="mt-4"><div class='font-bold'>Count: <%= @levels.total_count %></div></div>
+  <div class="mt-4"><div class='font-bold'>Số lượng: <%= @levels.total_count %></div></div>
 
   <table class='w-full mt-4'>
     <tr>
-      <th class='text-left bg-gray-900 text-white px-3 py-1'>Name</th>
-      <th class='bg-gray-900 text-white px-3 py-1'>Count</th>
+      <th class='text-left bg-gray-900 text-white px-3 py-1'>Tên</th>
+      <th class='bg-gray-900 text-white px-3 py-1'>Số lượng thiếu nhi</th>
     </tr>
     <%= render partial: 'admin/levels/level', collection: @levels, as: :level %>
   </table>

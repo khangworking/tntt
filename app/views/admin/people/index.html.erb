@@ -1,5 +1,5 @@
 <div class='p-3'>
-  <div class="text-3xl">People</div>
+  <div class="text-3xl">Con người</div>
 
   <div class="mt-4">
     <div class='flex flex-row items-center justify-between space-x-2'>
@@ -9,21 +9,21 @@
       </div>
       <%= link_to new_admin_person_path, class: 'btn bg-blue-500 text-white' do %>
         <%= heroicon 'plus', options: { class: 'w-7 h-7' } %>
-        <div>Add person</div>
+        <div>Thêm</div>
       <% end %>
     </div>
   </div>
 
-  <div class="mt-4"><div class='font-bold'>Count: <%= @people.total_count %></div></div>
+  <div class="mt-4"><div class='font-bold'>Số lượng: <%= @people.total_count %></div></div>
 
   <table class='w-full mt-4'>
     <tr>
-      <th class='text-left bg-gray-900 text-white px-3 py-1'>Name</th>
-      <th class='bg-gray-900 text-white px-3 py-1'>Gender</th>
-      <th class='bg-gray-900 text-white px-3 py-1'>Level</th>
-      <th class='bg-gray-900 text-white px-3 py-1'>Created</th>
-      <th class='bg-gray-900 text-white px-3 py-1'>Status</th>
-      <th class='bg-gray-900 text-white px-3 py-1'>Edit</th>
+      <th class='text-left bg-gray-900 text-white px-3 py-1'>Tên thánh / Họ tên</th>
+      <th class='bg-gray-900 text-white px-3 py-1'>Giới tính</th>
+      <th class='bg-gray-900 text-white px-3 py-1'>Lớp</th>
+      <th class='bg-gray-900 text-white px-3 py-1'>Tạo ngày</th>
+      <th class='bg-gray-900 text-white px-3 py-1'>Tình trạng</th>
+      <th class='bg-gray-900 text-white px-3 py-1'>Cập nhật</th>
     </tr>
     <%= render partial: 'admin/people/person', collection: @people, as: :person %>
   </table>

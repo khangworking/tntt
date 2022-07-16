@@ -1,12 +1,12 @@
 <div data-controller='modal'>
   <div data-action="click->modal#show" class='btn bg-gray-300'>
     <%= heroicon 'adjustments', options: { class: 'w-7 h-7' } %>
-    <div>Filter</div>
+    <div>Lọc</div>
   </div>
   <div data-modal-target='modalElement' data-action="click->modal#hide" class='hidden top-0 left-0 bg-gray-500 bg-opacity-70 w-screen h-screen grid place-items-center'>
     <div class='bg-white p-3 rounded-md box-border md:w-2/3'>
       <%= form_tag admin_people_path, method: :get do %>
-        <div class='text-2xl'>Level</div>
+        <div class='text-2xl'>Lớp học</div>
         <div class='flex flex-row flex-wrap'>
           <% Level.all.each do |lv| %>
             <div class='flex-none flex flex-row items-center w-1/3 px-2 py-1'>
@@ -15,24 +15,24 @@
             </div>
           <% end %>
         </div>
-        <div class="mt-4 text-2xl">Status</div>
+        <div class="mt-4 text-2xl">Tình trạng</div>
         <div class='flex flex-row items-center space-x-5'>
           <div class='flex-none space-x-1 flex flex-row items-center'>
             <%= radio_button_tag :active, 'all', params[:active] == 'all' %>
-            <%= label_tag 'active_all', 'All' %>
+            <%= label_tag 'active_all', 'Toàn bộ' %>
           </div>
           <div class='flex-none space-x-1 flex flex-row items-center'>
             <%= radio_button_tag :active, true, !params[:active] || params[:active] == 'true' %>
-            <%= label_tag 'active_true', 'Active' %>
+            <%= label_tag 'active_true', 'Hoạt động' %>
           </div>
           <div class='flex-none space-x-1 flex flex-row items-center'>
             <%= radio_button_tag :active, false, params[:active] == 'false' %>
-            <%= label_tag 'active_false', 'Inactive' %>
+            <%= label_tag 'active_false', 'Ngưng hoạt động' %>
           </div>
         </div>
         <div class='flex flex-row justify-end items-center space-x-3'>
-          <%= link_to 'Clear', admin_people_path, class: 'px-2 py-1 rounded-md bg-gray-300' %>
-          <button class='bg-blue-500 text-white px-2 py-1 rounded-md' data-disable-with="Loading...">Submit</button>
+          <%= link_to 'Trở về', admin_people_path, class: 'px-2 py-1 rounded-md bg-gray-300' %>
+          <button class='bg-blue-500 text-white px-2 py-1 rounded-md' data-disable-with="Loading...">Lọc</button>
         </div>
       <% end %>
     </div>

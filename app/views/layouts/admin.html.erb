@@ -16,13 +16,7 @@
     <%= turbo_frame_tag 'flash', class: 'fixed top-3 right-3 flex flex-col items-stretch space-y-2 z-50' %>
     <div class="flex flex-row items-stretch h-screen">
       <!-- Sidebar -->
-      <div class="flex-none border-r border-gray-200 w-56">
-        <div class="flex flex-col p-3 space-y-3">
-          <%= link_to 'Dashboard', admin_root_path, class: "rounded-md p-2 #{current_page?(controller: 'dashboard', action: 'show') ? 'bg-blue-500 text-white' : 'hover:bg-gray-200'}" %>
-          <%= link_to 'People', admin_people_path, class: "rounded-md p-2 #{current_page?(controller: 'people') ? 'bg-blue-500 text-white' : 'hover:bg-gray-200'}" %>
-          <%= link_to 'Levels', admin_levels_path, class: "rounded-md p-2 #{current_page?(controller: 'levels') ? 'bg-blue-500 text-white' : 'hover:bg-gray-200'}" %>
-        </div>
-      </div>
+      <%= render 'admin/sidebar' %>
 
       <div class="flex flex-col flex-auto items-stretch">
         <!-- Top -->
