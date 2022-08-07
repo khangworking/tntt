@@ -3,6 +3,19 @@ class Admin::PeopleController < AdminController
     @people = filtered_resource.page(params[:page]).per(params[:per] || 25)
   end
 
+  def bulk_actions
+    @people = Person.where(id: params[:person_ids])
+    render 'admin/people/bulk_edit'
+  end
+
+  def bulk_update
+    @people = Person.where(id: params[:person_ids])
+    params_to_update = {}
+    params_to_update[:level_id] = params[:level_id] if params[:level_id].present?
+    @people.update_all(params_to_update)
+    redirect_to admin_people_path(level_ids: [params[:level_id]])
+  end
+
   def update
     @person = Person.find(params[:id])
     if @person.update(edit_params)

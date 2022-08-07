@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :people, only: %i[index update new create edit] do
       collection do
         post :export
+        post :bulk_actions
+        put :bulk_update
       end
     end
     resource :profiles, only: %i[edit update]

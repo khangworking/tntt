@@ -1,5 +1,8 @@
 <tr class='group' id="<%= dom_id(person) %>">
   <td class="py-3 px-2 group-hover:bg-gray-200 duration-100">
+    <%= check_box_tag 'person_ids[]', person.id, false, form: 'bulk_actions_admin_people' %>
+  </td>
+  <td class="py-3 px-2 group-hover:bg-gray-200 duration-100">
     <%= link_to edit_admin_person_path(person), class: 'text-gray-800' do %>
       <%= person.christain_name %> <%= person.fullname %>
     <% end %>

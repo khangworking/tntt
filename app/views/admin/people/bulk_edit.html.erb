@@ -1,0 +1,13 @@
+<div class='p-3'>
+  <%= link_to 'Back', admin_people_path, class: 'mb-3' %>
+
+  <%= form_tag bulk_update_admin_people_path, method: :put do %>
+    <div class='hidden'>
+      <%= params[:person_ids].each do |id| %>
+        <%= check_box_tag 'person_ids[]', id, true %>
+      <% end %>
+    </div>
+    <%= select_tag :level_id, options_from_collection_for_select(Level.all, "id", "name") %>
+    <button>Submit</button>
+  <% end %>
+</div>
