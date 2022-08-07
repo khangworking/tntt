@@ -50,6 +50,7 @@ class Person < ApplicationRecord
       where(feastday: where('feastday > CURRENT_DATE').order(:feastday).select('feastday').distinct.limit(num))
         .joins(:level)
         .where(levels: { name: Level::LEADER_NAMES + %w[tro_uy tro_ta] })
+        .where(active: true)
         .order(:feastday)
         .group_by(&:feastday)
     end
