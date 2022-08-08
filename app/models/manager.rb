@@ -18,7 +18,15 @@ class Manager < ApplicationRecord
   belongs_to :person
   belongs_to :level
 
-  enum role: { assistant: 'assitant', teach: 'teach' }
+  enum role: { assistant: 'assitant', teach: 'teach', lead: 'lead' }
 
   validates :person_id, uniqueness: { scope: :level_id }
+
+  before_create :set_default
+
+  private
+
+  def set_default
+    self.role ||= 'assitant'
+  end
 end

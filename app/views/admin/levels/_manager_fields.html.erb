@@ -1,0 +1,13 @@
+<div class='nested-fields'>
+  <div class='flex flex-row space-x-2 items-center'>
+    <div class='flex flex-col space-y-1 flex-auto'>
+      <%= f.label :person_id %>
+      <%= f.select :person_id, Person.leaders.collect { |person| [person.fullname,person.id] } %>
+    </div>
+    <div class='flex flex-col space-y-1 flex-auto'>
+      <%= f.label :role %>
+      <%= f.select :role, Manager.roles.to_h.invert %>
+    </div>
+    <%= link_to_remove_association 'Remove', f, class: 'flex-none' %>
+  </div>
+</div>

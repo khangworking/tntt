@@ -41,6 +41,9 @@ class Person < ApplicationRecord
   scope :students, -> do
     joins(:level).where(levels: { name: Level::STUDENT_NAMES })
   end
+  scope :leaders, -> do
+    joins(:level).where(levels: { name: Level::LEADER_NAMES })
+  end
   scope :order_name_alphabel, -> do
     select("substring(people.fullname, length(people.fullname) - position(' ' in reverse(people.fullname)) + 2) as name, people.*").order('name ASC')
   end

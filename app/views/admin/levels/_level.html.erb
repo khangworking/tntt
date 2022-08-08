@@ -1,4 +1,7 @@
 <tr class='group'>
   <td class="py-3 px-2 group-hover:bg-gray-200 duration-100"><%= link_to t("common.#{level.name}"), admin_people_path('level_ids[]' => level.id) %></td>
   <td class="py-3 px-2 group-hover:bg-gray-200 duration-100 text-center"><%= level.active_people.length %></td>
+  <td class="py-3 px-2 group-hover:bg-gray-200 duration-100 text-center">
+    <%= link_to 'Managers', edit_admin_level_path(level), class: 'underline' %>
+  </td>
 </tr>

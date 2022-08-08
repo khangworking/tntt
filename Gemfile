@@ -35,6 +35,7 @@ gem 'kaminari'
 gem 'phonelib'
 gem 'rack-cors'
 gem 'turbo-rails'
+gem 'cocoon'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -17,4 +17,12 @@ class Level < ApplicationRecord
   has_many :people_presences
   has_many :scores
   has_one :active_score, -> { where(active: true) }, class_name: Score.to_s
+
+  accepts_nested_attributes_for :managers, allow_destroy: true, reject_if: :blank_person
+
+  private
+
+  def blank_person(attr)
+    attr['person_id'].blank?
+  end
 end

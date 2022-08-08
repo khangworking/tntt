@@ -270,7 +270,7 @@ vi:
           has_many: Không thể xóa do tồn tại một số đối tượng phụ thuộc %{record}
     models:
       person: Người
-      level: Cấp bậc
+      level: Nganh
     attributes:
       person:
         fullname: Họ và Tên
@@ -282,4 +282,4 @@ vi:
         level_id: Cấp bậc
         address: Địa chỉ
       level:
-        name: Tên cấp
+        name: Tên nganh

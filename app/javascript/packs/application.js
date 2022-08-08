@@ -11,6 +11,8 @@ import "../stylesheets/application.css"
 import { Application } from "@hotwired/stimulus"
 import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
 import { Turbo } from "@hotwired/turbo-rails"
+import "cocoon-js-vanilla";
+
 Turbo.session.drive = false
 
 Rails.start()
