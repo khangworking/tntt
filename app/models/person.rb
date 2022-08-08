@@ -47,6 +47,7 @@ class Person < ApplicationRecord
   scope :order_name_alphabel, -> do
     select("substring(people.fullname, length(people.fullname) - position(' ' in reverse(people.fullname)) + 2) as name, people.*").order('name ASC')
   end
+  scope :active, -> { where(active: true) }
 
   class << self
     def next_feastday_persons(num = 1)
