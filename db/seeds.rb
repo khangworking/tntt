@@ -30,8 +30,9 @@ level1 = Level.create(name: 'huynh_truong1')
 level2 = Level.create(name: 'huynh_truong2')
 level3 = Level.create(name: 'huynh_truong3')
 level4 = Level.create(name: 'du_truong')
-%w(chien_con1 chien_con2 chien_con3 au_nhi1 au_nhi2 au_nhi3 thieu_nhi1 thieu_nhi2 thieu_nhi3 nghia_si1 nghia_si2 nghia_si3 nghia_si4 tro_uy tro_ta hlv1 hlv2 hlv3 tuyen_uy).each do |name|
-  Level.create(name: name)
+%w(chien_con1 chien_con2 chien_con3 au_nhi1 au_nhi2 au_nhi3 thieu_nhi1 thieu_nhi2 thieu_nhi3 nghia_si1 nghia_si2 nghia_si3 nghia_si4 tro_uy tro_ta hlv1 hlv2 hlv3 tuyen_uy).each_with_index do |name, index|
+  sort_order = name.in?(Level::STUDENT_NAMES) ? index : nil
+  Level.create(name: name, sort_order: sort_order)
 end
 
 # Seeds assistants
