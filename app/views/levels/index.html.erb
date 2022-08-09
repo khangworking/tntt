@@ -1,7 +1,5 @@
 <div class='grid grid-cols-1 md:grid-cols-3 divide-x divide-y md:h-screen'>
   <% @levels.each do |level| %>
-    <div class='duration-300 py-1 px-3 w-full h-full py-4 md:py-0 hover:bg-blue-400 cursor-pointer hover:text-white md:text-3xl grid place-items-center'>
-      <%= t "common.#{level.name}" %>
-    </div>
+    <%= link_to t("common.#{level.name}"), level_path(id: level), class: 'duration-300 py-1 px-3 w-full h-full py-4 md:py-0 hover:bg-blue-400 cursor-pointer hover:text-white md:text-3xl grid place-items-center' %>
   <% end %>
 </div>

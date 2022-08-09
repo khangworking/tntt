@@ -1,0 +1,13 @@
+<div class='grid grid-cols-4 divide-x divide-y'>
+  <div class='font-bold px-2 py-1'>STT</div>
+  <div class='font-bold px-2 py-1'>Tên Thánh</div>
+  <div class='font-bold px-2 py-1'>Họ và Tên</div>
+  <div class='font-bold px-2 py-1'>Giới tính</div>
+
+  <% @people.each_with_index do |person,index| %>
+    <div class='px-2 py-1'><%= index + 1 %></div>
+    <div class='px-2 py-1'><%= person.christain_name %></div>
+    <div class='px-2 py-1'><%= person.fullname %></div>
+    <div class='px-2 py-1'><%= t "common.#{person.gender}" %></div>
+  <% end %>
+</div>
