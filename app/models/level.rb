@@ -14,9 +14,6 @@ class Level < ApplicationRecord
   has_many :people
   has_many :active_people, -> { where(active: true) }, class_name: Person.to_s
   has_many :managers
-  has_many :people_presences
-  has_many :scores
-  has_one :active_score, -> { where(active: true) }, class_name: Score.to_s
 
   accepts_nested_attributes_for :managers, allow_destroy: true, reject_if: :blank_person
 

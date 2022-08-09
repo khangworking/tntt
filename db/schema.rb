@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_07_141950) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_09_130504) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,17 +48,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_07_141950) do
     t.index ["user_id"], name: "index_people_on_user_id"
   end
 
-  create_table "people_presences", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "level_id"
-    t.text "person_ids"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "archived", default: false
-    t.index ["level_id"], name: "index_people_presences_on_level_id"
-    t.index ["user_id"], name: "index_people_presences_on_user_id"
-  end
-
   create_table "people_relationships", force: :cascade do |t|
     t.bigint "parent_id"
     t.bigint "child_id"
@@ -71,28 +60,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_07_141950) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "score_cells", force: :cascade do |t|
-    t.bigint "score_id"
-    t.bigint "person_id"
-    t.float "score_in_number"
-    t.date "applied_date"
-    t.bigint "modified_by"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "score_type"
-    t.index ["person_id"], name: "index_score_cells_on_person_id"
-    t.index ["score_id"], name: "index_score_cells_on_score_id"
-  end
-
-  create_table "scores", force: :cascade do |t|
-    t.bigint "level_id"
-    t.date "start_date"
-    t.boolean "active", default: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["level_id"], name: "index_scores_on_level_id"
   end
 
   create_table "settings", force: :cascade do |t|

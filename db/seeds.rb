@@ -88,8 +88,6 @@ people = Person.where(active: true)
                .order('random()')
                .ids
 Level.includes(:people).where(name: Level::STUDENT_NAMES).each do |lv|
-  Score.create!(start_date: 3.months.ago.to_date, level_id: lv.id)
-
   # Assign manger to each student level
   manager_ids = []
   rand(2..3).times do
@@ -97,23 +95,4 @@ Level.includes(:people).where(name: Level::STUDENT_NAMES).each do |lv|
     manager_ids << person_id
     Manager.create!(level_id: lv.id, person_id: person_id, role: :assistant)
   end
-
-  # Seed presences
-  student_ids = lv.people.select(&:active).map(&:id)
-  (9.months.ago.to_date..Time.zone.now.to_date).select(&:sunday?).each do |we|
-    user_id = manager_ids.shuffle.first
-    ids = student_ids.shuffle
-    present_number = rand((ids.length - 3)..ids.length)
-    PeoplePresence.create!(
-      person_ids: ids.first(present_number),
-      level_id: lv.id,
-      user_id: user_id,
-      created_at: we + 9.hours,
-      updated_at: we + 9.hours
-    )
-  end
-end
-
-PeoplePresence.all.each do |people_presence|
-  people_presence.generate_score_cells!
 end
