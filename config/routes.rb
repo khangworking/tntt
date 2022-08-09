@@ -26,20 +26,20 @@ Rails.application.routes.draw do
   if ENV['WEB_ACTIVE'] == '1'
     scope '(:locale)', locale: /vi|en/ do
 
-      namespace :managers do
-        resource :dashboard, only: :show
-        resources :people, only: %i[index show edit update create new]
-        resources :people_presences, only: %i[new create edit update]
-        resources :scores, only: %i[show]
+      # namespace :managers do
+      #   resource :dashboard, only: :show
+      #   resources :people, only: %i[index show edit update create new]
+      #   resources :people_presences, only: %i[new create edit update]
+      #   resources :scores, only: %i[show]
 
-        resources :levels, only: [] do
-          scope module: :levels do
-            resources :people_presences, only: :index
-          end
-        end
+      #   resources :levels, only: [] do
+      #     scope module: :levels do
+      #       resources :people_presences, only: :index
+      #     end
+      #   end
 
-        root to: 'dashboards#show'
-      end
+      #   root to: 'dashboards#show'
+      # end
 
       root to: 'home#index'
     end
