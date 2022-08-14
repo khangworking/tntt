@@ -1,13 +1,40 @@
-<div class='grid grid-cols-4 divide-x divide-y'>
-  <div class='font-bold px-2 py-1'>STT</div>
-  <div class='font-bold px-2 py-1'>Tên Thánh</div>
-  <div class='font-bold px-2 py-1'>Họ và Tên</div>
-  <div class='font-bold px-2 py-1'>Giới tính</div>
-
-  <% @people.each_with_index do |person,index| %>
-    <div class='px-2 py-1'><%= index + 1 %></div>
-    <div class='px-2 py-1'><%= person.christain_name %></div>
-    <div class='px-2 py-1'><%= person.fullname %></div>
-    <div class='px-2 py-1'><%= t "common.#{person.gender}" %></div>
-  <% end %>
+<div class='flex flex-row items-stretch h-screen'>
+  <div class='flex-none md:w-1/2 flex flex-col items-stretch'>
+    <div class='flex-none flex flex-row justify-between items-center py-2 px-3'>
+      <%= link_to glv_path, class: 'bg-gray-50 hover:bg-gray-200 duration-200 rounded-full' do %>
+        <%= heroicon 'chevron-left', options: { class: 'w-7 h-7' } %>
+      <% end %>
+    </div>
+    <div class='flex-auto md:w-auto w-screen relative overflow-x-scroll' >
+      <table class='absolute top-0 left-0 w-full h-full'>
+        <tr>
+          <th class='border'>STT</th>
+          <th class='border'>Tên Thánh</th>
+          <th class='border'>Họ và Tên</th>
+          <th class='border'>Giới tính</th>
+        </tr>
+        <% @people.each_with_index do |person,index| %>
+          <tr>
+            <td class='px-2 py-1 border'><%= index + 1 %></td>
+            <td class='px-2 py-1 border'><%= person.christain_name %></td>
+            <td class='px-2 py-1 border'><%= person.fullname %></td>
+            <td class='px-2 py-1 border'><%= t "common.#{person.gender}" %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <div class='flex-auto flex flex-col space-y-2 items-stretch px-3'>
+    <div class='text-xl mt-3'>Trưởng phụ trách</div>
+    <% @leaders.each do |person, index| %>
+      <div class='border py-2 px-4 rounded'>
+        <div class='font-bold'><%= person.christain_name %> <%= person.fullname %></div>
+        <% if @roles[person.id].lead? %>
+          <div class='text-sm text-gray-600'>
+            Trưởng ngành
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>

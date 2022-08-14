@@ -6,5 +6,7 @@ class LevelsController < ApplicationController
   def show
     @level = Level.find(params[:id])
     @people = Person.joins(:level).where(levels: { id: @level }).where(active: true).order_name_alphabel
+    @leaders = Person.joins(:manage_levels).where(managers: { level_id: @level }).order_name_alphabel
+    @roles = Manager.where(level_id: @level).index_by(&:person_id)
   end
 end
