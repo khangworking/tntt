@@ -30,11 +30,9 @@
     <% @leaders.each do |person, index| %>
       <div class='border py-2 px-4 rounded'>
         <div class='font-bold'><%= person.christain_name %> <%= person.fullname %></div>
-        <% if @roles[person.id].lead? %>
-          <div class='text-sm text-gray-600'>
-            Trưởng ngành
-          </div>
-        <% end %>
+        <div class='text-sm text-gray-600'>
+          Số điện thoại: <%= person.phone %><% if @roles[person.id].lead? %> - Trưởng ngành<% end %>
+        </div>
       </div>
     <% end %>
   </div>
