@@ -55,10 +55,15 @@ class Admin::PeopleController < AdminController
     mapped_columns = {
       christain_name: 'Tên Thánh',
       fullname: 'Họ và Tên',
-      level_name: 'Lớp',
+      level_name: 'Ngành/Lớp',
       localed_gender: "Giới tính"
     }
-    send_data Person.to_csv(mapped_columns, filtered_resource), filename: "#{params[:filename]}.csv", type: "text/csv"
+    respond_to do |format|
+      format.html { head :no_content }
+      format.xls do
+        send_data Person.to_csv(mapped_columns, filtered_resource), filename: "#{params[:filename]}.xls"
+      end
+    end
   end
 
   def edit

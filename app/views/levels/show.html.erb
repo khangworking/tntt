@@ -35,5 +35,8 @@
         </div>
       </div>
     <% end %>
+    <div class='flex flex-row space-x-3'>
+      <%= button_to 'Tải dash sách', export_level_path(format: :xls, level_id: params[:id]), class: 'btn bg-gray-700 text-white' %>
+    </div>
   </div>
 </div>

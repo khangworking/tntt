@@ -40,7 +40,11 @@ Rails.application.routes.draw do
     #   root to: 'dashboards#show'
     # end
 
-    resources :levels, only: %i[index show]
+    resources :levels, only: %i[index show] do
+      member do
+        post :export
+      end
+    end
     resources :people, only: %i[new create]
 
     get :glv, to: 'levels#index'

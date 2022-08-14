@@ -5,7 +5,7 @@
   </div>
   <div data-modal-target='modalElement' data-action="click->modal#hide" class='hidden top-0 left-0 bg-gray-500 bg-opacity-70 w-screen h-screen grid place-items-center'>
     <div class='bg-white p-3 rounded-md box-border md:w-2/3'>
-      <%= form_tag export_admin_people_path do %>
+      <%= form_tag export_admin_people_path(format: :xls) do %>
         <%= hidden_field_tag :level_ids, params[:level_ids], multiple: true %>
         <%= hidden_field_tag :active, params[:active] %>
 
