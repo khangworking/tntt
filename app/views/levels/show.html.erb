@@ -1,4 +1,4 @@
-<div class='flex flex-row items-stretch h-screen'>
+<div class='flex flex-col md:flex-row items-stretch h-screen'>
   <div class='flex-none md:w-1/2 flex flex-col items-stretch'>
     <div class='flex-none flex flex-row justify-between items-center py-2 px-3'>
       <%= link_to glv_path, class: 'bg-gray-50 hover:bg-gray-200 duration-200 rounded-full' do %>
@@ -6,7 +6,7 @@
       <% end %>
     </div>
     <div class='flex-auto md:w-auto w-screen relative overflow-x-scroll' >
-      <table class='absolute top-0 left-0 w-full h-full'>
+      <table class='md:absolute top-0 left-0 w-full h-full'>
         <tr>
           <th class='border'>STT</th>
           <th class='border'>Tên Thánh</th>
