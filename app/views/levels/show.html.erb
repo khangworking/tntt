@@ -1,9 +1,10 @@
 <div class='flex flex-col md:flex-row items-stretch h-screen'>
   <div class='flex-none md:w-1/2 flex flex-col items-stretch'>
-    <div class='flex-none flex flex-row justify-between items-center py-2 px-3'>
-      <%= link_to glv_path, class: 'bg-gray-50 hover:bg-gray-200 duration-200 rounded-full' do %>
+    <div class='flex-none flex flex-row justify-between items-center py-2'>
+      <%= link_to glv_path, class: 'bg-gray-50 hover:bg-gray-200 duration-200 rounded-full ml-3' do %>
         <%= heroicon 'chevron-left', options: { class: 'w-7 h-7' } %>
       <% end %>
+      <%= link_to 'Thêm người mới', new_person_path(level_id: params[:id]), class: 'btn bg-blue-400 text-white mr-3 md:mr-0' %>
     </div>
     <div class='flex-auto md:w-auto w-screen relative overflow-x-scroll' >
       <table class='md:absolute top-0 left-0 w-full max-h-full'>

@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     # end
 
     resources :levels, only: %i[index show]
+    resources :people, only: %i[new create]
 
     get :glv, to: 'levels#index'
 
