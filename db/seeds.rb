@@ -96,3 +96,12 @@ Level.includes(:people).where(name: Level::STUDENT_NAMES).each do |lv|
     Manager.create!(level_id: lv.id, person_id: person_id, role: :assistant)
   end
 end
+
+4.times do
+  name = Faker::Game.genre
+  category = Category.create(name: name, active: [true, false].sample, slug: name.parameterize)
+
+  5.times do
+    Product.create(active: [true, false].sample, name: Faker::Game.title, description: Faker::Lorem.paragraph(sentence_count: (1..10).to_a.sample), remote_image_url: Faker::LoremFlickr.image(search_terms: ['anime','furniture']), category_id: category.id)
+  end
+end

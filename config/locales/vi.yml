@@ -282,4 +282,7 @@ vi:
         level_id: Ngành/Lớp
         address: Địa chỉ
       level:
-        name: Tên nganh
+        name: Tên ngành
+      product_request:
+        parent_name: Họ tên phụ huynh
+        phone: Số điện thoại

@@ -46,6 +46,7 @@ Rails.application.routes.draw do
       end
     end
     resources :people, only: %i[new create]
+    resources :product_requests, only: %i[new create]
 
     get :glv, to: 'levels#index'
 

@@ -15,6 +15,8 @@ class Level < ApplicationRecord
   has_many :active_people, -> { where(active: true) }, class_name: Person.to_s
   has_many :managers
 
+  scope :students, -> { where(name: STUDENT_NAMES).order(:sort_order) }
+
   accepts_nested_attributes_for :managers, allow_destroy: true, reject_if: :blank_person
 
   private
