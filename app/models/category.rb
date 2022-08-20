@@ -16,6 +16,8 @@ class Category < ApplicationRecord
 
   after_create :set_slug
 
+  scope :active, -> { where(active: true) }
+
   private
 
   def set_slug

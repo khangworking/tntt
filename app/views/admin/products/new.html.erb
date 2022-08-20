@@ -1,0 +1,27 @@
+<div class='p-3'>
+  <%= render 'admin/flash' %>
+  <div class='text-2xl'>Sản phẩm mới</div>
+  <%= form_for Product.new, url: admin_products_path, html: { class: 'flex flex-col space-y-3 items-start' } do |f| %>
+    <div class='flex flex-col space-y-1 w-full'>
+      <%= f.label :name, 'Tên sản phẩm', class: 'required' %>
+      <%= f.text_field :name, class: 'text-form' %>
+    </div>
+    <div class='flex flex-col space-y-1 w-full'>
+      <%= f.label :price, 'Đơn giá', class: 'required' %>
+      <%= f.number_field :price, class: 'text-form', min: 0, step: 1 %>
+    </div>
+    <div class='flex flex-col space-y-1 w-full'>
+      <%= f.label :category_id, 'Loại sản phẩm', class: 'required' %>
+      <%= f.select :category_id, options_from_collection_for_select(Category.active, "id", "name"), { include_blank: true }, class: 'text-form' %>
+    </div>
+    <div class='flex flex-col space-y-1 w-full'>
+      <%= f.label :remote_image_url, 'Link hình ảnh' %>
+      <%= f.text_field :remote_image_url, class: 'text-form' %>
+    </div>
+    <div class='flex flex-col space-y-1 w-full'>
+      <%= f.label :description, 'Mô tả' %>
+      <%= f.text_area :description, class: 'text-form' %>
+    </div>
+    <%= f.submit 'Tạo mới', class: 'btn-lg text-white bg-blue-500' %>
+  <% end %>
+</div>

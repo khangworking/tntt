@@ -102,6 +102,6 @@ end
   category = Category.create(name: name, active: [true, false].sample, slug: name.parameterize)
 
   5.times do
-    Product.create(active: [true, false].sample, name: Faker::Game.title, description: Faker::Lorem.paragraph(sentence_count: (1..10).to_a.sample), remote_image_url: Faker::LoremFlickr.image(search_terms: ['anime','furniture']), category_id: category.id, price: (1..10).to_a.sample * 10000)
+    Product.create(active: [true, false].sample, name: Faker::Game.title, description: Faker::Lorem.paragraph(sentence_count: (1..10).to_a.sample), remote_image_url: Faker::LoremFlickr.image(search_terms: ['clothes']), category_id: category.id, price: (1..10).to_a.sample * 10000)
   end
 end
