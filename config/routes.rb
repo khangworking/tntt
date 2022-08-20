@@ -28,20 +28,11 @@ Rails.application.routes.draw do
 
   scope '(:locale)', locale: /vi|en/ do
 
-    # namespace :managers do
-    #   resource :dashboard, only: :show
-    #   resources :people, only: %i[index show edit update create new]
-    #   resources :people_presences, only: %i[new create edit update]
-    #   resources :scores, only: %i[show]
+    namespace :managers do
+      resource :dashboard, only: :show
 
-    #   resources :levels, only: [] do
-    #     scope module: :levels do
-    #       resources :people_presences, only: :index
-    #     end
-    #   end
-
-    #   root to: 'dashboards#show'
-    # end
+      root to: 'dashboards#show'
+    end
 
     resources :levels, only: %i[index show] do
       member do
@@ -51,7 +42,7 @@ Rails.application.routes.draw do
     resources :people, only: %i[new create]
     resources :product_requests, only: %i[new create]
 
-    get :glv, to: 'levels#index'
+    get :glv, to: 'managers/dashboards#show'
 
     root to: 'home#index'
   end

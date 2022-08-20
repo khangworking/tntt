@@ -1,38 +1,5 @@
-<div class='flex flex-col-reverse md:flex-row space-y-reverse space-y-3 space-x-0 md:space-x-3 md:space-y-0 box-border'>
-  <div class='w-full md:w-8/12 flex-none'>
-    <div class='shadow bg-white rounded-md py-3 px-4 flex flex-col space-y-2 items-start'>
-      <div class='w-full'>
-        <%= render @seniors_n_juniors %>
-      </div>
-    </div>
-  </div>
-  <div class='w-full md:w-4/12 flex-auto flex flex-col space-y-2'>
-    <% if @leader && @vice_leader %>
-      <div class='shadow bg-white border border-red-700 rounded-md p-3 flex flex-col space-y-3'>
-        <% if @leader %>
-          <div class="flex flex-col">
-            <div class='text-gray-500 text-sm font-bold'><%= t('common.leader') %></div>
-            <div class='uppercase'><%= @leader.fullname %></div>
-          </div>
-        <% end %>
-        <% if @vice_leader %>
-          <div class="flex flex-col">
-            <div class='text-gray-500 text-sm font-bold'><%= t('common.vice_leader') %></div>
-            <div class='uppercase'><%= @vice_leader.fullname %></div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-    <div class='shadow bg-white p-3 flex flex-col space-y-2 rounded-md'>
-      <div class='font-bold'><%= t('.next_feastdays') %></div>
-      <% @feastday_n_people.each do |date, people| %>
-        <div class='flex flex-col space-y-1'>
-          <div class='text-gray-700 text-sm'><%= l(date, format: :short) %></div>
-          <% people.each do |ps| %>
-            <div class='uppercase font-bold'><%= ps.fullname %></div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+<div class='grid place-items-center bg-white h-screen w-screen'>
+  <div class='flex flex-col space-y-2'>
+    <%= link_to 'Xem danh sách các lớp học', levels_path, class: 'd-block px-3 py-2 border border-gray-300 rounded-md' %>
   </div>
 </div>
