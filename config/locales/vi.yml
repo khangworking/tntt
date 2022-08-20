@@ -108,7 +108,7 @@ vi:
     - Thứ bảy
     formats:
       default: "%d-%m-%Y"
-      long: "%d %B, %Y"
+      long: "%A, %d %B, %Y"
       short: "%d %b"
       weekday_n_date: "%A, %d"
       day_n_month: "%d/%m"
