@@ -9,7 +9,7 @@ export default class extends Controller {
       plugins: [dayGridPlugin, listPlugin],
       initialView: 'dayGridMonth',
       height: '100%',
-      events: 'http://localhost:3000/api/v0/gcatholics',
+      events: 'https://thieunhi.herokuapp.com/api/v0/gcatholics',
       eventDisplay: 'list-item',
       locale: 'vi',
       firstDay: 1
