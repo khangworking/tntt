@@ -19,3 +19,7 @@ label.required:after {
   margin-left: 2px;
   color: red;
 }
+
+.fc-event-title {
+  white-space: break-spaces;
+}

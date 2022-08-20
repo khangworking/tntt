@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   namespace :api, format: :json do
     namespace :v0 do
+      resources :gcatholics, only: :index
       resources :students, only: %i[index show]
       resources :leaders, only: %i[index]
       resource :auth, only: :create, controller: 'auth'
@@ -41,6 +42,7 @@ Rails.application.routes.draw do
     end
     resources :people, only: %i[new create]
     resources :product_requests, only: %i[new create]
+    resources :calendars, only: %i[index]
 
     get :glv, to: 'managers/dashboards#show'
 
