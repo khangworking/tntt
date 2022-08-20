@@ -20,7 +20,8 @@ Rails.application.routes.draw do
     end
     resource :profiles, only: %i[edit update]
     resources :levels, only: %i[index edit update]
-    resources :product_requests
+    resources :categories, only: %i[index create edit update]
+    resources :product_requests, only: %i[index edit update]
     root to: 'dashboard#show'
   end
 

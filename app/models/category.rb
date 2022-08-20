@@ -11,4 +11,14 @@
 #
 class Category < ApplicationRecord
   has_many :products
+
+  validates :name, presence: true
+
+  after_create :set_slug
+
+  private
+
+  def set_slug
+    update(slug: "#{name.parameterize}-#{id}")
+  end
 end
