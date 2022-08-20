@@ -32,7 +32,8 @@ class ProductRequestsController < ApplicationController
   end
 
   def build_line_fields
-    Product.joins(:category).where(categories: { active: true }).distinct.map do |product|
+    products = Product.where(active: true).joins(:category).where(categories: { active: true }).order('categories.id ASC, products.created_at ASC')
+    products.map do |product|
       ProductRequestLine.new(product_id: product.id, product_name: product.name)
     end
   end
