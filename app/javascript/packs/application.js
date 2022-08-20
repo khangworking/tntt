@@ -12,6 +12,7 @@ import { Application } from "@hotwired/stimulus"
 import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
 import { Turbo } from "@hotwired/turbo-rails"
 import "cocoon-js-vanilla";
+import "flatpickr/dist/flatpickr.min.css"
 
 Turbo.session.drive = false
 

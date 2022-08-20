@@ -1,8 +1,9 @@
 document.querySelectorAll('.error, .success').forEach(elm => elm.classList.add('hidden'));
 <% if @person.errors.any? %>
   document.querySelector('.error').classList.remove('hidden');
+  document.querySelector('.error').innerHTML = "<%= @person.errors.full_messages.join(', ') %>"
 <% else %>
   document.querySelector('.success').innerHTML = "<%= t('common.thank_you') %>";
   document.querySelector('.success').classList.remove('hidden');
-  document.querySelector('button[type="reset"]').click();
+  document.querySelector('#person-new-form').innerHTML = "<%= j render 'people/new_person_form', person: Person.new(level_id: params[:level_id]) %>"
 <% end %>

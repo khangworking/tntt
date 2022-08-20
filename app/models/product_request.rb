@@ -21,6 +21,7 @@ class ProductRequest < ApplicationRecord
   has_many :product_request_lines
 
   validates :parent_name, :phone, presence: true
+  validates :phone, numericality: true, length: 10
 
   accepts_nested_attributes_for :product_request_lines, reject_if: :unchecked?
 
