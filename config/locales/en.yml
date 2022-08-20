@@ -1,4 +1,10 @@
 en:
+  product_request:
+    status:
+      created: Created
+      confirmed: Confirmed
+      cancelled: Cancelled
+      completed: Completed
   common:
     welcome: Welcome
     thank_you: Thank you
@@ -54,6 +60,10 @@ en:
     other: 'Other'
     relationship: Relationship
     today_is: Today is %{date}
+    counting:
+      zero: 0 items
+      one: 1 item
+      other: '%{count} items'
     actions:
       submit: Submit
       logout: Log out

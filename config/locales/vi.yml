@@ -1,4 +1,10 @@
 vi:
+  product_request:
+    status:
+      created: 'Mới tạo'
+      confirmed: 'Đã xác nhận'
+      cancelled: 'Đã huỷ'
+      completed: 'Hoàn thành'
   common:
     welcome: Thiếu Nhi Thánh Thể - Gx Thái Hoà
     thank_you: Tạo thành công!
@@ -25,9 +31,9 @@ vi:
     students: Các em thiếu nhi
     leader: Xứ Đoàn Trưởng
     vice_leader: Xứ Đoàn Phó
-    chien_con1: Khai Tâm cấp 1
-    chien_con2: Khai Tâm cấp 2
-    chien_con3: Khai Tâm cấp 3
+    chien_con1: Chiên Con 1
+    chien_con2: Chiên Con 2
+    chien_con3: Chiên Con 3
     au_nhi1: Ấu Nhi cấp 1
     au_nhi2: Ấu Nhi cấp 2
     au_nhi3: Ấu Nhi cấp 3
@@ -54,6 +60,10 @@ vi:
     other: Người giám sát
     relationship: Mối quan hệ
     today_is: Hôm này là %{date}
+    counting:
+      zero: Không có
+      one: 1 cái
+      other: '%{count} cái'
     actions:
       submit: Hoàn thành
       logout: Đăng xuất
@@ -282,4 +292,7 @@ vi:
         level_id: Ngành/Lớp
         address: Địa chỉ
       level:
-        name: Tên nganh
+        name: Tên ngành
+      product_request:
+        parent_name: Họ tên phụ huynh
+        phone: Số điện thoại

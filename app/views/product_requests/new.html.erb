@@ -1,0 +1,61 @@
+<div class='py-5 px-2'>
+  <% if flash[:success] %>
+    <div class='w-full p-3 rounded-md bg-green-500 text-white text-center'><%= flash[:success] %></div>
+  <% end %>
+
+  <% if flash[:danger] %>
+    <div class='w-full p-3 rounded-md bg-red-500 text-white'><%= flash[:danger] %></div>
+  <% end %>
+
+  <div class='text-center text-4xl my-5'>Đăng ký mua đồ</div>
+
+  <%= form_for @product_request do |f| %>
+    <div class='py-2 font-bold text-md'>Chọn sản phẩm cần mua</div>
+    <div class='flex flex-col space-y-2'>
+      <%= f.fields_for :product_request_lines do |ff| %>
+        <%= render 'product_requests/product_request_line_fields', f: ff %>
+      <% end %>
+    </div>
+    <div class='mt-3 py-2 font-bold text-md'>Thông tin phụ huynh</div>
+    <div class='flex flex-col space-y-2'>
+      <div>
+        <%= f.label :parent_name, 'Họ và Tên', class: 'required' %>
+        <%= f.text_field :parent_name, class: 'w-full rounded-md border border-gray-300 focus:border-gray-700 duration-200 focus:ring-0' %>
+      </div>
+
+      <div>
+        <%= f.label :phone, 'Số điện thoại', class: 'required' %>
+        <%= f.text_field :phone, class: 'w-full rounded-md border border-gray-300 focus:border-gray-700 duration-200 focus:ring-0' %>
+      </div>
+
+      <div>
+        <%= f.label :address, 'Địa chỉ' %>
+        <%= f.text_area :address, class: 'w-full rounded-md border border-gray-300 focus:border-gray-700 duration-200 focus:ring-0' %>
+      </div>
+
+
+    </div>
+
+    <div class='mt-3 py-2 font-bold text-md'>Thông tin em thiếu nhi</div>
+    <div class='flex flex-col space-y-2'>
+      <div>
+        <%= f.label :student_chirstian_name, 'Tên Thánh' %>
+        <%= f.text_field :student_chirstian_name, class: 'w-full rounded-md border border-gray-300 focus:border-gray-700 duration-200 focus:ring-0' %>
+      </div>
+
+      <div>
+        <%= f.label :student_name, 'Họ và Tên' %>
+        <%= f.text_field :student_name, class: 'w-full rounded-md border border-gray-300 focus:border-gray-700 duration-200 focus:ring-0' %>
+      </div>
+
+      <div>
+        <%= f.label :level_id, 'Ngành/Lớp Giáo Lý' %>
+        <%= f.select :level_id, Level.students.map { |lv| [t("common.#{lv.name}"), lv.id] }, { include_blank: true }, { class: 'w-full rounded-md border border-gray-300 focus:border-gray-700' } %>
+      </div>
+    </div>
+
+    <div class='text-center mt-3'>
+      <button class='btn-lg bg-blue-500 text-white' data-disable-with='Đang xử lý'>Đăng ký</button>
+    </div>
+  <% end %>
+</div>

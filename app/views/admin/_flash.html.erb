@@ -1,0 +1,6 @@
+<% if flash[:success] %>
+  <div class='rounded-md bg-green-500 text-white p-3'><%= flash[:success] %></div>
+<% end %>
+<% if flash[:error] %>
+  <div class='rounded-md bg-red-500 text-white p-3'><%= flash[:error] %></div>
+<% end %>

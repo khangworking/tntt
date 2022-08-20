@@ -1,0 +1,6 @@
+<% if @category.valid? %>
+  <%= turbo_stream.prepend 'cat_table', partial: 'admin/categories/category', locals: { category: @category } %>
+  <%= turbo_stream.update 'create_inline_form', partial: 'admin/categories/create_inline_form', locals: { category: Category.new } %>
+<% else %>
+
+<% end %>

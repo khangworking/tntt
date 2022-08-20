@@ -1,0 +1,33 @@
+<div class='p-3'>
+  <div class="text-3xl">Sản phẩm</div>
+
+  <div class="mt-4 flex flex-row justify-between items-center">
+    <div class='font-bold'>Số lượng: <%= @products.total_count %></div>
+    <%= link_to new_admin_product_path, class: 'btn-lg bg-blue-500 text-white' do %>
+      <%= heroicon 'plus', options: { class: 'w-7 h-7' } %>
+      <div class='whitespace-nowrap'>Tạo mới</div>
+    <% end %>
+  </div>
+
+  <table class='w-full mt-4'>
+    <thead>
+      <tr>
+        <th class='bg-gray-900 text-white px-3 py-1 w-32'>Hình ảnh</th>
+        <th class='text-left bg-gray-900 text-white px-3 py-1'>Tên</th>
+        <th class='bg-gray-900 text-white px-3 py-1'>Loại</th>
+        <th class='bg-gray-900 text-white px-3 py-1'>Đơn giá</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr class='hover:bg-gray-200' id="<%= dom_id(product) %>">
+          <%= render 'admin/products/product', product: product %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class='text-center mt-3'>
+    <%= paginate @products %>
+  </div>
+
+</div>

@@ -20,6 +20,9 @@ Rails.application.routes.draw do
     end
     resource :profiles, only: %i[edit update]
     resources :levels, only: %i[index edit update]
+    resources :categories, only: %i[index create edit update]
+    resources :products, only: %i[index create new edit update]
+    resources :product_requests, only: %i[index edit update]
     root to: 'dashboard#show'
   end
 
@@ -46,6 +49,7 @@ Rails.application.routes.draw do
       end
     end
     resources :people, only: %i[new create]
+    resources :product_requests, only: %i[new create]
 
     get :glv, to: 'levels#index'
 

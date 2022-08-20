@@ -1,0 +1,7 @@
+<div class="nested-fields">
+  <%= f.hidden_field :product_id %>
+  <%= f.label :checked, class: 'flex flex-row items-center space-x-3 border rounded-md p-2' do %>
+    <%= f.check_box :checked, value: f.object.product_id %>
+    <%= f.label :checked, f.object.product_name %>
+  <% end %>
+</div>

@@ -5,3 +5,17 @@
 .btn {
   @apply px-2 py-1 rounded-md inline-flex flex-row items-center justify-center space-x-2 cursor-pointer;
 }
+
+.btn-lg {
+  @apply px-3 py-2 rounded-md inline-flex flex-row items-center justify-center space-x-2 cursor-pointer;
+}
+
+.text-form {
+  @apply border border-gray-300 rounded-md focus:border-gray-500 focus:ring-0 duration-200;
+}
+
+label.required:after {
+  content: '*';
+  margin-left: 2px;
+  color: red;
+}
