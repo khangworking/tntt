@@ -33,13 +33,25 @@ class GcatholicService
     page.search("#{tr_selector(month, day)} ~ tr").each do |tr|
       break if tr['id'].present?
 
-      if tr.search('a.feast4')[0]&.content&.strip&.include?('n')
+      if tr.search('a[class^="feast"]')[0]&.content&.strip&.in?(%w[n N T K])
         str = "feast:#{tr.search('.indent')[0].content.strip}"
         sibling_noko << str
       else
-        sibling_noko << tr.search('.indent')[0].content.strip
+        sibling_noko << tr.search('.indent')[0]&.content&.strip
       end
     end
-    Array(sibling_noko)
+    Array(sibling_noko).compact
+  end
+
+  def range(start_date, end_date)
+    (start_date..end_date).map do |date|
+      events = calc_day(date.day, date.month, date.year)
+      events.map do |evt|
+        {
+          title: evt.gsub('feast:', ''),
+          start: I18n.l(date, locale: :en)
+        }
+      end
+    end.flatten
   end
 end
