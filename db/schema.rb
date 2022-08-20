@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_19_104829) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_20_003415) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -71,6 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_104829) do
     t.bigint "product_request_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product_name"
     t.index ["product_id"], name: "index_product_request_lines_on_product_id"
     t.index ["product_request_id"], name: "index_product_request_lines_on_product_request_id"
   end
@@ -84,6 +85,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_104829) do
     t.text "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
     t.index ["level_id"], name: "index_product_requests_on_level_id"
   end
 
