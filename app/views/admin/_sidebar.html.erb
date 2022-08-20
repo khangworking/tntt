@@ -4,5 +4,8 @@
     <p class='text-gray-500 text-xs select-none'>Quản lý chung</p>
     <%= link_to 'Con người', admin_people_path, class: "rounded-md p-2 #{current_page?(controller: 'people') ? 'bg-blue-500 text-white' : 'hover:bg-gray-200'}" %>
     <%= link_to 'Lớp học', admin_levels_path, class: "rounded-md p-2 #{current_page?(controller: 'levels') ? 'bg-blue-500 text-white' : 'hover:bg-gray-200'}" %>
+
+    <p class='text-gray-500 text-xs select-none'>Quản lý sản phẩm</p>
+    <%= link_to 'Đăng ký mua đồ', admin_product_requests_path, class: "rounded-md p-2 #{current_page?(controller: 'product_requests') ? 'bg-blue-500 text-white' : 'hover:bg-gray-200'}" %>
   </div>
 </div>

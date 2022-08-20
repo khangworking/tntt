@@ -1,0 +1,7 @@
+<td class='border border-gray-200 p-3'><%= product_request.parent_name %></td>
+<td class='border border-gray-200 p-3 text-center'><%= product_request.phone %></td>
+<td class='border border-gray-200 p-3'><%= product_request.to_product_names %></td>
+<td class='border border-gray-200 p-3 text-right'><%= number_to_currency product_request.total, locale: :vi %></td>
+<td class='border border-gray-200 p-3 text-center'>
+  <%= t "product_request.status.#{product_request.status}" %>
+</td>

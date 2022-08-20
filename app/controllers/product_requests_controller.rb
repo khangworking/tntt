@@ -6,7 +6,7 @@ class ProductRequestsController < ApplicationController
   def create
     @product_request = ProductRequest.new(create_params)
     if @product_request.save
-      flash[:success] = 'Cảm ơn quý phụ huynh đã đăng ký!'
+      flash[:success] = 'Cảm ơn quý phụ huynh, Bộ phận bán hàng của Xứ Đoàn sẽ gọi lại xác nhận ạ!'
       redirect_to new_product_request_path
     else
       flash[:danger] = @product_request.errors.full_messages.join(', ')
@@ -26,12 +26,14 @@ class ProductRequestsController < ApplicationController
       :address,
       :level_id,
       product_request_lines_attributes: %i[checked product_id]
-    )
+    ).tap do |whitelist|
+      whitelist[:status] = 'created'
+    end
   end
 
   def build_line_fields
     Product.joins(:category).where(categories: { active: true }).distinct.map do |product|
-      ProductRequestLine.new(product_id: product.id)
+      ProductRequestLine.new(product_id: product.id, product_name: product.name)
     end
   end
 end

@@ -3,6 +3,7 @@
 # Table name: product_request_lines
 #
 #  id                 :bigint           not null, primary key
+#  product_name       :string
 #  qty                :float
 #  unit_price         :float
 #  created_at         :datetime         not null
@@ -21,12 +22,15 @@ class ProductRequestLine < ApplicationRecord
   belongs_to :product_request
   belongs_to :product
 
-  before_create :set_default
+  before_validation :set_default
+
+  validates :qty, :unit_price, presence: true
 
   private
 
   def set_default
     self.qty ||= 1
     self.unit_price ||= product.price
+    self.product_name ||= product.name.presence || "Product ID(#{product.id})"
   end
 end

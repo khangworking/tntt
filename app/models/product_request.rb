@@ -6,6 +6,7 @@
 #  address                :text
 #  parent_name            :string
 #  phone                  :string
+#  status                 :string
 #  student_chirstian_name :string
 #  student_name           :string
 #  created_at             :datetime         not null
@@ -22,6 +23,23 @@ class ProductRequest < ApplicationRecord
   validates :parent_name, :phone, presence: true
 
   accepts_nested_attributes_for :product_request_lines, reject_if: :unchecked?
+
+  enum status: {
+    created: 'created',
+    confirmed: 'confirmed',
+    cancelled: 'cancelled',
+    completed: 'completed'
+  }
+
+  def to_product_names(locale = :vi)
+    product_request_lines.map do |line|
+      "#{line.product_name} (#{I18n.t('common.counting', count: line.qty.to_i)})"
+    end.join(', ')
+  end
+
+  def total
+    product_request_lines.sum(&:unit_price)
+  end
 
   private
 

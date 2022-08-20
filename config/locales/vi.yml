@@ -1,4 +1,10 @@
 vi:
+  product_request:
+    status:
+      created: 'Mới tạo'
+      confirmed: 'Đã xác nhận'
+      cancelled: 'Đã huỷ'
+      completed: 'Hoàn thành'
   common:
     welcome: Thiếu Nhi Thánh Thể - Gx Thái Hoà
     thank_you: Tạo thành công!
@@ -54,6 +60,10 @@ vi:
     other: Người giám sát
     relationship: Mối quan hệ
     today_is: Hôm này là %{date}
+    counting:
+      zero: Không có
+      one: 1 cái
+      other: '%{count} cái'
     actions:
       submit: Hoàn thành
       logout: Đăng xuất
