@@ -5,6 +5,11 @@ class ProductRequestsController < ApplicationController
 
   def create
     @product_request = ProductRequest.new(create_params)
+    unless create_params[:product_request_lines_attributes].values.any? { |line| line[:checked] != '0' }
+      flash[:danger] = 'Chưa chọn sản phẩm'
+      @product_request.product_request_lines = build_line_fields
+      return render :new
+    end
     if @product_request.save
       flash[:success] = 'Cảm ơn quý phụ huynh, Bộ phận bán hàng của Xứ Đoàn sẽ gọi lại xác nhận ạ!'
       redirect_to new_product_request_path
