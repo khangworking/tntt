@@ -39,6 +39,9 @@ Rails.application.routes.draw do
       member do
         post :export
       end
+      collection do
+        get :bulk_show
+      end
     end
     resources :people, only: %i[new create]
     resources :product_requests, only: %i[new create]

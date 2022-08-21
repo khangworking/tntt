@@ -1,0 +1,27 @@
+<div class='md:w-1/2 flex flex-col items-stretch h-screen'>
+  <div class='flex-none flex flex-row justify-between items-center py-2'>
+    <%= link_to user_signed_in? ? glv_path : root_path, class: 'bg-gray-50 hover:bg-gray-200 duration-200 rounded-full ml-3' do %>
+      <%= heroicon 'chevron-left', options: { class: 'w-7 h-7' } %>
+    <% end %>
+  </div>
+  <div class='flex-auto md:w-auto w-screen relative overflow-x-scroll' >
+    <table class='md:absolute top-0 left-0 w-full max-h-full'>
+      <tr>
+        <th class='border'>STT</th>
+        <th class='border'>Tên Thánh</th>
+        <th class='border'>Họ và Tên</th>
+        <th class='border whitespace-nowrap'>Giới tính</th>
+        <th class='border'>Ngành/lớp</th>
+      </tr>
+      <% @people.each_with_index do |person,index| %>
+        <tr>
+          <td class='px-2 py-1 border'><%= index + 1 %></td>
+          <td class='px-2 py-1 border whitespace-nowrap'><%= person.christain_name %></td>
+          <td class='px-2 py-1 border whitespace-nowrap'><%= person.fullname %></td>
+          <td class='px-2 py-1 border'><%= t "common.#{person.gender}" %></td>
+          <td class='px-2 py-1 border whitespace-nowrap'><%= t "common.#{person.level.name}" %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

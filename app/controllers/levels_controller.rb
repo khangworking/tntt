@@ -10,6 +10,10 @@ class LevelsController < ApplicationController
     @roles = Manager.where(level_id: @level).index_by(&:person_id)
   end
 
+  def bulk_show
+    @people = Person.joins(:level).where(levels: { id: params[:ids] }).where(active: true).order_name_alphabel
+  end
+
   def export
     @people = Person.joins(:level).where(levels: { id: params[:id] }).where(active: true).order_name_alphabel
     mapped_columns = {
