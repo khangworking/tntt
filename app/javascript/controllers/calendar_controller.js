@@ -32,7 +32,18 @@ export default class extends Controller {
       events: 'https://thieunhi.herokuapp.com/api/v0/gcatholics',
       eventDisplay: this.eventDisplayValue,
       locale: this.localeValue,
-      firstDay: 1
+      firstDay: 1,
+      loading: isLoading => {
+        if (!document.querySelector('.fc-prev-button') || !document.querySelector('.fc-next-button')) return;
+
+        if (isLoading) {
+          document.querySelector('.fc-prev-button').setAttribute('disabled', 'disabled')
+          document.querySelector('.fc-next-button').setAttribute('disabled', 'disabled')
+        } else {
+          document.querySelector('.fc-prev-button').removeAttribute('disabled')
+          document.querySelector('.fc-next-button').removeAttribute('disabled')
+        }
+      }
     })
     calendar.render()
   }

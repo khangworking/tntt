@@ -11,7 +11,7 @@ class LevelsController < ApplicationController
   end
 
   def bulk_show
-    @people = Person.joins(:level).where(levels: { id: params[:ids] }).where(active: true).order_name_alphabel
+    @people = Person.eager_load(:level).where(levels: { id: params[:ids] }).where(active: true).order_name_alphabel
   end
 
   def export
