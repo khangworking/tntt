@@ -1,16 +1,10 @@
 <div class='w-full md:w-4/5 lg:w-9/12 h-full mx-auto'>
   <div class="flex flex-row items-center justify-between h-full px-3 w-full">
-    <%= link_to managers_root_path, class: 'h-full box-border py-1 flex flex-row items-center' do %>
+    <%= link_to glv_path, class: 'h-full box-border py-1 flex flex-row items-center' do %>
       <img class='h-full rounded-full flex-none' src="/favicon.png" alt="">
       <div class='flex-auto hidden md:inline-block ml-2 font-bold text-red-700'>TNTT</div>
     <% end %>
     <div class='flex flex-row items-center divide-x divide-gray-300'>
-      <%= link_to managers_person_path(id: current_user.person), class: 'flex flex-row items-center space-x-1 px-2' do %>
-        <div class='w-7 h-7 bg-red-700 rounded-full grid place-items-center text-white font-bold'>
-          <%= current_user.person.first_name.first %>
-        </div>
-        <div class='text-gray-800 text-sm hidden md:inline-block'><%= current_user.person.first_name %></div>
-      <% end %>
       <%= link_to destroy_user_session_path, method: :delete, class: 'flex-none px-2 flex flex-row item-centers space-x-1' do %>
         <div class='text-gray-700 hidden md:inline-block text-sm'><%= t('common.actions.logout') %></div>
         <%= heroicon 'logout', options: { class: 'w-5' } %>
