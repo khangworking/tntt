@@ -1,0 +1,25 @@
+<div class='flex flex-row items-stretch h-full'>
+  <div class='flex-none w-72 p-2 flex flex-col space-y-2'>
+    <div class='border rounded-md border-gray-500 p-3 flex flex-col space-y-2'>
+      <div class='font-bold'>Các sự kiện chung</div>
+      <div class='py-1 px-2 rounded-md bg-blue-500 text-white text-sm'>
+        Chầu Thiếu Nhi
+      </div>
+      <div class='py-1 px-2 rounded-md bg-blue-500 text-white text-sm'>
+        Chầu Huynh Trưởng
+      </div>
+    </div>
+    <div class='border rounded-md border-gray-500 p-3' id="calendar-side">
+    </div>
+  </div>
+  <div class='flex-auto relative'>
+    <div
+      data-controller="calendar"
+      data-calendar-events-value="http://localhost:3000/api/v0/events"
+      data-calendar-access-token-value="Bearer <%= current_user.generate_access_token %>"
+      data-calendar-hidden-days-value="[1,2,3,5]"
+      data-calendar-editable-value="true"
+      <% if @mobile %>data-calendar-initial-view-value='listWeek'<% end %>
+    ></div>
+  </div>
+</div>

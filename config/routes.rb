@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api, format: :json do
     namespace :v0 do
       resources :gcatholics, only: :index
+      resources :events, only: :index
       resources :students, only: %i[index show]
       resources :leaders, only: %i[index]
       resource :auth, only: :create, controller: 'auth'
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resource :dashboard, only: :show
+    resource :calendars, only: :show
+    resources :events
     resources :people, only: %i[index update new create edit] do
       collection do
         post :export
@@ -31,6 +34,7 @@ Rails.application.routes.draw do
 
     namespace :managers do
       resource :dashboard, only: :show
+      resources :events, only: :index
 
       root to: 'dashboards#show'
     end

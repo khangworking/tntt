@@ -1,0 +1,6 @@
+<% if @event.valid? %>
+  <%= turbo_stream.update 'inline_event_form', partial: 'admin/events/inline_event_form' %>
+  <%= turbo_stream.update 'event-tbody', partial: 'admin/events/events_tbody', locals: { events: @events } %>
+<% else %>
+  <%= turbo_stream.update 'inline_event_form', partial: 'admin/events/inline_event_form' %>
+<% end %>

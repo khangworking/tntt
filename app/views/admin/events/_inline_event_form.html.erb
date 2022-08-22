@@ -1,0 +1,5 @@
+<%= form_for Event.new, url: admin_events_path, data: { turbo: true } do |f| %>
+  <%= f.text_field :title %>
+  <%= f.date_field :start_datetime %>
+  <%= f.submit nil, class: 'btn-lg' %>
+<% end %>

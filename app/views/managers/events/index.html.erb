@@ -1,0 +1,7 @@
+<div class='flex flex-row items-stretch divide h-full w-full md:w-4/5 lg:w-9/12 mx-auto'>
+  <div class='flex-auto relative'>
+    <div class='absolute top-0 left-0 right-0 bottom-0'>
+      <div data-controller="calendar" data-calendar-events-value="http://localhost:3000/api/v0/events" data-calendar-access-token-value="Bearer <%= current_user.generate_access_token %>" data-calendar-hidden-days-value="[1,2,3,5]" <% if @mobile %>data-calendar-initial-view-value='listWeek'<% end %>></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<% events.each do |event| %>
+  <tr id="<%= dom_id(event) %>">
+    <%= render 'admin/events/event', event: event %>
+  </tr>
+<% end %>

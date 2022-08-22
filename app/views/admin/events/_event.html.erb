@@ -1,0 +1,5 @@
+<td class='border border-gray-300 py-1 px-2'><%= event.title %></td>
+<td class='border border-gray-300 py-1 px-2 text-center'><%= event.start_datetime %></td>
+<td class='border border-gray-300 py-1 px-2'>
+  <%= button_to 'Delete', admin_event_path(id: event), method: :delete, data: { disable_with: 'Loading' }, form: { data: { turbo: true } } %>
+</td>
