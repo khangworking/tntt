@@ -82,7 +82,4 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: tntt_production
-  username: tntt
-  password: <%= ENV['TNTT_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
