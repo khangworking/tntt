@@ -114,11 +114,13 @@ en:
     - Friday
     - Saturday
     formats:
-      default: "%Y-%m-%d"
+      default: "%Y/%m/%d"
       long: "%B %d, %Y"
       short: "%b %d"
       day_n_month: "%d/%m"
       weekday_n_date: "%A, %d"
+      weekday_n_day_month: "%a %d/%m"
+      chain: "%Y%m%d"
     month_names:
     -
     - January

@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     namespace :managers do
       resource :dashboard, only: :show
       resources :events, only: :index
+      resource :scores, only: :show
 
       root to: 'dashboards#show'
     end

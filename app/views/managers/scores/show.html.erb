@@ -1,31 +1,27 @@
-<div class='p-2 bg-white rounded-md'>
-  <div class='flex flex-row items-stretch'>
-    <div class='flex flex-col'>
-      <div class='font-bold text-center text-xs lg:text-md'>
-        <%= Person.human_attribute_name(:fullname) %>
-      </div>
-      <% @score.level.active_people.each do |ps| %>
-        <div class='border-t py-1 lg:py-3 px-1 bg-gray-50 whitespace-nowrap text-xs lg:text-md'>
-          <span class='hidden lg:block'><%= ps.fullname %></span>
-          <span class='block lg:hidden'><%= ps.name_for_short %></span>
-        </div>
-      <% end %>
-    </div>
-    <div class='flex-auto flex flex-row flex-nowrap items-stretch overflow-auto text-xs lg:text-md'>
-      <% (@score.first_date..@score.latest_date).select(&:sunday?).each do |date| %>
-        <div class='flex flex-col items-stretch divide-x divide-gray-500'>
-          <div class='whitespace-nowrap flex-none px-2'><%= l(date, format: :day_n_month) %></div>
-          <div class='flex-auto flex flex-col'>
-            <% @score.level.active_people.each do |ps| %>
-              <% score = Array(@score_cells[[l(date, format: :default), ps.id]]).first&.score_in_number.to_i %>
-              <div class="py-1 lg:py-3 px-1 border-t text-center text-xs lg:text-md <%= score.positive? ? 'bg-green-300 text-white' : '' %>">
-                <%= score.positive? ? score : '-' %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+<div class="h-full">
+  <table class='table-score'>
+    <caption id='caption' class='font-bold'>Bảng điểm</caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <% @dates.each do |date| %>
+          <th class='whitespace-nowrap'><%= l(date, format: :weekday_n_day_month, locale: :vi) %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @people.each do |ps| %>
+        <tr>
+          <th class='whitespace-nowrap'>
+            <%= ps.fullname %>
+          </th>
+          <% @dates.each do |date| %>
+            <td class='whitespace-nowrap cursor-pointer hover:bg-gray-200' id="<%= dom_id(ps, l(date, format: :chain)) %>">
 
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

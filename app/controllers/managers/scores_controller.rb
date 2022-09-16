@@ -1,8 +1,9 @@
 class Managers::ScoresController < ManagersController
+  layout 'blank'
+
   def show
-    @score = Score.includes(level: :active_people).find(params[:id])
-    @score_cells = @score.score_cells.group_by do |cell|
-      [l(cell.applied_date, format: :default), cell.person_id]
-    end
+    @dates = (Date.new(2022, 9)..Date.new(2023, 2)).select { |date| date.thursday? || date.sunday? }
+    @people = Person.includes(:level).where(active: true)
+    @people = @people.where(levels: { id: params[:level_id] }) if params[:level_id]
   end
 end
