@@ -1,0 +1,26 @@
+<tr>
+  <th class='whitespace-nowrap'>
+    <%= ps.fullname %>
+  </th>
+  <% dates.each do |date| %>
+    <td class='whitespace-nowrap relative'>
+      <%= turbo_frame_tag dom_id(ps, l(date, format: :chain)), class: 'absolute top-0 left-0 w-full h-full' do %>
+        <% if scores[ [ps.id, l(date, format: :chain), 'presence'] ] %>
+          <% score = scores[ [ps.id, l(date, format: :chain), 'presence'] ][0] %>
+          <%= form_tag managers_level_score_path(id: score), method: :delete, data: { turbo: true }, class: 'relative h-full' do %>
+            <%= submit_tag '', data: { 'disable-with' => 'Loading' }, class: 'absolute top-0 left-0 w-full h-full bg-gray-400' %>
+          <% end %>
+
+        <% else %>
+          <%= form_for LevelScore.new_presence_score(ps, l(date, format: :chain), params[:level_id]), url: create_presence_score_managers_scores_path, data: { turbo: true }, html: { class: 'h-full relative' } do |f| %>
+            <%= f.hidden_field :person_id %>
+            <%= f.hidden_field :date_chain %>
+            <%= f.hidden_field :score_number %>
+            <%= f.hidden_field :level_id %>
+            <%= submit_tag '', class: 'absolute top-0 left-0 w-full h-full bg-transparent', data: { 'disable-with' => 'Loading' } %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </td>
+  <% end %>
+</tr>

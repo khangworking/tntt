@@ -1,0 +1,7 @@
+<%= form_for level_score, url: create_presence_score_managers_scores_path, data: { turbo: true }, html: { class: 'h-full relative' } do |f| %>
+  <%= f.hidden_field :person_id %>
+  <%= f.hidden_field :date_chain %>
+  <%= f.hidden_field :score_number %>
+  <%= f.hidden_field :level_id %>
+  <%= submit_tag '', class: 'absolute top-0 left-0 w-full h-full bg-transparent', data: { 'disable-with' => 'Loading' } %>
+<% end %>

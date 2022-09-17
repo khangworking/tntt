@@ -35,7 +35,13 @@ Rails.application.routes.draw do
     namespace :managers do
       resource :dashboard, only: :show
       resources :events, only: :index
-      resource :scores, only: :show
+      resource :scores, only: :show do
+        collection do
+          post :create_presence_score
+          delete :destroy_presence_score
+        end
+      end
+      resources :level_scores, only: :destroy
 
       root to: 'dashboards#show'
     end

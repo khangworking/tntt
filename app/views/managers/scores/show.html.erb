@@ -1,6 +1,5 @@
 <div class="h-full">
   <table class='table-score'>
-    <caption id='caption' class='font-bold'>Bảng điểm</caption>
     <thead>
       <tr>
         <th>Name</th>
@@ -10,18 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @people.each do |ps| %>
-        <tr>
-          <th class='whitespace-nowrap'>
-            <%= ps.fullname %>
-          </th>
-          <% @dates.each do |date| %>
-            <td class='whitespace-nowrap cursor-pointer hover:bg-gray-200' id="<%= dom_id(ps, l(date, format: :chain)) %>">
-
-            </td>
-          <% end %>
-        </tr>
-      <% end %>
+      <%= render partial: 'managers/scores/people_cell', collection: @people, as: :ps, locals: { dates: @dates, scores: @scores } %>
     </tbody>
   </table>
 </div>

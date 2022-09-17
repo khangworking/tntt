@@ -1,0 +1,3 @@
+<%= form_tag managers_level_score_path(id: score), method: :delete, data: { turbo: true }, class: 'relative h-full' do %>
+  <%= submit_tag '', data: { 'disable-with' => 'Loading' }, class: 'absolute top-0 left-0 w-full h-full bg-gray-400' %>
+<% end %>

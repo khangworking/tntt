@@ -1,0 +1,1 @@
+<%= turbo_stream.update dom_id(@score.person, @score.date_chain), partial: 'managers/scores/presence_score_form', locals: { level_score: LevelScore.new_presence_score(@score.person, @score.date_chain, @score.level_id) } %>
