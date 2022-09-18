@@ -30,6 +30,7 @@ export default class extends Controller {
       locale: this.localeValue,
       firstDay: 1,
       loading: isLoading => {
+        console.log('loading');
         if (!document.querySelector('.fc-prev-button') || !document.querySelector('.fc-next-button')) return;
 
         if (isLoading) {
