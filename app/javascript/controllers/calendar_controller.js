@@ -9,7 +9,7 @@ export default class extends Controller {
     hiddenDays: { type: Array, default: [] },
     locale: { type: String, default: 'vi' },
     eventDisplay: { type: String, default: 'auto' },
-    events: { type: String, default: 'https://thieunhi.herokuapp.com/api/v0/events' },
+    events: { type: String, default: '/api/v0/events' },
     accessToken: { type: String, default: '' },
     editable: { type: Boolean, default: false }
   }
@@ -30,7 +30,6 @@ export default class extends Controller {
       locale: this.localeValue,
       firstDay: 1,
       loading: isLoading => {
-        console.log('loading');
         if (!document.querySelector('.fc-prev-button') || !document.querySelector('.fc-next-button')) return;
 
         if (isLoading) {

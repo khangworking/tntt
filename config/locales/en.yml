@@ -115,6 +115,7 @@ en:
     - Saturday
     formats:
       default: "%Y/%m/%d"
+      fullcalendar: "%Y-%m-%d"
       long: "%B %d, %Y"
       short: "%b %d"
       day_n_month: "%d/%m"

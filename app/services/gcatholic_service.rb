@@ -49,7 +49,7 @@ class GcatholicService
       events.map do |evt|
         {
           title: evt.gsub('feast:', ''),
-          start: I18n.l(date, locale: :en)
+          start: I18n.l(date, format: :fullcalendar, locale: :en)
         }
       end
     end.flatten
