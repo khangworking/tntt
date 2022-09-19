@@ -7,7 +7,7 @@ class Api::V0::EventsController < ApiApplicationController
     events = Event.where('start_datetime >= :start_date AND start_datetime <= :end_date', start_date: start_date, end_date: end_date).map do |evt|
       {
         title: evt.title,
-        start: I18n.l(evt.start_datetime.to_date, format: :default, locale: :en),
+        start: I18n.l(evt.start_datetime.to_date, format: :fullcalendar, locale: :en),
         allDay: true
       }
     end
