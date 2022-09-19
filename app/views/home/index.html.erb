@@ -15,7 +15,7 @@
       <div></div>
       <div class='flex flex-col space-y-2 font-light'>
         <% @next_feasts.values.first.each do |person| %>
-          <div><span class='font-bold'><%= person.fullname %></span></div>
+          <div><%= person.prefix %><span class='font-bold'><%= person.fullname %></span></div>
         <% end %>
       </div>
     </div>

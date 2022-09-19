@@ -118,6 +118,13 @@ class Person < ApplicationRecord
     I18n.t("common.#{gender}")
   end
 
+  def prefix
+    return '' unless level&.name&.in?(Level::LEADER_NAMES)
+    return 'Trưởng ' if level.name.in?(%w[du_truong huynh_truong1 huynh_truong2 huynh_truong3])
+    return 'Sr ' if level.name.in?(%w[tro_uy]) && female?
+    return 'Thầy ' if level.name.in?(%w[tro_uy]) && male?
+  end
+
   private
 
   def strip_name
