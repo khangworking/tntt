@@ -5,7 +5,10 @@
         <%= heroicon 'chevron-left', options: { class: 'w-7 h-7' } %>
       <% end %>
       <% if user_signed_in? %>
-        <%= link_to 'Thêm người mới', new_person_path(level_id: params[:id]), class: 'btn bg-blue-400 text-white mr-3 md:mr-0' %>
+        <div class='flex flex-row space-x-2 mr-3 md:mr-0'>
+          <%= link_to 'Điểm danh', new_managers_level_people_presence_path(level_id: params[:id]), class: 'btn bg-green-400 text-white' %>
+          <%= link_to 'Thêm người mới', new_person_path(level_id: params[:id]), class: 'btn bg-blue-400 text-white' %>
+        </div>
       <% end %>
     </div>
     <div class='flex-auto md:w-auto w-screen relative overflow-x-scroll' >

@@ -14,7 +14,7 @@
       <% end %>
       <div class='py-2 flex flex-row items-stretch space-x-2'>
         <button class='btn bg-gray-800 text-white w-full rounded-md' data-confirm="Bạn đã chắc chưa?">Hoàn thành</button>
-        <%= link_to 'Quay về', managers_level_people_presences_path(level_id: params[:level_id]), class: 'btn btn-gray-200 text-gray-800 w-full rounded-md border border-gray-200' %>
+        <%= link_to 'Quay về', level_path(id: params[:level_id]), class: 'btn btn-gray-200 text-gray-800 w-full rounded-md border border-gray-200' %>
       </div>
     <% end %>
   </div>
