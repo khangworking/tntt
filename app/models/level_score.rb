@@ -26,6 +26,8 @@ class LevelScore < ApplicationRecord
     examinate: 'examinate'
   }
 
+  validates_uniqueness_of :date_chain, scope: %i[score_type person_id]
+
   class << self
     def new_presence_score(person, date_chain, level_id)
       person_id = person.is_a?(Person) ? person.id : person
