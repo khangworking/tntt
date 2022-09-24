@@ -32,6 +32,7 @@ class Person < ApplicationRecord
   has_many :parents, through: :parent_relationships, source: :parent
   has_many :child_relationships, foreign_key: :parent_id, class_name: PeopleRelationship.to_s
   has_many :children, through: :child_relationships, source: :child
+  has_many :level_scores, dependent: :destroy
 
   before_validation :strip_name
 

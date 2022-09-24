@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resource :dashboard, only: :show
     resource :calendars, only: :show
     resources :events
-    resources :people, only: %i[index update new create edit] do
+    resources :people do
       collection do
         post :export
         post :bulk_actions

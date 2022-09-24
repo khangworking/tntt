@@ -70,6 +70,12 @@ class Admin::PeopleController < AdminController
     @person = Person.find(params[:id])
   end
 
+  def destroy
+    @person = Person.find(params[:id])
+    @person.destroy
+    redirect_back fallback_location: admin_people_path
+  end
+
   private
 
   def edit_params
