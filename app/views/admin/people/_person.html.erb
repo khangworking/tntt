@@ -27,8 +27,10 @@
     <%= link_to edit_admin_person_path(person), class: 'text-gray-800' do %>
       <%= heroicon 'pencil', options: { class: 'w-7 h-7' } %>
     <% end %>
-    <%= link_to admin_person_path(person, redirect_url: request.fullpath), method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-red-800' do %>
-      <%= heroicon 'trash', options: { class: 'w-7 h-7' } %>
+    <% if current_user.id != person.user.id %>
+      <%= link_to admin_person_path(person, redirect_url: request.fullpath), method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-red-800' do %>
+        <%= heroicon 'trash', options: { class: 'w-7 h-7' } %>
+      <% end %>
     <% end %>
   </td>
 </tr>

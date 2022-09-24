@@ -87,7 +87,7 @@ class Admin::PeopleController < AdminController
   end
 
   def filtered_resource
-    @people = Person.order_name_alphabel.includes(:level)
+    @people = Person.order_name_alphabel.includes(:level, :user)
     if params[:level_ids].present?
       ids = params[:level_ids]
       ids = ids.split(' ') if ids.is_a?(String)
