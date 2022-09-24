@@ -26,14 +26,24 @@ class LevelScore < ApplicationRecord
     examinate: 'examinate'
   }
 
-  def self.new_presence_score(person, date_chain, level_id)
-    new(
-      person_id: person.id,
-      date_chain: date_chain,
-      score_type: 'presence',
-      level_id: level_id,
-      score_number: 1.0
-    )
+  class << self
+    def new_presence_score(person, date_chain, level_id)
+      person_id = person.is_a?(Person) ? person.id : person
+      new(
+        person_id: person_id,
+        date_chain: date_chain,
+        score_type: 'presence',
+        level_id: level_id,
+        score_number: 1.0
+      )
+    end
+
+    def create_presence_scores(person_ids:, date_chain:, level_id:)
+      person_ids.each do |id|
+        new_obj = new_presence_score(id, date_chain, level_id)
+        new_obj.save
+      end
+    end
   end
 
 end

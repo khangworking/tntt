@@ -1,0 +1,21 @@
+<div class='flex flex-col items-stretch space-y-5 overflow-scroll h-full'>
+  <div class='text-center flex-none'>
+    <div class='uppercase font-bold text-2xl'>Điểm danh</div>
+    <div class='font-semibold'><%= t("common.#{@level.name}") %></div>
+    <div class='font-thin'><%= l(Time.zone.now.to_date, format: :default, locale: :vi) %></div>
+  </div>
+  <div class='flex-auto relative'>
+    <%= form_tag managers_level_people_presences_path(level_id: @level), class: 'absolute top-0 left-0 w-full h-full overflow-scroll flex flex-col space-y-2 items-stretch px-2' do %>
+      <% @level.active_people.each do |ps| %>
+        <%= label_tag "person_ids_#{ps.id}", class: 'flex flex-row items-center space-x-3 py-2 px-4 border border-gray-100 rounded-md' do %>
+          <%= check_box_tag "person_ids[]", ps.id, nil, id: "person_ids_#{ps.id}" %>
+          <div><%= ps.fullname %></div>
+        <% end %>
+      <% end %>
+      <div class='py-2 flex flex-row items-stretch space-x-2'>
+        <button class='btn bg-gray-800 text-white w-full rounded-md' data-confirm="Bạn đã chắc chưa?">Hoàn thành</button>
+        <%= link_to 'Quay về', managers_level_people_presences_path(level_id: params[:level_id]), class: 'btn btn-gray-200 text-gray-800 w-full rounded-md border border-gray-200' %>
+      </div>
+    <% end %>
+  </div>
+</div>

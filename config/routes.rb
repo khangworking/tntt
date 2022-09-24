@@ -42,6 +42,11 @@ Rails.application.routes.draw do
         end
       end
       resources :level_scores, only: :destroy
+      resources :levels, only: [] do
+        scope module: :levels do
+          resources :people_presences, only: %i[new create index]
+        end
+      end
 
       root to: 'dashboards#show'
     end
