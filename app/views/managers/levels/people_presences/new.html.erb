@@ -6,7 +6,7 @@
   </div>
   <div class='flex-auto relative'>
     <%= form_tag managers_level_people_presences_path(level_id: @level), class: 'absolute top-0 left-0 w-full h-full overflow-scroll flex flex-col space-y-2 items-stretch px-2' do %>
-      <% @level.active_people.each do |ps| %>
+      <% @people.each do |ps| %>
         <%= label_tag "person_ids_#{ps.id}", class: 'flex flex-row items-center space-x-3 py-2 px-4 border border-gray-100 rounded-md' do %>
           <%= check_box_tag "person_ids[]", ps.id, nil, id: "person_ids_#{ps.id}" %>
           <div><%= ps.fullname %></div>

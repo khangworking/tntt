@@ -1,6 +1,7 @@
 class Managers::Levels::PeoplePresencesController < ManagersController
   def new
-    @level = Level.includes(:active_people).find(params[:level_id])
+    @level = Level.find(params[:level_id])
+    @people = Person.where(active: true).where(level_id: params[:level_id]).order_name_alphabel
   end
 
   def create
