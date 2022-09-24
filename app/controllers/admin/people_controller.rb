@@ -73,7 +73,7 @@ class Admin::PeopleController < AdminController
   def destroy
     @person = Person.find(params[:id])
     @person.destroy
-    redirect_back fallback_location: admin_people_path
+    redirect_to params[:redirect_url].presence || admin_people_path
   end
 
   private
