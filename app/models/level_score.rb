@@ -48,4 +48,8 @@ class LevelScore < ApplicationRecord
     end
   end
 
+  def to_applied_date
+    arr = date_chain.split('')
+    "#{arr[6..7].join('')}/#{arr[4..5].join('')}"
+  end
 end

@@ -45,6 +45,7 @@ Rails.application.routes.draw do
       resources :levels, only: [] do
         scope module: :levels do
           resources :people_presences, only: %i[new create index]
+          resources :scores, only: :index
         end
       end
 

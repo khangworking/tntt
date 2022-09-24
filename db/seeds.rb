@@ -105,3 +105,19 @@ end
     Product.create(active: [true, false].sample, name: Faker::Game.title, description: Faker::Lorem.paragraph(sentence_count: (1..10).to_a.sample), remote_image_url: Faker::LoremFlickr.image(search_terms: ['clothes']), category_id: category.id, price: (1..10).to_a.sample * 10000)
   end
 end
+
+Level.includes(:active_people).where(id: 5).each do |lv|
+
+  params = lv.active_people.map do |ps|
+    next if [true, false].sample
+
+    {
+      level_id: lv.id,
+      person_id: ps.id,
+      score_number: 1.0,
+      score_type: 'presence',
+      date_chain: I18n.l(7.days.from_now.sunday.to_date, format: :chain)
+    }
+  end.compact
+  LevelScore.create(params)
+end

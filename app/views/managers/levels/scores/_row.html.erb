@@ -1,0 +1,12 @@
+<tr>
+  <th class='whitespace-nowrap'>
+    <%= ps.fullname %>
+  </th>
+  <% dates.each do |date| %>
+    <td class='whitespace-nowrap relative'>
+      <% if scores %>
+        <%= Array(scores.dig(date.date_chain))[0]&.score_number.to_i %>
+      <% end %>
+    </td>
+  <% end %>
+</tr>

@@ -1,0 +1,17 @@
+<div>
+  <table class='table-score'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <% @dates.each do |chain| %>
+          <th class='whitespace-nowrap'><%= chain.to_applied_date %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @people.each do |ps| %>
+        <%= render 'managers/levels/scores/row', ps: ps, dates: @dates, scores: @scores[ps.id] %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
