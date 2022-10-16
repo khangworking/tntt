@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       collection do
         post :export
         post :bulk_actions
+        post :refreshes_feastyears
         put :bulk_update
       end
     end

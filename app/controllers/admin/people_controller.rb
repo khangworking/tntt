@@ -76,6 +76,11 @@ class Admin::PeopleController < AdminController
     redirect_to params[:redirect_url].presence || admin_people_path
   end
 
+  def refreshes_feastyears
+    Person.refreshes_feastyears
+    redirect_to admin_people_path
+  end
+
   private
 
   def edit_params

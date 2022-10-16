@@ -99,6 +99,10 @@ class Person < ApplicationRecord
         end
       end
     end
+
+    def refreshes_feastyears
+      where('feastday < CURRENT_DATE').update_all("feastday = (feastday + interval '1 year')")
+    end
   end
 
   def first_name
